@@ -1,0 +1,19 @@
+<html>
+<body>
+<form action="formHTML_GET.php" method="get">
+Roll number: <input type="text" name="id"><br>
+Birthday: <input type="date" name="born"><br>
+<input type="submit" value ="Send data"><br>
+</form>
+</body>
+</html>
+
+<!--
+both GET and POST create an array e.g(array (key=> value,key1=>value1,...keyn=>valuen )). This array holds key/value pairs, where keys are the names
+of the form controls and values are the input data from the user. 
+$_GET and $_POST are superglobals 
+$_GET is an array of variables passed to the current script via the URL parameters
+$_POST is an array of variables passed to the current script via the HTTP_POST method
+
+POST is the preferred way by developers to send form data.
+-->
