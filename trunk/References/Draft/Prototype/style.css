@@ -53,26 +53,76 @@ color: #FFFFFF;
 font-weight: bold;
 }
 #main-menu{
-	position: static;	
-	top: 40px;
+height: 38px;	
+margin-left: 10%;
+margin-right: 10%;
 }
 #main-menu ul{
-list-style-type:none;
-padding:0px;
-margin:0px;
+list-style: none;
+font-family: Arial, san-serif;
+font-size: 12px;
+padding: 0;
 }
- 
+
 #main-menu ul li{
-display:inline;
+float:left;
+position:relative;
 }
+
 #main-menu ul a{
 text-decoration:none;
-width:129px;
-float:left;
-background:#000;
 color:#fff;
+display:block;
 font-weight:bold;
-text-align:center;
-line-height:35px;
-border-left:1px solid #fff;
+padding:10px 30px;
+background:#3E6DA5;
+}
+
+#main-menu ul a:hover{
+background:#555;
+}
+
+/*CSS Tạo Menu Cấp 2*/
+#main-menu li ul a{
+background:#3E6DA5;
+}
+
+#main-menu li ul{
+position:absolute;
+display:none;
+width:200px;
+}
+
+#main-menu li:hover ul{
+display:block;
+}
+#content{
+	border: 1px solid;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+#box-search{	
+	border-bottom: 1px solid;
+	margin: 10px auto;
+}
+#txtsearch{
+	background-color: #DDD7D7;
+	height: 30px;	
+}
+#box-select{
+	background-color: #DDD7D7;
+	height: 29px;	
+}
+#btnSearch{
+	height: 25px;
+}
+#main-content{
+	width: 100%;	
+	min-height: 400px;
+	border: 0.5px solid ;
+}
+#footer{	
+	background-color: #3E6DA5;
+	height: 100px;
+	width: 100%;
 }
