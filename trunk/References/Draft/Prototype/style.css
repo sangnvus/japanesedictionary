@@ -56,6 +56,8 @@ font-weight: bold;
 height: 38px;	
 margin-left: 10%;
 margin-right: 10%;
+background-color: #3E6DA5;
+border-radius: 10px;
 }
 #main-menu ul{
 list-style: none;
@@ -97,17 +99,18 @@ width:200px;
 display:block;
 }
 #content{
-	border: 1px solid;
+	border: 1px solid #C0C0C0;
 	margin-left: 10%;
-	margin-right: 10%;
+	margin-right: 10%;	
 }
 #box-search{	
-	border-bottom: 1px solid;
+	border-bottom: 1px solid #C0C0C0;
 	margin: 10px auto;
 }
 #txtsearch{
 	background-color: #DDD7D7;
 	height: 30px;	
+	width: 50%;
 }
 #box-select{
 	background-color: #DDD7D7;
@@ -125,4 +128,57 @@ display:block;
 	background-color: #3E6DA5;
 	height: 100px;
 	width: 100%;
+}
+#main-result{
+	width: 75%;
+	float: left;
+}
+#pop-up{
+	 border-left: 1px solid #DDD7D7;
+	 width: 22%;
+	 float: left;
+}
+#search-result{
+	background: #fefefe;
+	margin-top: 30px;
+margin-left: 5px;
+margin-right: 10px;
+border: 1px #bbb solid;
+box-shadow: 0px 0px 8px #ccc;
+padding-bottom: 8px;
+}
+#word-info{
+	padding: 5px;
+background: #fff;
+-moz-border-radius: 6px;
+border-radius: 6px;
+font-size: 110%;
+color: #3300CC;
+margin-bottom: 20px;
+margin-top: 20px;
+font-size: 40px;
+font: bold;
+}
+#word-meaning li{
+	font-size: 20px;
+}
+#dangky{
+	width: 75%;
+	float: left;
+}
+#doimatkhau{
+	width: 75%;
+	float: left;
+}
+#quenthongtin {
+	width: 75%;
+	float: left;
+}
+#donggopdatabase{
+	width: 75%;
+	float: left;
+}
+#xemtailieu{
+	width: 75%;
+	float: left;
 }
