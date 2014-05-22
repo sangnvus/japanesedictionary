@@ -45,19 +45,23 @@ text-align: -webkit-match-parent;
 }
 a {
 text-decoration: none;
-color: #197394;
+color: #FFFFFF;
 cursor: pointer;
 }
-#top-bar-right li a {
+a:hover{
+	color: #D59728;
+}
+
+/*#top-bar-right li a {
 color: #FFFFFF;
 font-weight: bold;
-}
+}*/
 #main-menu{
 height: 38px;	
 margin-left: 10%;
 margin-right: 10%;
 background-color: #3E6DA5;
-border-radius: 10px;
+border-radius: 10px 10px 10px 10px;
 }
 #main-menu ul{
 list-style: none;
@@ -80,8 +84,9 @@ padding:10px 30px;
 background:#3E6DA5;
 }
 
-#main-menu ul a:hover{
-background:#555;
+#main-menu a:hover{
+color: #D59728;
+background-image: linear-gradient(to bottom,#2E9FD2,#21759B);
 }
 
 /*CSS Tạo Menu Cấp 2*/
@@ -114,10 +119,7 @@ display:block;
 }
 #box-select{
 	background-color: #DDD7D7;
-	height: 29px;	
-}
-#btnSearch{
-	height: 25px;
+	height: 30px;	
 }
 #main-content{
 	width: 100%;	
@@ -141,11 +143,11 @@ display:block;
 #search-result{
 	background: #fefefe;
 	margin-top: 30px;
-margin-left: 5px;
-margin-right: 10px;
-border: 1px #bbb solid;
-box-shadow: 0px 0px 8px #ccc;
-padding-bottom: 8px;
+	margin-left: 5px;
+	margin-right: 10px;
+	border: 1px #bbb solid;
+	box-shadow: 0px 0px 8px #ccc;
+	padding-bottom: 8px;
 }
 #word-info{
 	padding: 5px;
@@ -181,4 +183,24 @@ font: bold;
 #xemtailieu{
 	width: 75%;
 	float: left;
+}
+#btnSearch{
+    background-color: #3E6DA5;
+    background-image: linear-gradient(to bottom, #3E6DA5, #3E6DA5);
+    box-shadow: 0 1px 0 rgba(120, 200, 230, 0.5) inset;
+    border-color: #21759B #21759B #1E6A8D;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 3px 3px 3px 3px;
+    height: 30px;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-size: 12px;
+}
+#btnSearch:hover, #btnSearch:focus{
+	background-color: #FFFFFF;
+    background-image: linear-gradient(to bottom,#2E9FD2,#21759B);
+    border-color: #21759B #21759B #1E6A8D;
+    box-shadow: 0 1px 0 rgba(120,200,230,0.6) inset;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.3)
 }
