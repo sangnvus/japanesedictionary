@@ -144,14 +144,16 @@ display:block;
 	 width: 22%;
 	 float: left;
 }
-#search-result{
+#search-result{	
 	background: #fefefe;
-	margin-top: 30px;
+	margin-top: 10px;
 	margin-left: 5px;
 	margin-right: 10px;
 	border: 1px #bbb solid;
 	box-shadow: 0px 0px 8px #ccc;
 	padding-bottom: 8px;
+	border-radius: 8px;
+	overflow: hidden;
 }
 #word-info{
 	padding: 5px;
@@ -207,4 +209,31 @@ font: bold;
     border-color: #21759B #21759B #1E6A8D;
     box-shadow: 0 1px 0 rgba(120,200,230,0.6) inset;
     text-shadow: 0 -1px 0 rgba(0,0,0,0.3)
+}
+.item {
+width: 110px;
+border: #CCC 1px solid;
+margin: 15px;
+float: left;
+display: block;
+overflow: hidden;
+height: 32px;
+padding-top: 110px;
+text-align: center;
+background-position: 15px 8px;
+background-repeat: no-repeat;
+border-radius: 5px;
+line-height: 12px;
+}
+.label {
+display: block;
+height: 30px;
+line-height: 15px;
+margin: 0 auto;
+text-align: center;
+width: 120px;
+}
+.item-wrap {
+float: left;
+text-align: left;
 }
