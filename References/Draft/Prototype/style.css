@@ -107,6 +107,7 @@ width:200px;
 display:block;
 }
 #content{
+	height: 1000px;
 	border: 1px solid #C0C0C0;
 	margin-left: 10%;
 	margin-right: 10%;	
@@ -211,7 +212,7 @@ font: bold;
     text-shadow: 0 -1px 0 rgba(0,0,0,0.3)
 }
 .item {
-width: 110px;
+width: 140px;
 border: #CCC 1px solid;
 margin: 15px;
 float: left;
@@ -237,3 +238,39 @@ width: 120px;
 float: left;
 text-align: left;
 }
+.item-wrap a {
+text-decoration: none;
+color: #197394;
+cursor: pointer;
+}
+.item:hover{ 
+	border:#336 solid 1px; 
+	font-weight:bold; 
+	background-color:#eff;}
+
+#gth {
+background-image: url(images/lophoctiengnhat.png);
+}
+#key {
+background-image: url(images/banphim.png);
+}
+#huongdan {
+background-image: url(images/huongdanhoc.png);
+}
+#user {
+background-image: url(images/user.png);
+}
+#minna {
+background-image: url(images/minna.png);
+background-size: 100px 100px;
+}
+#manga {
+background-image: url(images/manga.jpg);
+background-size: 100px 100px;
+}
+#kaiwa {
+background-image: url(images/kaiwa.jpg);
+background-size: 100px 100px;
+}
+
+
