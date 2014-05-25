@@ -4,6 +4,44 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="style.css">
 	<title>Đăng ký tài khoản</title>
+<script>
+function validateForm()
+{
+var x=document.forms["myForm"]["username"].value;
+if (x==null || x=="" || x.length < 6)
+  {
+  alert("Tên đăng nhập không được trống và có ít nhất 6 ký tự");
+  return false;
+  }
+
+ var x=document.forms["myForm"]["pass"].value;
+if (x==null || x=="" || x.length < 6)
+  {
+  alert("Mật khẩu không được trống và có ít nhất 6 ký tự");
+  return false;
+  }
+
+if (document.forms["myForm"]["pass1"].value!=document.forms["myForm"]["pass"].value)
+  {
+  alert("Vui lòng gõ chính xác mật khẩu đã nhập");
+  return false;
+  }
+if (document.forms["myForm"]["fullname"].value ==null || document.forms["myForm"]["fullname"].value =="" || document.forms["myForm"]["fullname"].value.length<5)
+  {
+  alert("Họ và tên không được trống và có ít nhất 5 ký tự");
+  return false;
+  }
+var x=document.forms["myForm"]["email"].value;
+var atpos=x.indexOf("@");
+var dotpos=x.lastIndexOf(".");
+if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+  {
+  alert("Email không hợp lệ");
+  return false;
+  }
+
+}
+</script>
 <style>
 table
 {
@@ -127,56 +165,41 @@ height:50px;
 			<br/>
 		</div>
 		<div id="main-content">
+			<div id="main-result">
 			<div align="left" style="margin-left:40px;margin-top:50px"><font size="4" color="blue">Cách 1: Đăng ký qua tài khoản cá nhân</font></div><br><br>
 			<div align="left" style="margin-left:40px"><font size="4" color="blue">Cách 2: Đăng ký tài khoản mới</font></div>
+			<form name="myForm" action="" onsubmit="return validateForm();" method="post">
 			<table align="left" style="margin-left:100px; font-weight:bold" >
 				<tr>
 					<td>Tên đăng nhập</td>
-					<td><input type="text" size="35" maxlength="20"></td>
+					<td><input type="text" name="username" size="35" maxlength="20"></td>
 				</tr>
 				<tr>
 					<td>Mật khẩu</td>
-					<td><input type="password" size="35" maxlength="30"></td>
+					<td><input type="password" name="pass" size="35" maxlength="30"></td>
 				</tr>
 				<tr>
 					<td>Nhập lại mật khẩu</td>
-					<td><input type="password" size="35" maxlength="30"></td>
+					<td><input type="password" name="pass1" size="35" maxlength="30"></td>
 				</tr>
 				<tr>
 					<td>Họ và tên</td>
-					<td><input type="text" size="35" maxlength="20"></td>
+					<td><input type="text" name="fullname" size="35" maxlength="20"></td>
 				</tr>
 				<tr>
 					<td>Email</td>
-					<td><input type="text" size="35" maxlength="20"></td>
+					<td><input type="text" name="email" size="35" maxlength="20"></td>
 				</tr>
 				<tr>
-					<td></td>
-					<td><input type="checkbox">Tôi đã đọc kỹ các điều khoản và hướng dẫn</td>
+					<td>Mã xác nhận</td>
+					<td><input type="text" name="capcha" size="20"><img src="capcha.jpg" width="75px" height="30px"></td>
 				</tr>
 				<tr>
 					<td></td>
 					<td><input style='padding:0 0 0 0;width:250px;height:40px;background:url(http://cdn.garenanow.com/webmain/static/images/bgd_big_btn.gif);text-align:center;vertical-align:middle;color:#FFF;font-size:18px;font-family:Tahoma, Geneva, sans-serif;' type="submit" value="Đăng ký"></td>
 				</tr>
 			</table>
-			<div id="Dieu-khoan" align="left" style="margin-left:20px;">
-				<font size="3" color="blue" style="margin-left:30px;"><b>Hướng dẫn đăng ký tài khoản</b></font>
-					<h3 style="margin-left:20px;">  Cách 1: Đăng ký qua tài khoản cá nhân.</h3>
-					<p style="margin-left:40px;">
-						-Click vào 1 trong các biểu tượng trên nếu các bạn có tài khoản tương ứng.
-					<h3 style="margin-left:20px;">  Cách 2: Đăng ký tài khoản mới.</h3>
-					<div style="margin-left:40px;">
-						- Điền đầy đủ thông tin yêu cầu.<br>
-						- Một số chú ý :<br>
-						<div style="margin-left:60px;">
-							-Tên đăng nhập chứa ít nhất 6 ký tự.<br>
-							-Mật khẩu chứa ít nhất 6 ký tự.<br>
-							-Họ tên cần có độ dài ít nhất 5 kí tự.<br>
-						</div>
-						- Nếu không đăng ký được vui lòng liên hệ tới ban quản trị qua email: datptse02336@fpt.edu.vn
-					</div>
-								
-				</p>
+		</form>
 			</div>
 			<div id="pop-up">
 				<p>Các ứng dụng hay<br/>
@@ -201,6 +224,7 @@ height:50px;
 					- Từ điển Jvidic<br/>					
 				</p>
 			</div>
+		
 		</div>
 		</center>
 	</div>
