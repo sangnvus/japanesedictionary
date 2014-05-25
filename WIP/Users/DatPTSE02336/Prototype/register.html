@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Đăng ký tài khoản</title>
+<style>
+table
+{
+border-collapse:collapse;
+}
+table, td, th
+{
+border:0px solid black;
+height:50px;
+}
+</style>
+</head>
+<body>
+<div id="container">
+	<!-- top-bar-->
+	<div id="top-bar">
+		<!--<div id="top-bar-left">
+			<ul>
+				<li><img src="logo.jpg" width="500" height="50"></li>
+			</ul>
+		</div>-->
+		<div id="top-bar-right">
+			<ul>
+				<li><a href="Dangky.html">Đăng ký</a> |</li>
+				<li><a href="quenthongtin.html">Quên thông tin</a> |</li>
+				<li>
+				<form action="loginhomepage.html" method="POST">
+                <label>
+                <input class="dn_text" name="tendangnhap" type="text" value="Tên đăng nhập" id="tendangnhap"/>
+                </label>
+                <label>
+                <input class="dn_text" name="matkhau" type="password" value="password" id="matkhau"/>
+                </label>
+                <label>
+                <input name="ck_ghinho" id="ck_ghinho" type="checkbox" value=""  />
+                </label>
+                <label>
+                <input name="bt_dangnhap" id="bt_dangnhap" type="submit" value="Đăng nhập"/></label>
+            	</form>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- end-top-bar-->
+
+	<!-- main-menu-->
+	<div id="main-menu">
+    <ul>
+        <li><a href="homepage.html">Home</a></li>
+        <li><a href="#">Sơ cấp</a>
+        <ul>
+        	<li><a href="#">Hiragana & Katakana</a></li>
+        	<li><a href="#">List 50 bài Minnano Nihongo</a></li>
+        </ul>
+        </li>
+        <li><a href="#">Trung cấp</a>
+        <ul>
+                <li><a href="xemtailieu.html">Ngữ pháp N2&N3</a></li>
+                <li><a href="xemtailieu.html">N3_Từ vựng</a></li>
+                <li><a href="xemtailieu.html">N3_Kanji</a></li>
+                <li><a href="xemtailieu.html">N3_Bài đọc</a></li>
+                <li><a href="xemtailieu.html">N2_Từ vựng</a></li>
+                <li><a href="xemtailieu.html">N2_Kanji</a></li>
+                <li><a href="xemtailieu.html">N2_Bài đọc</a></li>
+            </ul>
+            </li>
+        <li><a href="#">Ôn tập</a>
+        <ul>
+        	<li><a href="#">Xem các phần ôn tập</a></li>
+        </ul>
+        </li>
+        <li><a href="#">Luyện nghe</a>
+        	<ul>                
+                <li><a href="xemtailieu.html">N2</a></li>
+                <li><a href="xemtailieu.html">N3</a></li>
+                <li><a href="xemtailieu.html">N4</a></li>
+                <li><a href="xemtailieu.html">N5</a></li>
+            </ul>
+        </li>                
+        <li><a href="#">Luyện đọc</a>
+            <ul>
+                <li><a href="#">Luyện N2</a></li>
+                <li><a href="#">Luyện N3</a></li>
+                <li><a href="#">Luyện N4</a></li>
+                <li><a href="#">Luyện N5</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Hội thoại</a>
+        <ul>
+        	<li><a href="xemtailieu.html">Đàm thoại hàng ngày</a></li>
+                <li><a href="xemtailieu.html">Đàm thoại 
+                thông dụng</a></li>
+        </ul>
+        </li>
+        <li><a href="#">Tài liệu</a></li>
+        <li><a href="#">Liên hệ</a>
+        	<ul>
+                <li><a href="donggopdatabase.html">Đóng góp Database</a></li>
+                <li><a href="#">Đóng góp ý kiến khác</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+	<!-- end-main-menu-->
+	<!-- content-->
+	<div id="content">
+	<center>
+		<div id="box-search">
+		<form action="" method="POST">
+			<input type="text" name="txtsearch" id="txtsearch" maxlength="255" placeholder="Tìm kiếm"/>
+			<select id="box-select">
+				<option>Câu ví dụ</option>
+				<option>Hội thoại</option>
+				<option>Video</option>
+				<option>Ngữ pháp</option>
+				<option>Tiếng Nhật chuyên ngành</option>
+			</select>
+			<input type="submit" name="btnSearch" id="btnSearch" value="Search">
+			</form>		
+			<br/>
+			<br/>
+		</div>
+		<div id="main-content">
+			<div align="left" style="margin-left:40px;margin-top:50px"><font size="4" color="blue">Cách 1: Đăng ký qua tài khoản cá nhân</font></div><br><br>
+			<div align="left" style="margin-left:40px"><font size="4" color="blue">Cách 2: Đăng ký tài khoản mới</font></div>
+			<table align="left" style="margin-left:100px; font-weight:bold" >
+				<tr>
+					<td>Tên đăng nhập</td>
+					<td><input type="text" size="35" maxlength="20"></td>
+				</tr>
+				<tr>
+					<td>Mật khẩu</td>
+					<td><input type="password" size="35" maxlength="30"></td>
+				</tr>
+				<tr>
+					<td>Nhập lại mật khẩu</td>
+					<td><input type="password" size="35" maxlength="30"></td>
+				</tr>
+				<tr>
+					<td>Họ và tên</td>
+					<td><input type="text" size="35" maxlength="20"></td>
+				</tr>
+				<tr>
+					<td>Email</td>
+					<td><input type="text" size="35" maxlength="20"></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="checkbox">Tôi đã đọc kỹ các điều khoản và hướng dẫn</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input style='padding:0 0 0 0;width:250px;height:40px;background:url(http://cdn.garenanow.com/webmain/static/images/bgd_big_btn.gif);text-align:center;vertical-align:middle;color:#FFF;font-size:18px;font-family:Tahoma, Geneva, sans-serif;' type="submit" value="Đăng ký"></td>
+				</tr>
+			</table>
+			<div id="Dieu-khoan" align="left" style="margin-left:20px;">
+				<font size="3" color="blue" style="margin-left:30px;"><b>Hướng dẫn đăng ký tài khoản</b></font>
+					<h3 style="margin-left:20px;">  Cách 1: Đăng ký qua tài khoản cá nhân.</h3>
+					<p style="margin-left:40px;">
+						-Click vào 1 trong các biểu tượng trên nếu các bạn có tài khoản tương ứng.
+					<h3 style="margin-left:20px;">  Cách 2: Đăng ký tài khoản mới.</h3>
+					<div style="margin-left:40px;">
+						- Điền đầy đủ thông tin yêu cầu.<br>
+						- Một số chú ý :<br>
+						<div style="margin-left:60px;">
+							-Tên đăng nhập chứa ít nhất 6 ký tự.<br>
+							-Mật khẩu chứa ít nhất 6 ký tự.<br>
+							-Họ tên cần có độ dài ít nhất 5 kí tự.<br>
+						</div>
+						- Nếu không đăng ký được vui lòng liên hệ tới ban quản trị qua email: datptse02336@fpt.edu.vn
+					</div>
+								
+				</p>
+			</div>
+		</div>
+		</center>
+	</div>
+	<!-- end-content-->
+	<!-- footer-->
+	<div id="footer">
+		<p align="center" style=" margin:0; margin-top:34px;">Bản quyền thuộc về <strong>FU6C_BrSE</strong> - Đ/C: FPT University</p> 
+
+        <p align="center" style=" margin:0;">ĐT: 01678590905</p> 
+        <p align="center" style=" margin:0;">Email: admin@gmail.com - namldse02316@gmail.com</p> 
+	</div>
+	<!-- end-footer-->
+</div>
+</body>
+</html>
