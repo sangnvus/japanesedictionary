@@ -3,56 +3,8 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="style.css">
-	<title>Đăng ký tài khoản</title>
-<script>
-function validateForm()
-{
-var x=document.forms["myForm"]["username"].value;
-if (x==null || x=="" || x.length < 6)
-  {
-  alert("Tên đăng nhập không được trống và có ít nhất 6 ký tự");
-  return false;
-  }
+	<title>Home Page</title>
 
- var x=document.forms["myForm"]["pass"].value;
-if (x==null || x=="" || x.length < 6)
-  {
-  alert("Mật khẩu không được trống và có ít nhất 6 ký tự");
-  return false;
-  }
-
-if (document.forms["myForm"]["pass1"].value!=document.forms["myForm"]["pass"].value)
-  {
-  alert("Vui lòng gõ chính xác mật khẩu đã nhập");
-  return false;
-  }
-if (document.forms["myForm"]["fullname"].value ==null || document.forms["myForm"]["fullname"].value =="" || document.forms["myForm"]["fullname"].value.length<5)
-  {
-  alert("Họ và tên không được trống và có ít nhất 5 ký tự");
-  return false;
-  }
-var x=document.forms["myForm"]["email"].value;
-var atpos=x.indexOf("@");
-var dotpos=x.lastIndexOf(".");
-if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
-  {
-  alert("Email không hợp lệ");
-  return false;
-  }
-
-}
-</script>
-<style>
-table
-{
-border-collapse:collapse;
-}
-table, td, th
-{
-border:0px solid black;
-height:50px;
-}
-</style>
 </head>
 <body>
 <div id="container">
@@ -66,7 +18,7 @@ height:50px;
 		<div id="top-bar-right">
 			<ul>
 				<li><a href="register.html">Đăng ký</a> |</li>
-				<li><a href="quenthongtin.html">Quên thông tin</a> |</li>
+				<li><a href="quenthongtin.html">Quên mật khẩu</a> |</li>
 				<li>
 				<form action="loginhomepage.html" method="POST">
                 <label>
@@ -132,8 +84,7 @@ height:50px;
         <li><a href="#">Hội thoại</a>
         <ul>
         	<li><a href="hoithoaihangngay.html">Hội thoại hàng ngày</a></li>
-                <li><a href="hoithoaithongdung.html">Hội thoại 
-                thông dụng</a></li>
+            <li><a href="hoithoaithongdung.html">Hội thoại thông dụng</a></li>
         </ul>
         </li>
         <li><a href="tailieu.html">Tài liệu</a></li>
@@ -166,44 +117,25 @@ height:50px;
 		</div>
 		<div id="main-content">
 			<div id="main-result">
-			<div align="left" style="margin-left:40px;margin-top:50px"><font size="4" color="blue">Cách 1: Đăng ký qua tài khoản cá nhân</font></div><br>
-			<div align="left" style="margin-left:100px;margin-top:0px">
-					<a href="#"><img src="gmail.png" width="120" height="40"></a>
-					<a href="#"><img src="facebook.png" width="120" height="40"></a>
-			</div>
-			<div align="left" style="margin-left:40px;margin-top:15px;"><font size="4" color="blue">Cách 2: Đăng ký tài khoản mới</font></div>
-			<form name="myForm" action="" onsubmit="return validateForm();" method="post">
-			<table align="left" style="margin-left:100px; font-weight:bold" >
-				<tr>
-					<td>Tên đăng nhập</td>
-					<td><input type="text" name="username" size="35" maxlength="20"></td>
-				</tr>
-				<tr>
-					<td>Mật khẩu</td>
-					<td><input type="password" name="pass" size="35" maxlength="30"></td>
-				</tr>
-				<tr>
-					<td>Nhập lại mật khẩu</td>
-					<td><input type="password" name="pass1" size="35" maxlength="30"></td>
-				</tr>
-				<tr>
-					<td>Họ và tên</td>
-					<td><input type="text" name="fullname" size="35" maxlength="20"></td>
-				</tr>
-				<tr>
-					<td>Email</td>
-					<td><input type="text" name="email" size="35" maxlength="20"></td>
-				</tr>
-				<tr>
-					<td>Mã xác nhận</td>
-					<td><input type="text" name="capcha" size="20"><img src="capcha.jpg" width="75px" height="30px"></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td><input style='padding:0 0 0 0;width:250px;height:40px;background:url(http://cdn.garenanow.com/webmain/static/images/bgd_big_btn.gif);text-align:center;vertical-align:middle;color:#FFF;font-size:18px;font-family:Tahoma, Geneva, sans-serif;' type="submit" value="Đăng ký"></td>
-				</tr>
-			</table>
-		</form>
+				<div id="search-result">
+					<div align="left" style="margin-left:50px;">
+						<big><h2 style="color:blue;">Tình huống 1 : Chào buổi sáng</h2></big><br>
+						<audio controls preload="none"><source src="audio/HTTCB01TT01_A_01.mp3" type="audio/mpeg"></audio>
+						<h3>A：早くかたづけなさい。</h3><br>
+						<h3>B：わかってるって。今やろうって思ったのに！</h3><br>
+						<h3>A：いつもそう言うだけじゃない。</h3><br>
+						<h3>B：だって、いつもそう思ってるときに言うから。</h3><br>
+					</div>
+					<div align="left" style="margin-left:50px;">
+						<big><h2 style="color:blue;">Tình huống 2 : Chào tạm biệt</h2></big><br>
+						<audio controls preload="none"><source src="audio/HTTCB01TT01_A_01.mp3" type="audio/mpeg"></audio>
+						<h3>A：早くかたづけなさい。</h3><br>
+						<h3>B：わかってるって。今やろうって思ったのに！</h3><br>
+						<h3>A：いつもそう言うだけじゃない。</h3><br>
+						<h3>B：だって、いつもそう思ってるときに言うから。</h3><br>
+					</div>
+
+				</div>
 			</div>
 			<div id="pop-up">
 				<p>Các ứng dụng hay<br/>
@@ -228,7 +160,6 @@ height:50px;
 					- Từ điển Jvidic<br/>					
 				</p>
 			</div>
-		
 		</div>
 		</center>
 	</div>
