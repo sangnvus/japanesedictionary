@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript"> 
+$(document).ready(function(){ 
+  $("a.an_hien").click(function(){ 
+    $("div#test").slideToggle(); 
+  }); 
+}); 
+$(document).ready(function(){ 
+  $("a.hien_an").click(function(){ 
+    $("div#test1").slideToggle(); 
+  }); 
+}); 
+</script> 
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="style.css">
 	<title>Home Page</title>
@@ -118,28 +131,38 @@
 		<div id="main-content">
 			<div id="main-result">
 				<div id="search-result">
-					<div class="item-wrap">
-						<a href="gioithieu.html" class="item" id="gth"><span class="label">Giới thiệu</span></a>
-					</div>
-					<div class="item-wrap">
-						<a href="fontchu.html" class="item" id="key"><span class="label">Bàn phím, Font chữ & Software</span></a>
-					</div>
-					<div class="item-wrap">
-						<a href="huongdan.html" class="item" id="huongdan"><span class="label">Hướng dẫn học</span></a>
-					</div>
-					<div class="item-wrap">
-						<a href="trangcanhan.html" class="item" id="user"><span class="label">Trang cá nhân</span></a>
-					</div>
-					<div class="item-wrap">
-						<a href="#" class="item" id="minna"><span class="label">Minna no nihongo</span></a>
-					</div>
-					<div class="item-wrap">
-						<a href="#" class="item" id="manga"><span class="label">Kanji de Manga</span></a>
-					</div>
-					<div class="item-wrap">
-						<a href="#" class="item" id="kaiwa"><span class="label">Tiếng Nhật giao tiếp</span></a>
-					</div>
+				<div><h1>Bài 1 : はじめまして</h1></div>
+					<div><h2>Ngữ pháp</h2></div>
+				<a href="javascript:void(0)" class="an_hien"><h3 align="left" style="color:gray;">Mẫu 1 : Câu hỏi xác nhận</h3></a> 
+				<div id="test">	
+               <h4 align="left" style="color:blue;margin-left:40px;">+ Cấu trúc</h4>
+                    <h3 align="left" style="color:red;font-size:18px;margin-left:60px;">A: ～は　Nですか。</h3>
+                    <h3 align="left" style="color:red;font-size:18px;margin-left:60px;">B:  はい、Nです。 / いいえ、Nじゃありません。N1です。</h3>
+                <h4 align="left" style="color:blue;margin-left:40px;">+ Giải thích</h4>
+                Đây là dạng câu hỏi xác nhận. Khi trả lời phải có はい hoặc là いいえ.
+                <h4 align="left" style="color:blue;margin-left:40px;">+ Ví dụ</h4>
+                    <h3 align="left" style="color:black;font-size:18px;margin-left:60px;"><span style="color:blue;font-weight:bold">1) </span>    A: これは　しんぶんですか。</h3>
+                    <h3 align="left" style="color:black;font-size:18px;margin-left:75px;"> B: はい、それは　しんぶんです。
+                    <h3 align="left" style="color:black;font-size:18px;margin-left:60px;"><span style="color:blue;font-weight:bold">2) </span>    A: これは　しんぶんですか。</h3>
+                    <h3 align="left" style="color:black;font-size:18px;margin-left:75px;"> B: はい、それは　しんぶんです。
+                 </div> 
+
+
+                    <a href="javascript:void(0)" class="hien_an"><h3 align="left" style="color:gray;">Mẫu 2 : Câu hỏi với nghi vấn từ</h3></a>
+                    <div id="test1">	
+               			<h4 align="left" style="color:blue;margin-left:40px;">+ Cấu trúc</h4>
+                    <h3 align="left" style="color:red;font-size:18px;margin-left:60px;">A: ～は　Nですか。</h3>
+                    <h3 align="left" style="color:red;font-size:18px;margin-left:60px;">B:  はい、Nです。 / いいえ、Nじゃありません。N1です。</h3>
+                		<h4 align="left" style="color:blue;margin-left:40px;">+ Giải thích</h4>
+                			Đây là dạng câu hỏi có sử dụng Nghi vấn từ. Nghi vấn từ là các từ dùng để hỏi ví dụ như: ai? cái gì? ở đâu?...
+                		<h4 align="left" style="color:blue;margin-left:40px;">+ Ví dụ</h4>
+                    <h3 align="left" style="color:black;font-size:18px;margin-left:60px;"><span style="color:blue;font-weight:bold">1) </span>    A: これは　しんぶんですか。</h3>
+                    <h3 align="left" style="color:black;font-size:18px;margin-left:75px;"> B: はい、それは　しんぶんです。
+                    <h3 align="left" style="color:black;font-size:18px;margin-left:60px;"><span style="color:blue;font-weight:bold">2) </span>    A: これは　しんぶんですか。</h3>
+                    <h3 align="left" style="color:black;font-size:18px;margin-left:75px;"> B: はい、それは　しんぶんです。
 				</div>
+				</div>
+				<a href="socap_1.html"><span class="label" style="color:blue;font-weight:bold; font-size:18px;" >Back</span></a>
 			</div>
 			<div id="pop-up">
 				<p>Các ứng dụng hay<br/>
