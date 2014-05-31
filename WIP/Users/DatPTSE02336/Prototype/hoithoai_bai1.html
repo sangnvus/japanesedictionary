@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript"> 
+$(document).ready(function(){ 
+  $("a.an_hien").click(function(){ 
+    $("div#test").slideToggle(); 
+  }); 
+}); 
+$(document).ready(function(){ 
+  $("a.hien_an").click(function(){ 
+    $("div#test1").slideToggle(); 
+  }); 
+}); 
+</script> 
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="style.css">
 	<title>Home Page</title>
@@ -118,28 +131,35 @@
 		<div id="main-content">
 			<div id="main-result">
 				<div id="search-result">
-					<div class="item-wrap">
-						<a href="gioithieu.html" class="item" id="gth"><span class="label">Giới thiệu</span></a>
-					</div>
-					<div class="item-wrap">
-						<a href="fontchu.html" class="item" id="key"><span class="label">Bàn phím, Font chữ & Software</span></a>
-					</div>
-					<div class="item-wrap">
-						<a href="huongdan.html" class="item" id="huongdan"><span class="label">Hướng dẫn học</span></a>
-					</div>
-					<div class="item-wrap">
-						<a href="trangcanhan.html" class="item" id="user"><span class="label">Trang cá nhân</span></a>
-					</div>
-					<div class="item-wrap">
-						<a href="#" class="item" id="minna"><span class="label">Minna no nihongo</span></a>
-					</div>
-					<div class="item-wrap">
-						<a href="#" class="item" id="manga"><span class="label">Kanji de Manga</span></a>
-					</div>
-					<div class="item-wrap">
-						<a href="#" class="item" id="kaiwa"><span class="label">Tiếng Nhật giao tiếp</span></a>
-					</div>
+				<div><h1>Bài 1 : はじめまして</h1></div>
+					<div><h2>Hội thoại</h2></div>
+                    <div align="left" style="margin-left:200px;">
+                        <span style="color:blue;font-weight:bold; font-size:15px;">佐藤:</span> おはよう　ございます。 <br>
+                        <span style="color:blue;font-weight:bold; font-size:15px;">山　田：</span> おはよう　ございます。 <br>  
+                    佐藤さん、こちらは　マイク・ミラーさんです。 <br>
+                    <span style="color:blue;font-weight:bold; font-size:15px;">ミラー：</span> 初めまして。   <br>
+                    マイク・ミラーです。   <br>
+                    アメリカから　来ました。  <br> 
+                    どうぞ　よろしく。 <br>
+                    <span style="color:blue;font-weight:bold; font-size:15px;">佐　藤：</span> 佐藤けい子です。 <br>  
+                    どうぞ　よろしく。 <br><br>
+                    </div>
+                <audio controls preload="none"><source src="audio/HTTCB01TT01_A_01.mp3" type="audio/mpeg"></audio>
+                <br><br>
+				<a href="javascript:void(0)" class="an_hien"><h3 align="left" style="color:gray;"> Dịch</h3></a> 
+				<div id="test" align="left" style="margin-left:200px;">	
+                <span style="color:blue;font-weight:bold; font-size:15px;">佐藤:</span> Xin chào。 <br>
+                        <span style="color:blue;font-weight:bold; font-size:15px;">山　田：</span> Xin chào。 <br>  
+                    Nam, Đây là Anh. <br>
+                    <span style="color:blue;font-weight:bold; font-size:15px;">ミラー：</span> Hân hạnh được làm quen。   <br>
+                    Tôi là Anh。   <br>
+                    Tôi đến từ Việt Nam。  <br> 
+                    Mong được giúp đỡ。 <br>
+                    <span style="color:blue;font-weight:bold; font-size:15px;">佐　藤：</span> Tôi là Nam。 <br>  
+                    Rất vui được làm quen。 <br><br>
+                 </div> 
 				</div>
+                <a href="socap_1.html"><span class="label" style="color:blue;font-weight:bold; font-size:18px;" >Back</span></a>
 			</div>
 			<div id="pop-up">
 				<p>Các ứng dụng hay<br/>
