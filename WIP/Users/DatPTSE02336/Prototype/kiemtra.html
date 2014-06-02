@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript"> 
+$(document).ready(function(){ 
+  $("a.an_hien").click(function(){ 
+    $("div#test").slideToggle(); 
+  }); 
+}); 
+$(document).ready(function(){ 
+  $("a.hien_an").click(function(){ 
+    $("div#test1").slideToggle(); 
+  }); 
+}); 
+$(document).ready(function(){ 
+  $("a.hien_an1").click(function(){ 
+    $("div#test2").slideToggle(); 
+  }); 
+}); 
+</script> 
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="style.css">
 	<title>Kiểm tra</title>
@@ -118,67 +136,34 @@
 		<div id="main-content">
 			<div id="main-result">
 				<div style="font-size: 20px;">Kiểm tra kiến thức</div>
-				<div>
-					<table width="100%">
-						<tr style="font-weight:bold; background:#80B2D9;">
-                			<td>Trình độ</td>
-                			<td>Phần kiểm tra</td>
-                    		<td width="50">Số bài</td>
-						</tr>
-						<tr style="background: #F7FBFF;">
-							<td>N4</td>
-							<td><a href="#">Đọc</a><br>
-								<a href="#">Nghe</a><br>
-								<a href="#">Ngữ pháp</a><br>
-								<a href="#">Từ vựng</a><br>
-							</td>
-							<td>5<br>
-								5<br>
-								5<br>
-								5<br>
-							</td>
-						</tr>
-						<tr style="background: #F7FBFF;">
-							<td>N3</td>
-							<td><a href="#">Đọc</a><br>
-								<a href="#">Nghe</a><br>
-								<a href="#">Ngữ pháp</a><br>
-								<a href="#">Từ vựng</a><br>
-							</td>
-							<td>5<br>
-								5<br>
-								5<br>
-								5<br>
-							</td>
-						</tr>
-						<tr style="background: #F7FBFF;">
-							<td>N2</td>
-							<td><a href="#">Đọc</a><br>
-								<a href="#">Nghe</a><br>
-								<a href="#">Ngữ pháp</a><br>
-								<a href="#">Từ vựng</a><br>
-							</td>
-							<td>5<br>
-								5<br>
-								5<br>
-								5<br>
-							</td>
-						</tr>
-						<tr style="background: #F7FBFF;">
-							<td>N1</td>
-							<td><a href="#">Đọc</a><br>
-								<a href="#">Nghe</a><br>
-								<a href="#">Ngữ pháp</a><br>
-								<a href="#">Từ vựng</a><br>
-							</td>
-							<td>5<br>
-								5<br>
-								5<br>
-								5<br>
-							</td>
-						</tr>
-					</table>
-				</div>
+				<div style="font-size: 15px;">Trình độ</div>
+				<a href="javascript:void(0)" class="hien_an"><h3 align="left" style="color:gray;">+ N4</h3></a>
+                    <div id="test1">
+                    		<p align="left" style="margin-left: 20px;">
+          					<a href="kiemtran4_doc.html">Phần đọc</a><br>
+          					<a href="kiemtra4_nghe.html">Phần nghe</a><br>
+          					<a href="kiemtran4_nguphap.html">Phần ngữ pháp</a><br>
+          					<a href="kiemtran4_tuvung.html">Từ vựng</a><br>
+          					</p>
+				    </div>
+				<a href="javascript:void(0)" class="an_hien"><h3 align="left" style="color:gray;">+ N3</h3></a>
+                    <div id="test">
+                    		<p align="left" style="margin-left: 20px;">
+          					<a href="kiemtran3_doc.html">Phần đọc</a><br>
+          					<a href="kiemtran3_nghe.html">Phần nghe</a><br>
+          					<a href="kiemtran3_nguphap.html">Phần ngữ pháp</a><br>
+          					<a href="kiemtran3_tuvung.html">Từ vựng</a><br>
+          					</p>
+				    </div>
+				<a href="javascript:void(0)" class="hien_an1"><h3 align="left" style="color:gray;">+ N2</h3></a>
+                    <div id="test2">
+                    		<p align="left" style="margin-left: 20px;">
+          					<a href="kiemtran2_doc.html">Phần đọc</a><br>
+          					<a href="kiemtran2_nghe.html">Phần nghe</a><br>
+          					<a href="kiemtran2_nguphap.html">Phần ngữ pháp</a><br>
+          					<a href="kiemtran2_tuvung.html">Từ vựng</a><br>
+          					</p>
+				    </div>
 			</div>
 			<div id="pop-up">
 				<p>Các ứng dụng hay<br/>
