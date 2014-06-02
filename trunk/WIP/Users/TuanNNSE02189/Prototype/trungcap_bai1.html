@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript"> 
+$(document).ready(function(){ 
+  $("a.an_hien").click(function(){ 
+    $("div#test").slideToggle(); 
+  }); 
+}); 
+$(document).ready(function(){ 
+  $("a.hien_an").click(function(){ 
+    $("div#test1").slideToggle(); 
+  }); 
+}); 
+$(document).ready(function(){ 
+  $("a.hien_an1").click(function(){ 
+    $("div#test2").slideToggle(); 
+  }); 
+}); 
+</script> <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="style.css">
+<link href="tabmenu/tabmenu.css" rel="stylesheet" type="text/css">
+<script src="tabmenu/tabmenu.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="container">
+	<!-- top-bar-->
+	<div id="top-bar">
+		<!--<div id="top-bar-left">
+			<ul>
+				<li><img src="logo.jpg" width="500" height="50"></li>
+			</ul>
+		</div>-->
+		<div id="top-bar-right">
+			<ul>
+				<li><a href="register.html">Đăng ký</a> |</li>
+				<li><a href="quenthongtin.html">Quên thông tin</a> |</li>
+				<li>
+				<form action="loginhomepage.html" method="POST">
+                <label>
+                <input class="dn_text" name="tendangnhap" type="text" value="Tên đăng nhập" id="tendangnhap"/>
+                </label>
+                <label>
+                <input class="dn_text" name="matkhau" type="password" value="password" id="matkhau"/>
+                </label>
+                <label>
+                <input name="ck_ghinho" id="ck_ghinho" type="checkbox" value=""  />
+                </label>
+                <label>
+                <input name="bt_dangnhap" id="bt_dangnhap" type="submit" value="Đăng nhập"/></label>
+            	</form>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- end-top-bar-->
+
+	<!-- main-menu-->
+	<div id="main-menu">
+    <ul>
+        <li><a href="homepage.html">Home</a></li>
+        <li><a href="#">Sơ cấp</a>
+        <ul>
+        	<li><a href="bangchucai.html">Hiragana & Katakana</a></li>
+        	<li><a href="socap.html">List 50 bài Minnano Nihongo</a></li>
+        </ul>
+        </li>
+        <li><a href="#">Trung cấp</a>
+        <ul>
+                <li><a href="n3nguphap.html">N3_Ngữ pháp</a></li>
+                <li><a href="n3tuvung.html">N3_Từ vựng</a></li>
+                <li><a href="n3kanji.html">N3_Kanji</a></li>
+                <li><a href="n3doc.html">N3_Bài đọc</a></li>
+                <li><a href="n2nguphap.html">N2_Ngữ pháp</a></li>
+                <li><a href="n2tuvung.html">N2_Từ vựng</a></li>
+                <li><a href="n2kanji.html">N2_Kanji</a></li>
+                <li><a href="n2doc.html">N2_Bài đọc</a></li>
+            </ul>
+            </li>
+        <li><a href="#">Ôn tập</a>
+        <ul>
+        	<li><a href="ontap.html">Xem các phần ôn tập</a></li>
+        </ul>
+        </li>
+        <li><a href="#">Luyện nghe</a>
+        	<ul>                
+                <li><a href="n2n3nghe.html">(これで大丈夫)_N2&N3</a></li>
+                <li><a href="n4n5nghe.html">(これで大丈夫)_N4&N5</a></li>
+                <li><a href="n3kiku.html">N3聞く</a></li>
+                <li><a href="n2kiku.html">N2聞く</a></li>
+            </ul>
+        </li>                
+        <li><a href="#">Luyện đọc</a>
+            <ul>
+                <li><a href="n4dokkai.html">N4_55 Bài Dokkai</a></li>
+                <li><a href="dokkaithi.html">Tổng hợp các bài dokkai trong đề thi</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Hội thoại</a>
+        <ul>
+        	<li><a href="hoithoaihangngay.html">Đàm thoại hàng ngày</a></li>
+                <li><a href="hoithoaithongdung.html">Đàm thoại 
+                thông dụng</a></li>
+        </ul>
+        </li>
+        <li><a href="kiemtra.html">Kiểm tra</a></li>
+        <li><a href="#">Liên hệ</a>
+        	<ul>
+                <li><a href="donggopdatabase.html">Đóng góp Database</a></li>
+                <li><a href="donggopykienkhac.html">Đóng góp ý kiến khác</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+	<!-- end-main-menu-->
+	<!-- content-->
+	<div id="content">
+	<center>
+		<div id="box-search">
+		<form action="" method="POST">
+			<input type="text" name="txtsearch" id="txtsearch" maxlength="255" placeholder="Tìm kiếm"/>
+			<select id="box-select">
+				<option>Câu ví dụ</option>
+				<option>Hội thoại</option>
+				<option>Video</option>
+				<option>Ngữ pháp</option>
+				<option>Tiếng Nhật chuyên ngành</option>
+			</select>
+			<input type="submit" name="btnSearch" id="btnSearch" value="Search">
+			</form>		
+			<br/>
+			<br/>
+		</div>
+		<div id="main-content">
+			<div id="main-result">
+				<div id="search-result">
+				<div><h3>第1週_1日目（日本語総まとめN3_文法）</h3></div>
+					<ul id="tabmenu">
+    <li>
+        タイトル
+        <ul>
+            <img src="images/trungcap1.png" width="800" height="600">
+        </ul>
+    </li>
+    <li>
+        文法
+        <ul>
+        <table width="100%">
+        <tr><td>
+        <a href="javascript:void(0)" class="an_hien"><h4 align="center" style="color:gray;">～書かれている</h4></a>
+        <div id="test"> 
+                <h5 align="left" style="color:blue;font-size:22px;margin-left:60px;">+ Cấu trúc</h5>
+                <h3 align="left" style="color:red;font-size:18px;margin-left:60px;">Vれる（受身）</h3>
+                <h5 align="left" style="color:blue;font-size:22px;margin-left:60px;">+ Ý nghĩa</h5>
+                <h3 align="left" style="font-size:16px;margin-left:60px;">Bị, được (Bị động)<h3>
+                <h5 align="left" style="color:blue;font-size:22px;margin-left:60px;">+ Giải thích & Hướng dẫn</h5>
+                <h3 align="left" style="font-size:16px;margin-left:60px;">Dùng tường thuật lại một sự việc mà được thực hiện bởi một chủ thể khác (chủ thể bị ẩn)</h3>
+                <h3 align="left" style="font-size:16px;margin-left:60px;">Nói về những việc được biết đến rộng rãi.
+                <h5 align="left" style="color:blue;font-size:22px;margin-left:60px;">+ Ví dụ</h5>
+                <h3 align="left" style="font-size:16px;margin-left:60px;">1/この本には、くわしい説明は書かれていません。</h3>
+                <h3 align="left" style="font-size:16px;margin-left:60px;">2/入学式は、このホールで行われます。</h3>
+                <h3 align="left" style="font-size:16px;margin-left:60px;">3/これは、世界でいちばん大きいダイヤモンドだと言われています。</h3>
+                 </div> 
+        </td></tr>
+        <tr><td>
+        <a href="javascript:void(0)" class="hien_an"><h4 align="center" style="color:gray;">～赤ちゃんに泣かれた</h4></a>
+          <div id="test1"> 
+                <h5 align="left" style="color:blue;font-size:22px;margin-left:60px;">+ Cấu trúc</h5>
+                <h3 align="left" style="color:red;font-size:18px;margin-left:60px;">（Nに）Vれる</h3>
+                <h5 align="left" style="color:blue;font-size:22px;margin-left:60px;">+ Ý nghĩa</h5>
+                <h3 align="left" style="font-size:16px;margin-left:60px;">Bị (cái gì đó/ai đó)<h3>
+                <h5 align="left" style="color:blue;font-size:22px;margin-left:60px;">+ Giải thích & Hướng dẫn</h5>
+                <h3 align="left" style="font-size:16px;margin-left:60px;">Vれてしまった: Bị...mất rồi (ý tiếc nuối, khổ sở)</h3>
+                <h3 align="left" style="font-size:16px;margin-left:60px;">Thường dùng nói đến những tình huống gặp khó khăn, khổ sở do bởi một yếu tố nào đó.</h3>
+                <h5 align="left" style="color:blue;font-size:22px;margin-left:60px;">+ Ví dụ</h5>
+                <h3 align="left" style="font-size:16px;margin-left:60px;">1/友だちの赤ちゃんを抱っこしたら、泣かれてしまった。</h3>
+                <h3 align="left" style="font-size:16px;margin-left:60px;">2/父に死なれて、大学を続けられなくなりました。</h3>
+                <h3 align="left" style="font-size:16px;margin-left:60px;">3/雨に降られて、服がぬれてしまった。</h3>
+                 </div> 
+        </td></tr>
+        <tr><td>
+        <a href="javascript:void(0)" class="hien_an1"><h3 align="left" style="color:gray;">～早く帰らせてください</h3></a>
+                    <div id="test2">
+                <h5 align="left" style="color:blue;font-size:22px;margin-left:60px;">+ Cấu trúc</h5>
+                <h3 align="left" style="color:red;font-size:18px;margin-left:60px;">V（させて）ください / もらえますか /もらえませんか</h3>
+                <h5 align="left" style="color:blue;font-size:22px;margin-left:60px;">+ Ý nghĩa</h5>
+                <h3 align="left" style="font-size:16px;margin-left:60px;">Có thể cho phép tôi ~ được không?<h3>
+                <h5 align="left" style="color:blue;font-size:22px;margin-left:60px;">+ Giải thích & Hướng dẫn</h5>
+                <h3 align="left" style="font-size:16px;margin-left:60px;">Dùng để xin phép đối phương  cho mình làm một việc gì đó.</h3>
+                <h3 align="left" style="font-size:16px;margin-left:60px;">Cùng có ý như nhau nhưng mức độ lịch sự sẽ khác nhau. Cụ thể:</h3>
+                 <h3 align="left" style="font-size:16px;margin-left:60px;">Vさせて　ください　＜　Vさせて　もらえます　＜　Vさせて　もらえませんか。</h3>
+                <h5 align="left" style="color:blue;font-size:22px;margin-left:60px;">+ Ví dụ</h5>
+                <h3 align="left" style="font-size:16px;margin-left:60px;">1/ちょっと気分が悪いので、早く帰らせてください。</h3>
+                <h3 align="left" style="font-size:16px;margin-left:60px;">2/あなたの会社のお話を聞かせてください。</h3>
+                <h3 align="left" style="font-size:16px;margin-left:60px;">3/手を洗わせてください。</h3>
+                 </div> 
+        </td></tr>
+        </table>
+        </ul>
+    </li>
+    <li>
+        練習
+        <ul>
+        <table width="100%">
+        <tr><td>
+        <a href="javascript:void(0)" class="an_hien"><h4 align="center" style="color:gray;">練習1</h4></a>
+        <div id="test"> 
+             <h5 align="left" style="font-size:18px;margin-left:60px;">正しいほうを選びなさい。</h5>
+             <h5 align="left" style="font-size:15px;margin-left:60px;">1.　英語は世界中で （  ___  ） います。</h5>
+             <h5 align="left" style="font-size:15px;margin-left:60px;"><input type="radio" value="1" name="q1">a.話されて</h5>
+             <h5 align="left" style="font-size:15px;margin-left:60px;"><input type="radio" value="2" name="q1">b.話られて</h5>
+             <h5 align="left" style="font-size:15px;margin-left:60px;">2.　この建物は三百年前に　（  ___  ） ました。</h5>
+             <h5 align="left" style="font-size:15px;margin-left:60px;"><input type="radio" value="1" name="q2">a.建たれ</h5>
+             <h5 align="left" style="font-size:15px;margin-left:60px;"><input type="radio" value="2" name="q2">b.建てられ</h5>
+             <h5 align="left" style="font-size:15px;margin-left:60px;">3.　急に社員に　（  ___  ）。</h5>
+             <h5 align="left" style="font-size:15px;margin-left:60px;"><input type="radio" value="1" name="q3">a.辞まれた</h5>
+             <h5 align="left" style="font-size:15px;margin-left:60px;"><input type="radio" value="2" name="q3">b.辞められた</h5>
+             <h5 align="left" style="font-size:15px;margin-left:60px;">4.　その話はもうちょっと　（  ___  ）。</h5>
+             <h5 align="left" style="font-size:15px;margin-left:60px;"><input type="radio" value="1" name="q4">a.考えさせて</h5>
+             <h5 align="left" style="font-size:15px;margin-left:60px;"><input type="radio" value="2" name="q4">b.考えらせて</h5>
+             <h5 align="left" style="font-size:15px;margin-left:60px;">5.　今日は熱があるので （  ___  ）  ください。</h5>
+             <h5 align="left" style="font-size:15px;margin-left:60px;"><input type="radio" value="1" name="q5">a.休ませて</h5>
+             <h5 align="left" style="font-size:15px;margin-left:60px;"><input type="radio" value="2" name="q5">b.休まれて</h5>
+
+                 </div> 
+        </td></tr>
+        <tr><td>
+        <a href="javascript:void(0)" class="hien_an"><h4 align="center" style="color:gray;">練習2</h4></a>
+          <div id="test1"> 
+            <h5 align="left" style="font-size:18px;margin-left:60px;">下の語を並べ変えて正しい文を作りなさい。＿＿に数字を書きなさい。</h5>
+             <h5 align="left" style="font-size:15px;margin-left:60px;">①　オリンピック __ __ __ __ 開かれます。</h5>
+             <h5 align="left" style="font-size:15px;margin-left:60px;">1．一度　　　　　2．に　　　　3．は　　　4．4年</h5>
+             <h5 align="left" style="font-size:15px;margin-left:60px;">②　日本の　__ __ __ __ もらえませんか。</h5>
+             <h5 align="left" style="font-size:15px;margin-left:60px;">1．について　　　2．させて　　3．印象　　4．インタビュー</h5>
+            <a href="javascript:void(0)" class="hien_an"><h4 align="center" style="color:blue;">Đáp án</h4></a>
+              <div id="test2">
+            <h5 align="left" style="font-size:18px;margin-left:60px;">①　オリンピックは4年に一度開かれます。。</h5>
+            <h5 align="left" style="font-size:18px;margin-left:60px;">②　日本の印象についてインタビューさせてもらえませんか。</h5>  
+              </div>
+                 </div>
+        </td></tr>
+        </table>
+        </ul>
+    </li>
+</ul>
+				</div>
+			</div>
+			<div id="pop-up">
+				<p>Các ứng dụng hay<br/>
+					- Từ điển Jvidic<br/>
+					- Từ điển Jvidic<br/>
+					- Từ điển Jvidic<br/>
+					- Từ điển Jvidic<br/>
+					- Từ điển Jvidic<br/>
+					- Từ điển Jvidic<br/>
+					- Từ điển Jvidic<br/>
+					- Từ điển Jvidic<br/>
+					- Từ điển Jvidic<br/>
+					- Từ điển Jvidic<br/>
+					- Từ điển Jvidic<br/>
+					- Từ điển Jvidic<br/>
+					- Từ điển Jvidic<br/>
+					- Từ điển Jvidic<br/>
+					- Từ điển Jvidic<br/>
+					- Từ điển Jvidic<br/>
+					- Từ điển Jvidic<br/>
+					- Từ điển Jvidic<br/>
+					- Từ điển Jvidic<br/>					
+				</p>
+			</div>
+		</div>
+		</center>
+	</div>
+	<!-- end-content-->
+	<!-- footer-->
+	<div id="footer">
+		<p align="center" style=" margin:0; margin-top:34px;">Bản quyền thuộc về <strong>FU6C_BrSE</strong> - Đ/C: FPT University</p> 
+
+        <p align="center" style=" margin:0;">ĐT: 01678590905</p> 
+        <p align="center" style=" margin:0;">Email: admin@gmail.com - namldse02316@gmail.com</p> 
+	</div>
+	<!-- end-footer-->
+</div>
+</body>
+</html>
