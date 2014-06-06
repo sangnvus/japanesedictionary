@@ -303,6 +303,10 @@ background-size: 100px 100px;
 background-image: url(images/hantu.png);
 background-size: 100px 100px;
 }
+#luyentap{
+	background-image: url(images/luyentap.png);
+	background-size: 100px 100px;
+}
 #back {
 	background-image: url(images/back.jpg);
 	background-size: 5px 10px;
