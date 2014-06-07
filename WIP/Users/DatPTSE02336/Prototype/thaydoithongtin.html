@@ -3,8 +3,56 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="style.css">
-	<title>Tài liệu N3</title>
+	<title>Thay đổi thông tin</title>
+<script>
+function validateForm()
+{
+var x=document.forms["myForm"]["username"].value;
+if (x==null || x=="" || x.length < 6)
+  {
+  alert("Tên đăng nhập không được trống và có ít nhất 6 ký tự");
+  return false;
+  }
 
+ var x=document.forms["myForm"]["pass"].value;
+if (x==null || x=="" || x.length < 6)
+  {
+  alert("Mật khẩu không được trống và có ít nhất 6 ký tự");
+  return false;
+  }
+
+if (document.forms["myForm"]["pass1"].value!=document.forms["myForm"]["pass"].value)
+  {
+  alert("Vui lòng gõ chính xác mật khẩu đã nhập");
+  return false;
+  }
+if (document.forms["myForm"]["fullname"].value ==null || document.forms["myForm"]["fullname"].value =="" || document.forms["myForm"]["fullname"].value.length<5)
+  {
+  alert("Họ và tên không được trống và có ít nhất 5 ký tự");
+  return false;
+  }
+var x=document.forms["myForm"]["email"].value;
+var atpos=x.indexOf("@");
+var dotpos=x.lastIndexOf(".");
+if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+  {
+  alert("Email không hợp lệ");
+  return false;
+  }
+
+}
+</script>
+<style>
+table
+{
+border-collapse:collapse;
+}
+table, td, th
+{
+border:0px solid black;
+height:50px;
+}
+</style>
 </head>
 <body>
 <div id="container">
@@ -45,8 +93,8 @@
         <li><a href="homepage.html">Home</a></li>
         <li><a href="#">Sơ cấp</a>
         <ul>
-            <li><a href="bangchucai.html">Hiragana & Katakana</a></li>
-            <li><a href="socap.html">List 50 bài Minnano Nihongo</a></li>
+        	<li><a href="bangchucai.html">Hiragana & Katakana</a></li>
+        	<li><a href="socap.html">List 50 bài Minnano Nihongo</a></li>
         </ul>
         </li>
         <li><a href="#">Trung cấp</a>
@@ -64,11 +112,11 @@
             </li>
         <li><a href="#">Ôn tập</a>
         <ul>
-            <li><a href="ontap.html">Xem các phần ôn tập</a></li>
+        	<li><a href="ontap.html">Xem các phần ôn tập</a></li>
         </ul>
         </li>
         <li><a href="#">Luyện nghe</a>
-            <ul>                
+        	<ul>                
                <li><a href="n2n3nghe.html">(これで大丈夫)_N2&N3</a></li>
                 <li><a href="n4n5nghe.html">(これで大丈夫)_N4&N5</a></li>
                 <li><a href="n3kiku.html">N3聞く</a></li>
@@ -83,13 +131,13 @@
         </li>
         <li><a href="#">Hội thoại</a>
         <ul>
-            <li><a href="hoithoaihangngay.html">Đàm thoại hàng ngày</a></li>
+        	<li><a href="hoithoaihangngay.html">Đàm thoại hàng ngày</a></li>
           <li><a href="hoithoaithongdung.html">Đàm thoại thông dụng</a></li>
         </ul>
         </li>
         <li><a href="kiemtra.html">Kiểm tra</a></li>
         <li><a href="#">Liên hệ</a>
-            <ul>
+        	<ul>
                 <li><a href="donggopdatabase.html">Đóng góp Database</a></li>
                 <li><a href="donggopykienkhac.html">Đóng góp ý kiến khác</a></li>
             </ul>
@@ -99,9 +147,8 @@
 	<!-- end-main-menu-->
 	<!-- content-->
 	<div id="content">
-	
+	<center>
 		<div id="box-search">
-		<center>
 		<form action="" method="POST">
 			<input type="text" name="txtsearch" id="txtsearch" maxlength="255" placeholder="Tìm kiếm"/>
 			<select id="box-select">
@@ -115,62 +162,45 @@
 			</form>		
 			<br/>
 			<br/>
-			</center>
 		</div>
 		<div id="main-content">
 			<div id="main-result">
-				<div id="trungcap">
-			<div id="left-top">
-		     	<div id="left-subtitle"><h2>日本語総まとめN3_読解 (Giáo trình ôn thi N3_Kanji)</h2></div>
-		     
-		     <table width="100%" class="shopping-cart-table" cellspacing="1">
-		     <tbody>
-		     <tr style="font-weight:bold; background:#80B2D9">
-		     <td>Tên tài liệu</td>
-		     </tr>
-                <tr><td><a href="#">Giới thiệu giáo trình & Hướng dẫn học　（日本語総まとめN3_読解）</a></td></tr>
-                <tr><td bgcolor="D4F7F7"><a href="n3doc_ngay1.html">第1週_1日目（日本語総まとめN3_読解）</a></td></tr>
-                <tr><td><a href="#">第1週_２日目（日本語総まとめN3_読解）</a></td></tr>
-                <tr><td bgcolor="D4F7F7"><a href="#">第1週_3日目（日本語総まとめN3_読解）</a></td></tr>
-                <tr><td><a href="#">第1週_４日目（日本語総まとめN3_読解）</a></td></tr>
-                <tr><td bgcolor="D4F7F7"><a href="#">第1週_5日目（日本語総まとめN3_読解）</a></td></tr>
-                <tr><td><a href="#">第1週_6日目（日本語総まとめN3_読解）</a></td></tr>
-                <tr><td bgcolor="D4F7F7"><a href="#">第1週_7日目（日本語総まとめN3_読解）</a></td></tr>
-                <tr><td><a href="#">第2週_1日目（日本語総まとめN3_読解）</a></td></tr>
-                <tr><td bgcolor="D4F7F7"><a href="#">第2週_2日目（日本語総まとめN3_読解）</a></td></tr>
-                <tr><td><a href="#">第2週_3日目（日本語総まとめN3_読解）</a></td></tr>
-                <tr><td bgcolor="D4F7F7"><a href="#">第2週_4日目（日本語総まとめN3_読解）</a></td></tr>
-                <tr><td><a href="#">第2週_5日目（日本語総まとめN3_読解）</a></td></tr>
-                <tr><td bgcolor="D4F7F7"><a href="#">第2週_6日目（日本語総まとめN3_読解）</a></td></tr>
-                <tr><td><a href="#">第2週_7日目（日本語総まとめN3_読解）</a></td></tr>
-                <tr><td bgcolor="D4F7F7"><a href="#">第3週_1日目（日本語総まとめN3_読解）</a></td></tr>
-                <tr><td><a href="#">第3週_2日目（日本語総まとめN3_読解）</a></td></tr>
-                <tr><td bgcolor="D4F7F7"><a href="#">第3週_3日目（日本語総まとめN3_読解）</a></td></tr>
-                <tr><td><a href="#">第3週_4日目（日本語総まとめN3_読解）</a></td></tr>
-                <tr><td bgcolor="D4F7F7"><a href="#">第3週_5日目（日本語総まとめN3_読解）</a></td></tr>
-                <tr><td><a href="#">第3週_6日目（日本語総まとめN3_読解）</a></td></tr>
-                <tr><td bgcolor="D4F7F7"><a href="#">第3週_7日目（日本語総まとめN3_読解）</a></td></tr>
-                <tr><td><a href="#">第4週_1日目（日本語総まとめN3_読解）</a></td></tr>
-                <tr><td bgcolor="D4F7F7"><a href="#">第4週_2日目（日本語総まとめN3_読解）</a></td></tr>
-                <tr><td><a href="#">第4週_3日目（日本語総まとめN3_読解）</a></td></tr>
-                <tr><td bgcolor="D4F7F7"><a href="#">第4週_4日目（日本語総まとめN3_読解）</a></td></tr>
-                <tr><td><a href="#">第4週_5日目（日本語総まとめN3_読解）</a></td></tr>
-                <tr><td bgcolor="D4F7F7"><a href="#">第4週_6日目（日本語総まとめN3_読解）</a></td></tr>
-                </tbody>
-
-            
-            </table>
-            <div class="page" align="right">
-                <span>1</span>
-                <a href="n3doc.html@pageNum=2" title="Đến trang số 2">2</a>
-                <a href="n3doc.html@pageNum=2" title="Đến trang kế tiếp">></a>
-                <a href="n3doc.html@pageNum=2" title="Đến trang cuối cùng (tổng số 2 trang)">>|</a>
-            </div>   
-            </div> 
-				</div>
+			<div align="center" style="margin-top:15px;"><font size="6" color="blue">Thay đổi thông tin</font></div>
+			<form name="myForm" action="" onsubmit="return validateForm();" method="post">
+			<table align="left" style="margin-left:150px; font-weight:bold" >
+				<tr>
+					<td>Họ và tên</td>
+					<td><input type="text" name="fullname" size="35" maxlength="20" value="Phạm Tiến Đạt"></td>
+				</tr>
+				<tr>
+					<td>Mật khẩu cũ</td>
+					<td><input type="password" name="pass" size="35" maxlength="30"></td>
+				</tr>
+				<tr>
+					<td>Mật khẩu mới</td>
+					<td><input type="password" name="pass" size="35" maxlength="30"></td>
+				</tr>
+				<tr>
+					<td>Nhập lại mật khẩu mới</td>
+					<td><input type="password" name="pass1" size="35" maxlength="30"></td>
+				</tr>
+				
+				<tr>
+					<td>Email</td>
+					<td><input type="text" name="email" size="35" maxlength="20" value="datptse02336@fpt.edu.vn"></td>
+				</tr>
+				<tr>
+					<td>Mã xác nhận</td>
+					<td><input type="text" name="capcha" size="20"><img src="images/capcha.jpg" width="75px" height="30px"></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input style='padding:0 0 0 0;width:250px;height:40px;background:url(http://cdn.garenanow.com/webmain/static/images/bgd_big_btn.gif);text-align:center;vertical-align:middle;color:#FFF;font-size:18px;font-family:Tahoma, Geneva, sans-serif;' type="submit" value="Thay đổi thông tin"></td>
+				</tr>
+			</table>
+		</form>
 			</div>
 			<div id="pop-up">
-			<center>
 				<p>Các ứng dụng hay<br/>
 					- Từ điển Jvidic<br/>
 					- Từ điển Jvidic<br/>
@@ -192,10 +222,10 @@
 					- Từ điển Jvidic<br/>
 					- Từ điển Jvidic<br/>					
 				</p>
-				</center>
 			</div>
-		</div>
 		
+		</div>
+		</center>
 	</div>
 	<!-- end-content-->
 	<!-- footer-->
