@@ -3,8 +3,14 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="style.css">
-	<title>Trang cá nhân</title>
+	<title>Đóng góp nội dung</title>
+<script>
+function myOnchange()
+{
+var  if document.getElementById("tuvung");
 
+}
+</script>
 </head>
 <body>
 <div id="container">
@@ -18,7 +24,7 @@
 		<div id="top-bar-right">
 			<ul>
 				<li><a href="register.html">Đăng ký</a> |</li>
-				<li><a href="quenthongtin.html">Quên thông tin</a> |</li>
+				<li><a href="quenthongtin.html">Quên mật khẩu</a> |</li>
 				<li>
 				<form action="loginhomepage.html" method="POST">
                 <label>
@@ -51,7 +57,7 @@
         </li>
         <li><a href="#">Trung cấp</a>
         <ul>
-                <li><a href="n3nguphap.html">N3_Ngữ pháp</a></li>
+                 <li><a href="n3nguphap.html">N3_Ngữ pháp</a></li>
                 <li><a href="n3tuvung.html">N3_Từ vựng</a></li>
                 <li><a href="n3kanji.html">N3_Kanji</a></li>
                 <li><a href="n3doc.html">N3_Bài đọc</a></li>
@@ -76,15 +82,14 @@
         </li>                
         <li><a href="#">Luyện đọc</a>
             <ul>
-                <li><a href="n4dokkai.html">N4_55 Bài Dokkai</a></li>
+                 <li><a href="n4dokkai.html">N4_55 Bài Dokkai</a></li>
                 <li><a href="dokkaithi.html">Tổng hợp các bài dokkai trong đề thi</a></li>
             </ul>
         </li>
         <li><a href="#">Hội thoại</a>
         <ul>
         	<li><a href="hoithoaihangngay.html">Đàm thoại hàng ngày</a></li>
-                <li><a href="hoithoaithongdung.html">Đàm thoại 
-                thông dụng</a></li>
+          	<li><a href="hoithoaithongdung.html">Đàm thoại thông dụng</a></li>
         </ul>
         </li>
         <li><a href="kiemtra.html">Kiểm tra</a></li>
@@ -118,62 +123,34 @@
 		<div id="main-content">
 			<div id="main-result">
 				<div id="search-result">
-				<div align="left" style="margin-left:40px;">
-					<h2 style="color:blue;">Trang cá nhân</h2>
+				<div id="left"><a href="donggopdatabase.html"><span style="color:blue;font-weight:bold; font-size:18px;" >Back</span></a></div>
+					<h2 id="arc-title" style="margin-top:15px;">Đóng góp chữ Hán</h2>
+					<div>
 						<table>
+							</tr>
+							
 							<tr>
-								<td>Họ và tên :</td>
-								<td>Phạm Tiến Đạt</td>
+								<td>Chữ Hán:</td>
+								<td><input type="text"></td>
 							</tr>
 							<tr>
-								<td>Tên đăng nhập :</td>
-								<td>datptse02336</td>
+								<td>Âm Hán:</td>
+								<td><input type="text"></td>
 							</tr>
 							<tr>
-								<td>Email :</td>
-								<td>datptse02336@fpt.edu.vn</td>
+								<td>Nhập nghĩa:</td>
+								<td><textarea rows="10" cols="50"></textarea>
 							</tr>
 							<tr>
-							<td>
-                				<a href="thaydoithongtin.html"><input name="bt_dangnhap" id="bt_dangnhap" type="submit" value="Edit"/></a>
-                			</td>
-                			<td></td>
-                			<tr>
-							</table>
-				<h2 style="color:blue;">Kết quả học tập</h2>
-						<table class="table">
-							<tr style="text-align:center; font-weight:bold; background:#80B2D9">
-								<td width="25%">Bài kiểm tra</td>
-								<td width="25%">Phần kiểm tra</td>
-								<td width="25%">Ngày kiểm tra</td>
-								<td width="20%" >Điểm kiểm tra</td>
-								<td width="20%" >Cấp độ</td>
+								<td>Nhập mã xác nhận:</td>
+								<td><input type="text" name="capcha" size="20"><img src="images/capcha.jpg" width="75px" height="30px"></td>
 							</tr>
 							<tr>
-								<td>T-01</td>
-								<td>Nghe</td>
-								<td>20/5/2014</td>
-								<td><center>8/10</center></td>
-								<td><center>N4</center></td>
-							</tr>
-							<tr>
-								<td>T-01</td>
-								<td>Đọc</td>
-								<td>20/5/2014</td>
-								<td><center>8/10</center></td>
-								<td><center>N4</center></td>
-							</tr>
-							<tr>
-								<td>T-01</td>
-								<td>Ngữ pháp</td>
-								<td>20/5/2014</td>
-								<td><center>8/10</center></td>
-								<td><center>N4</center></td>
-							</tr>
+								<td></td>
+								<td><input style='padding:0 0 0 0;width:155px;height:40px;background:url(http://cdn.garenanow.com/webmain/static/images/bgd_big_btn.gif);text-align:center;vertical-align:middle;color:#FFF;font-size:13px;font-family:Tahoma, Geneva, sans-serif;' type="submit" value="Đóng góp"></td>
+				</tr>
 						</table>
-				<h2 style="color:blue;">Biểu đồ đánh giá</h2>
-				<img src="images/diem.png" width="600" height="400">
-				</div>
+					</div>
 				</div>
 			</div>
 			<div id="pop-up">

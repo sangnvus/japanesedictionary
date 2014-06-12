@@ -502,3 +502,10 @@ margin-right: 8px;
 position: fixed;
 top: 50%;
 }
+.table tr:nth-child(odd){
+	background-color:#D4F7F7;
+}
+#left{
+	text-align: left;
+	margin-left: 1px;
+}
