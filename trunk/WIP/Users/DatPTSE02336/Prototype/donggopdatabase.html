@@ -4,7 +4,13 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="style.css">
 	<title>Đóng góp nội dung</title>
+<script>
+function myOnchange()
+{
+var  if document.getElementById("tuvung");
 
+}
+</script>
 </head>
 <body>
 <div id="container">
@@ -117,33 +123,22 @@
 		<div id="main-content">
 			<div id="main-result">
 				<div id="search-result">
-					<h2 id="arc-title" style="margin-top:15px;">Đóng góp ý kiến</h2>
-					<div>
-						<table>
-							<tr>
-							<td></td>
-							<td>
-								<select>
-  									<option value="tuvung">Từ vựng</option>
-  									<option value="nguphap">Ngữ pháp</option>
-  									<option value="hoithoai">Tình huống hội thoại</option>
-  									<option value="nghe">Bài nghe</option>
-								</select>
-							</td>
-							</tr>
-							<tr>
-								<td>Nhập nội dung:</td>
-								<td><textarea rows="10" cols="50"></textarea>
-							</tr>
-							<tr>
-								<td>Nhập mã xác nhận:</td>
-								<td><input type="text" name="capcha" size="20"><img src="images/capcha.jpg" width="75px" height="30px"></td>
-							</tr>
-							<tr>
-								<td></td>
-								<td><input style='padding:0 0 0 0;width:155px;height:40px;background:url(http://cdn.garenanow.com/webmain/static/images/bgd_big_btn.gif);text-align:center;vertical-align:middle;color:#FFF;font-size:13px;font-family:Tahoma, Geneva, sans-serif;' type="submit" value="Đóng góp"></td>
-				</tr>
-						</table>
+					<h2 id="arc-title" style="margin-top:15px;">Chọn hình thức đóng góp</h2>					
+					<div class="item-wrap">
+						<a href="donggoptuvung.html" class="item" id="tuvung"><span class="label">Từ vựng</span></a>
+					</div>
+					<div class="item-wrap">
+						<a href="donggopnguphap.html" class="item" id="nguphap"><span class="label">Ngữ pháp</span></a>
+					</div>
+					<div class="item-wrap">
+						<a href="donggopbaidoc.html" class="item" id="baidoc"><span class="label">Bài đọc</span></a>
+					</div>
+					<div class="item-wrap">
+						<a href="donggopbainghe.html" class="item" id="bainghe"><span class="label">Bài nghe</span></a>
+					</div>
+					<div class="item-wrap">
+						<a href="donggopchuhan.html" class="item" id="chuhan"><span class="label">Chữ Hán</span></a>
+					</div>	
 					</div>
 				</div>
 			</div>
