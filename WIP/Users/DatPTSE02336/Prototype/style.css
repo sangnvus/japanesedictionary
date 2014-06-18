@@ -106,8 +106,7 @@ width:200px;
 #main-menu li:hover ul{
 display:block;
 }
-#content{
-	height: 1000px;
+#content{	
 	border: 1px solid #C0C0C0;
 	margin-left: 10%;
 	margin-right: 10%;	
@@ -136,17 +135,16 @@ display:block;
 	height: 100px;
 	width: 100%;
 }
-#main-result{
-	width: 75%;
-	float: left;
+#main-result{	
+	float: left;	
 }
 a:hover{
 	color: #0000FF;
 }
 #pop-up{
-	 border-left: 1px solid #DDD7D7;
-	 width: 22%;
+	 border-left: 1px solid #DDD7D7;	 
 	 float: left;
+	 width: 180px;
 }
 #Dieu-khoan{
 	 border-left: 1px solid #DDD7D7;
@@ -162,8 +160,9 @@ a:hover{
 	box-shadow: 0px 0px 8px #ccc;
 	padding-bottom: 8px;
 	border-radius: 8px;
-	height: 900px;
+	float: left;	
 	overflow:auto;
+	width: 850px;
 }
 #word-info{
 	padding: 5px;
