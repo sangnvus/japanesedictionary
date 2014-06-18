@@ -1,0 +1,515 @@
+﻿body{
+    margin: 0;
+	padding: 0;
+	color: #333;
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 1.5em;
+	text-align: justify;
+	background-color: #f8f0f0;
+}
+div{
+	position: static;	
+}
+#top-bar{
+	background-color: #3E6DA5;
+	border-bottom: 1px solid #3B5998;
+	box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.52);
+	left: 0;
+	line-height: 30px;
+	position: static;
+	top: 0;
+	width: 100%;
+	z-index: 999;
+	height: 50px;
+}
+#top-bar-left{
+	float: left;
+}
+#top-bar-right{
+	float: right;
+	margin-right: 15px;
+	color: #FFFFFF;
+}
+#top-bar ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	float: right;
+}
+#top-bar-right li {
+float: left;
+margin: 10px 0 6px 6px;
+font-weight: bold;
+}
+li {
+display: list-item;
+text-align: -webkit-match-parent;
+}
+a {
+text-decoration: none;
+color: #383838;
+cursor: pointer;
+}
+a:hover{
+	color: #D59728;
+}
+
+/*#top-bar-right li a {
+color: #FFFFFF;
+font-weight: bold;
+}*/
+#main-menu{
+height: 38px;	
+margin-left: 10%;
+margin-right: 10%;
+background-color: #3E6DA5;
+}
+#main-menu ul{
+list-style: none;
+font-family: Arial, san-serif;
+font-size: 12px;
+padding: 0;
+}
+
+#main-menu ul li{
+float:left;
+position:relative;
+}
+
+#main-menu ul a{
+text-decoration:none;
+color:#fff;
+display:block;
+font-weight:bold;
+padding:10px 30px;
+background:#3E6DA5;
+}
+
+#main-menu a:hover{
+color: #D59728;
+background-image: linear-gradient(to bottom,#2E9FD2,#5B8DC9);
+}
+
+/*CSS Tạo Menu Cấp 2*/
+#main-menu li ul a{
+background:#3E6DA5;
+width: 140px;
+}
+
+#main-menu li ul{
+position:absolute;
+display:none;
+width:200px;
+}
+
+#main-menu li:hover ul{
+display:block;
+}
+#content{
+	height: 1000px;
+	border: 1px solid #C0C0C0;
+	margin-left: 10%;
+	margin-right: 10%;	
+	background-color: #FFFFFF;
+}
+#box-search{	
+	border-bottom: 1px solid #C0C0C0;
+	margin: 10px auto;
+}
+#txtsearch{
+	background-color: #DDD7D7;
+	height: 30px;	
+	width: 50%;
+}
+#box-select{
+	background-color: #DDD7D7;
+	height: 30px;	
+}
+#main-content{
+	width: 100%;	
+	min-height: 500px;
+	border: 0.5px solid ;
+}
+#footer{	
+	background-color: #3E6DA5;
+	height: 100px;
+	width: 100%;
+}
+#main-result{
+	width: 75%;
+	float: left;
+}
+a:hover{
+	color: #0000FF;
+}
+#pop-up{
+	 border-left: 1px solid #DDD7D7;
+	 width: 22%;
+	 float: left;
+}
+#Dieu-khoan{
+	 border-left: 1px solid #DDD7D7;
+	 width: 50%;
+	 float: left;
+}
+#search-result{	
+	background: #fefefe;
+	margin-top: 10px;
+	margin-left: 5px;
+	margin-right: 10px;
+	border: 1px #bbb solid;
+	box-shadow: 0px 0px 8px #ccc;
+	padding-bottom: 8px;
+	border-radius: 8px;
+	height: 900px;
+	overflow:auto;
+}
+#word-info{
+	padding: 5px;
+background: #fff;
+-moz-border-radius: 6px;
+border-radius: 6px;
+font-size: 110%;
+color: #3300CC;
+margin-bottom: 20px;
+margin-top: 20px;
+font-size: 40px;
+font: bold;
+}
+#word-meaning li{
+	font-size: 20px;
+}
+#dangky{
+	width: 75%;
+	float: left;
+}
+#doimatkhau{
+	width: 75%;
+	float: left;
+}
+#quenthongtin {
+	width: 75%;
+	float: left;ss
+}
+#donggopdatabase{
+	width: 75%;
+	float: left;
+}
+#xemtailieu{
+	width: 75%;
+	float: left;
+}
+#btnSearch{
+    background-color: #3E6DA5;
+    background-image: linear-gradient(to bottom, #3E6DA5, #3E6DA5);
+    box-shadow: 0 1px 0 rgba(120, 200, 230, 0.5) inset;
+    border-color: #21759B #21759B #1E6A8D;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 3px 3px 3px 3px;
+    height: 30px;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-size: 12px;
+}
+#btnSearch:hover, #btnSearch:focus{
+	background-color: #FFFFFF;
+    background-image: linear-gradient(to bottom,#2E9FD2,#21759B);
+    border-color: #21759B #21759B #1E6A8D;
+    box-shadow: 0 1px 0 rgba(120,200,230,0.6) inset;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.3)
+}
+.item {
+width: 140px;
+border: #CCC 1px solid;
+margin: 15px;
+float: left;
+display: block;
+overflow: hidden;
+height: 32px;
+padding-top: 110px;
+text-align: center;
+background-position: 15px 8px;
+background-repeat: no-repeat;
+border-radius: 5px;
+line-height: 12px;
+}
+.label {
+display: block;
+height: 30px;
+line-height: 15px;
+margin: 0 auto;
+text-align: center;
+width: 120px;
+}
+.item-wrap {
+float: left;
+text-align: left;
+}
+.item-wrap a {
+text-decoration: none;
+color: #197394;
+cursor: pointer;
+}
+.item:hover{ 
+	border:#336 solid 1px; 
+	font-weight:bold; 
+	background-color:#eff;}
+
+#gth {
+background-image: url(images/lophoctiengnhat.png);
+}
+#key {
+background-image: url(images/banphim.png);
+}
+#huongdan {
+background-image: url(images/huongdanhoc.png);
+}
+#user {
+background-image: url(images/user.png);
+}
+#minna {
+background-image: url(images/minna.png);
+background-size: 100px 100px;
+}
+#manga {
+background-image: url(images/manga.jpg);
+background-size: 100px 100px;
+}
+#kaiwa {
+background-image: url(images/kaiwa.jpg);
+background-size: 100px 100px;
+}
+
+#tuvung {
+background-image: url(images/tuvung.png);
+background-size: 100px 100px;
+}
+#bainghe {
+background-image: url(images/nghe.png);
+background-size: 100px 100px;
+}#nguphap {
+background-image: url(images/grammar.png);
+background-size: 100px 100px;
+}#baidoc {
+background-image: url(images/luyendoc.png);
+background-size: 100px 100px;
+}#hoithoai {
+background-image: url(images/hoithoai.png);
+background-size: 100px 100px;
+}
+#chuhan {
+background-image: url(images/hantu.png);
+background-size: 100px 100px;
+}
+#luyentap{
+	background-image: url(images/luyentap.png);
+	background-size: 100px 100px;
+}
+#back {
+	background-image: url(images/back.jpg);
+	background-size: 5px 10px;
+}
+#arc-title {
+font-family: opensan;
+margin-top: 1px;
+font-weight: normal;
+font-size: 2em;
+}
+#left-top a{
+	color: #383838;
+	font-size: 13px;
+	cursor: pointer;
+	text-decoration: none;
+}
+a:hover{
+	color: #D59728;
+	background:#99FFFF;
+}
+
+.playerbt {
+display: block;
+width: 16px;
+height: 16px;
+background: url(images/play.png);
+background-image: url(http://old.lophoctiengnhat.com/images/play.png);
+background-position-x: initial;
+background-position-y: initial;
+background-size: initial;
+background-repeat-x: initial;
+background-repeat-y: initial;
+background-attachment: initial;
+background-origin: initial;
+background-clip: initial;
+background-color: initial;
+}
+.playwrap {
+display: inline-block;
+}
+
+
+
+
+
+div#container{
+	width:100%;
+	margin:0 auto;	
+}
+.tabs{
+	width:750px;
+	margin:0 auto 50px;	
+	position:relative;
+}
+
+.tabs input{
+	position:absolute;
+	top:0;
+	left:0;
+	display:none;	
+}
+.tabs label{
+	display:block;
+	float:left;
+	position:relative;
+	margin-left:20px;
+	padding:10px 15px;
+	line-height:1.5em;
+	min-width:40px;
+	text-align:center;
+	color: #000000;
+	font-size:13px;
+	font-weight:bold;
+	text-transform:uppercase;
+	letter-spacing:1px;
+	cursor:pointer;
+	
+	text-shadow:1px 1px 1px rgba(255,255,255,0.3);
+	-moz-text-shadow:1px 1px 1px rgba(255,255,255,0.3);
+	-webkit-text-shadow:1px 1px 1px rgba(255,255,255,0.3);
+	-ms-text-shadow:1px 1px 1px rgba(255,255,255,0.3);
+	-o-text-shadow:1px 1px 1px rgba(255,255,255,0.3);
+	
+	background:linear-gradient(top, #5ba4a4 0%, #4e8c8a 100%);
+	background:-moz-linear-gradient(top, #5ba4a4 0%, #4e8c8a 100%);
+	background:-webkit-linear-gradient(top, #fff 0%, #fff 100%);
+	background:-o-linear-gradient(top, #5ba4a4 0%, #4e8c8a 100%);
+	background:-ms-linear-gradient(top, #5ba4a4 0%, #4e8c8a 100%);
+	
+	border-radius:5px 5px 0 0;
+	-moz-border-radius:5px 5px 0 0;
+	-webkit-border-radius:5px 5px 0 0;
+	-o-border-radius:5px 5px 0 0;
+	-ms-border-radius:5px 5px 0 0;
+	
+	box-shadow:2px 0px 2px rgba(0,0,0,0.1),-2px 0 2px rgba(0,0,0,0.1);
+	-moz-box-shadow:2px 0px 2px rgba(0,0,0,0.1),-2px 0 2px rgba(0,0,0,0.1);
+	-webkit-box-shadow:2px 0px 2px rgba(0,0,0,0.1),-2px 0 2px rgba(0,0,0,0.1);
+	-ms-box-shadow:2px 0px 2px rgba(0,0,0,0.1),-2px 0 2px rgba(0,0,0,0.1);
+	-o-box-shadow:2px 0px 2px rgba(0,0,0,0.1),-2px 0 2px rgba(0,0,0,0.1);
+}
+.tabs label:hover{
+	background:#fff;	
+}
+
+.tabs label:after{
+	content:"";
+	display:block;
+	position:absolute;
+	width:100%;
+	height:5px;
+	background:#fff;
+	left:0;
+	bottom:-5px;
+}
+.tabs label:first-of-type{
+	box-shadow: 2px 0 2px rgba(0,0,0,0.1);
+	-moz-box-shadow: 2px 0 2px rgba(0,0,0,0.1);
+	-webkit-box-shadow: 2px 0 2px rgba(0,0,0,0.1);
+	-o-box-shadow: 2px 0 2px rgba(0,0,0,0.1);
+	-ms-box-shadow: 2px 0 2px rgba(0,0,0,0.1);
+}
+.clear-shadow{
+	clear:both;	
+}
+.content{
+	position:relative;
+	width:100%;
+}
+
+.content div{
+	position:absolute;
+
+	top:0;
+	left:0px;
+	opacity:0;
+	background:#fff;
+	padding:10px 40px 30px;
+	
+	border-radius:0 5px 5px 5px;
+	-moz-border-radius:0 5px 5px 5px;
+	-webkit-border-radius:0 5px 5px 5px;
+	-ms-border-radius:0 5px 5px 5px;
+	-o-border-radius:0 5px 5px 5px;
+	
+	box-shadow: 0 -2px 3px -2px rgba(0,0,0,0.2), 0 2px 2px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0 -2px 3px -2px rgba(0,0,0,0.2), 0 2px 2px rgba(0,0,0,0.1);
+	-webkit-box-shadow: 0 -2px 3px -2px rgba(0,0,0,0.2), 0 2px 2px rgba(0,0,0,0.1);
+	-ms-box-shadow: 0 -2px 3px -2px rgba(0,0,0,0.2), 0 2px 2px rgba(0,0,0,0.1);
+	-o-box-shadow: 0 -2px 3px -2px rgba(0,0,0,0.2), 0 2px 2px rgba(0,0,0,0.1);
+	
+	transition:opacity .4s;
+	-moz-transition:opacity .4s;
+	-webkit-transition:opacity .4s;
+	-ms-transition:opacity .4s;
+	-o-transition:opacity .4s;
+}
+
+
+
+/***** Xu Ly An Hien*****/
+.tabs input:checked + label{
+	background:#C0C0C0;
+	z-index:8;	
+}
+
+
+.tabs input.tab-selector-1:checked ~ .content .content-1,
+.tabs input.tab-selector-2:checked ~ .content .content-2,
+.tabs input.tab-selector-3:checked ~ .content .content-3,
+.tabs input.tab-selector-4:checked ~ .content .content-4,
+.tabs input.tab-selector-5:checked ~ .content .content-5,
+.tabs input.tab-selector-6:checked ~ .content .content-6{
+	opacity:1;
+}
+
+#some_div {
+    position: absolute;
+    bottom: 0;
+    height: 30px;
+    width: 40px;
+    border: solid 1px #000;
+}
+
+#test{display: none;}
+#test1{display: none;}
+#test2{display: none;}
+
+#bginTst {
+height: 32px;
+left: 10px;
+margin-right: 8px;
+position: fixed;
+top: 50%;
+}
+.table 
+	tr:nth-child(odd){
+	background-color:#D4F7F7;
+}
+	tr:nth-child(even){	
+	background-color:#FFFFFF;
+}
+#left{
+	text-align: left;
+	margin-left: 1px;
+}
