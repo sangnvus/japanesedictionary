@@ -123,8 +123,18 @@ font-weight: bold;
 	border-bottom: 1px solid #DDD7D7;		
 }
 #boxsearch{
-	width: 500px;
+	width: 300px;
 	float: left;
+}
+#search_source{
+	width: 550px;
+	float: left;
+}
+#title{
+	text-align: center;
+	width: 100%;
+	padding: 10px;
+	border-bottom: 1px solid #DDD7D7;	
 }
 #add{
 	width: 200px;
@@ -151,6 +161,17 @@ font-weight: bold;
 #table-user table{
 	border: 1px solid #DDD7D7;
 	border-collapse: collapse; 
+}
+#table-vocabulary{
+	width: 100%;
+	padding: 10px;	
+}
+#table-vocabulary td{
+	text-align: right;
+}
+#search_con{
+	width: 500px;
+	float: left;
 }
 #cssmenu {	 
   width: 20%;
