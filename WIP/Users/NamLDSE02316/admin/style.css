@@ -29,12 +29,12 @@ z-index: 10;
 color: #fff;
 text-decoration: none;
 }
-#content{
-	height: 600px;
+#content{	
 	border: 1px solid #C0C0C0;
 margin-left: 10%;
 margin-right: 10%;
 margin-top: 10px;
+margin-bottom: 20px;
 background-color: #FFFFFF;
 }
 #top-menu{	
@@ -74,9 +74,46 @@ float: left;
 	margin-left: 10px;
 }
 #main-content{
-	width: 75%;
+	width: 790px;
 	border-left: 1px solid #DDD7D7;	
 	float: left;
+}
+#left{
+width:165px;
+float: left;
+margin-right: 10px;
+margin-bottom: 10px;
+}
+
+#left h1{
+background:#99CC00;
+color:#FFFFFF;
+font-size:14px;
+text-align:center;
+}
+
+#left ul{
+list-style-type:none;
+margin:0px;
+padding:0px;
+}
+
+#left ul a{
+text-decoration:none;
+line-height:25px;
+color:#4C68F7;
+background:#EEEEEE;
+display:block;
+width:150px;
+border-top:1px solid #FFFFFF;
+border-bottom:1px solid #CCCCCC;
+padding-left:15px;
+}
+
+#left ul a:hover{
+background:#FFCC99;
+color: #505050;
+font-weight: bold;
 }
 #box-search{
 	width: 100%;
@@ -84,6 +121,14 @@ float: left;
 	padding: 10px;	
 	display: block;
 	border-bottom: 1px solid #DDD7D7;		
+}
+#boxsearch{
+	width: 500px;
+	float: left;
+}
+#add{
+	width: 200px;
+	float: left;
 }
 #table-user{
 	float: left;
