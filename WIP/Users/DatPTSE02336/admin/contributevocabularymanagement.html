@@ -46,31 +46,29 @@
         <li><a href="answermanagement.html">Answer Management</a></li>
         <li><a href="contactmanagement.html">Contact Management</a></li>
         <li><a href="contributevocabularymanagement.html">Contribute Vocabulary Management</a></li>
+        <li><a href="contributegrammarmanagement.html">Contribute Grammar Management</a></li>
+        <li><a href="contributekanjimanagement.html">Contribute Kanji Management</a></li>
     </ul>
 </div>
 	<div id="main-content">
 		<div id="box-search">
 		<div id="boxsearch">
-		<form action="search_vocabulary.html" method="POST">
+		<form action="search_con_vocabulary.html" method="POST">
 		Romaji: <input name="txtSearch"/>
 		<input type="submit" name="submit" value="Search" /> 
 		</form>
-		</div>
-		<div id="add">
-			<form action="add_vocabulary.html" method="POST">
-				<input type="submit" name="submit" value="Add New" /> 
-			</form>
 		</div>
 		</div>
 		<div id="table-user">
 			<table border="1">
 				<tr>
 				<th>Vocabulary ID</th>
-				<th>V_Hiragana</th>
-				<th>V_Romaji</th>
+				<th>Hiragana</th>
+				<th>Romaji</th>
 				<th>Meaning</th>
 				<th>Category</th>
 				<th>Kanji</th>
+				<th>Status</th>
 				<th>Edit</th>
 				<th>Delete</th>
 				</tr>
@@ -81,18 +79,20 @@
 				<td>việc học hành</td>
 				<td>n</td>
 				<td>勉強</td>
-				<td><a href="edit_vocabulary.html">Edit</a></td>
-				<td><a href="delete_vocabulary.html">Delete</a></td>
+				<td>0</td>
+				<td><a href="approved_vocabulary.html">Approved</a></td>
+				<td><a href="not_approved_vocabulary.html">Delete</a></td>
 				</tr>
 				<tr>
 				<td>2</td>
 				<td>べんきょう</td>
 				<td>benkyou</td>
-				<td>học tập, học, nghiên cứu</td>
-				<td>vs</td>
-				<td>勉強する</td>
-				<td><a href="edit_vocabulary.html">Edit</a></td>
-				<td><a href="delete_vocabulary.html">Delete</a></td>
+				<td>việc học hành</td>
+				<td>n</td>
+				<td>勉強</td>
+				<td>0</td>
+				<td><a href="approved_vocabulary.html">Approved</a></td>
+				<td><a href="not_approved_vocabulary.html">Delete</a></td>
 				</tr>
 				<tr>
 				<td>3</td>
@@ -101,8 +101,9 @@
 				<td>sự đi làm</td>
 				<td>n</td>
 				<td>通勤</td>
-				<td><a href="edit_vocabulary.html">Edit</a></td>
-				<td><a href="delete_vocabulary.html">Delete</a></td>
+				<td>0</td>
+				<td><a href="approved_vocabulary.html">Approved</a></td>
+				<td><a href="not_approved_vocabulary.html">Delete</a></td>
 				</tr>
 				<tr>
 				<td>4</td>
@@ -111,8 +112,9 @@
 				<td>đi làm</td>
 				<td>vs</td>
 				<td>通勤する </td>
-				<td><a href="edit_vocabulary.html">Edit</a></td>
-				<td><a href="delete_vocabulary.html">Delete</a></td>
+				<td>0</td>
+				<td><a href="approved_vocabulary.html">Approved</a></td>
+				<td><a href="not_approved_vocabulary.html">Delete</a></td>
 				</tr>
 				<tr>
 				<td>5</td>
@@ -121,8 +123,9 @@
 				<td>đi làm</td>
 				<td>vs</td>
 				<td>通勤する </td>
-				<td><a href="edit_vocabulary.html">Edit</a></td>
-				<td><a href="delete_vocabulary.html">Delete</a></td>
+				<td>0</td>
+				<td><a href="approved_vocabulary.html">Approved</a></td>
+				<td><a href="not_approved_vocabulary.html">Delete</a></td>
 				</tr>
 				<tr>
 				<td>6</td>
@@ -131,8 +134,9 @@
 				<td>đi làm</td>
 				<td>vs</td>
 				<td>通勤する </td>
-				<td><a href="edit_vocabulary.html">Edit</a></td>
-				<td><a href="delete_vocabulary.html">Delete</a></td>
+				<td>0</td>
+				<td><a href="approved_vocabulary.html">Approved</a></td>
+				<td><a href="not_approved_vocabulary.html">Delete</a></td>
 				</tr>
 				<tr>
 				<td>7</td>
@@ -141,8 +145,9 @@
 				<td>đi làm</td>
 				<td>vs</td>
 				<td>通勤する </td>
-				<td><a href="edit_vocabulary.html">Edit</a></td>
-				<td><a href="delete_vocabulary.html">Delete</a></td>
+				<td>0</td>
+				<td><a href="approved_vocabulary.html">Approved</a></td>
+				<td><a href="not_approved_vocabulary.html">Delete</a></td>
 				</tr>
 				<tr>
 				<td>8</td>
@@ -151,8 +156,9 @@
 				<td>đi làm</td>
 				<td>vs</td>
 				<td>通勤する </td>
-				<td><a href="edit_vocabulary.html">Edit</a></td>
-				<td><a href="delete_vocabulary.html">Delete</a></td>
+				<td>0</td>
+				<td><a href="approved_vocabulary.html">Approved</a></td>
+				<td><a href="not_approved_vocabulary.html">Delete</a></td>
 				</tr>
 				<tr>
 				<td>9</td>
@@ -161,8 +167,9 @@
 				<td>đi làm</td>
 				<td>vs</td>
 				<td>通勤する </td>
-				<td><a href="edit_vocabulary.html">Edit</a></td>
-				<td><a href="delete_vocabulary.html">Delete</a></td>
+				<td>0</td>
+				<td><a href="approved_vocabulary.html">Approved</a></td>
+				<td><a href="not_approved_vocabulary.html">Delete</a></td>
 				</tr>
 			</table>
 		</div>
