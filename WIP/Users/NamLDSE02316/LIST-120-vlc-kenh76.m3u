@@ -1,0 +1,355 @@
+#EXTM3U
+
+#EXTINF:0,1 : One TV
+udp://@225.1.1.1:30120
+
+#EXTINF:0,2 : Film Trailer
+udp://@225.1.1.2:30120
+
+#EXTINF:0,3 : Fox Sports
+udp://@225.1.1.3:30120
+
+#EXTINF:0,4 : DW
+udp://@225.1.1.4:30120
+
+#EXTINF:0,5 : HTV3
+udp://@225.1.1.5:30120
+
+#EXTINF:0,6 : HTV1
+udp://@225.1.1.6:30120
+
+#EXTINF:0,7 : HTV2
+udp://@225.1.1.7:30120
+
+#EXTINF:0,8 : HTV4
+udp://@225.1.1.9:30120
+
+#EXTINF:0,9 : HTV7
+udp://@225.1.1.10:30120
+
+#EXTINF:0,10 : HTV9
+udp://@225.1.1.11:30120
+
+#EXTINF:0,11 : HTVC Thuan Viet
+udp://@225.1.1.12:30120
+
+#EXTINF:0,12 : HTV shop
+udp://@225.1.1.13:30120
+
+#EXTINF:0,13 : HTVC Film
+udp://@225.1.1.14:30120
+
+#EXTINF:0,14 : Viet Nam Net
+udp://@225.1.1.15:30120
+
+#EXTINF:0,15 : FPT
+udp://@225.1.1.17:30120
+
+#EXTINF:0,16 : Ha Noi 1
+udp://@225.1.1.18:30120
+
+#EXTINF:0,17 : Du lich va cuoc song
+udp://@225.1.1.19:30120
+
+#EXTINF:0,18 : fashion tv
+udp://@225.1.1.156:30120
+
+#EXTINF:0,19 : TV5MONDE
+udp://@225.1.1.28:30120
+
+#EXTINF:0,20 : unknown
+udp://@225.1.1.30:30120
+
+#EXTINF:0,21 : Star sports
+udp://@225.1.1.32:30120
+
+#EXTINF:0,22 : BTV3
+udp://@225.1.1.34:30120
+
+#EXTINF:0,23 : BTV 5
+udp://@225.1.1.35:30120
+
+#EXTINF:0,24 : HTVC phu nu
+udp://@225.1.1.39:30120
+
+#EXTINF:0,25 : HTVC Gia dinh
+udp://@225.1.1.40:30120
+
+#EXTINF:0,26 : DN 1
+udp://@225.1.1.41:30120
+
+#EXTINF:0,27 : DN 2
+udp://@225.1.1.42:30120
+
+#EXTINF:0,28 : BTV 1
+udp://@225.1.1.43:30120
+
+#EXTINF:0,29 : BTV 2
+udp://@225.1.1.44:30120
+
+#EXTINF:0,30 : BTV 4
+udp://@225.1.1.45:30120
+
+#EXTINF:0,31 : HTV The Thao
+udp://@225.1.1.46:30120
+
+#EXTINF:0,32 : The Thao TV
+udp://@225.1.1.50:30120
+
+#EXTINF:0,33 : ATV 1
+udp://@225.1.1.52:30120
+
+#EXTINF:0,34 : CINEMAX
+udp://@225.1.1.117:30120
+
+#EXTINF:0,35 : O2 TV
+udp://@225.1.1.118:30120
+
+#EXTINF:0,36 : THP
+udp://@225.1.1.120:30120
+
+#EXTINF:0,37 : australia
+udp://@225.1.1.53:30120
+
+#EXTINF:0,38 : Unknown
+udp://@225.1.1.54:30120
+
+#EXTINF:0,39 : ANTV
+udp://@225.1.1.55:30120
+
+#EXTINF:0,40 : UNkown
+udp://@225.1.1.57:30120
+
+#EXTINF:0,41 : DRT 1
+udp://@225.1.1.58:30120
+
+#EXTINF:0,42 : DRT
+udp://@225.1.1.59:30120
+
+#EXTINF:0,43 : Unknown
+udp://@225.1.1.60:30120
+
+#EXTINF:0,44 : VTV 4
+udp://@225.1.1.64:30120
+
+#EXTINF:0,45 : VTV 9
+udp://@225.1.1.66:30120
+
+#EXTINF:0,46 : STYLE TV
+udp://@225.1.1.68:30120
+
+#EXTINF:0,47 : VOV
+udp://@225.1.1.69:30120
+
+#EXTINF:0,48 : Ha Noi 2
+udp://@225.1.1.70:30120
+
+#EXTINF:0,49 : The Thao TV
+udp://@225.1.1.50:30120
+
+#EXTINF:0,50 : VTV 1
+udp://@225.1.1.179:30120
+
+#EXTINF:0,51 : VTV 3 HD
+udp://@225.1.1.246:30120
+
+#EXTINF:0,52 : VTV 4
+udp://@225.1.1.182:30120
+
+#EXTINF:0,54 : VTV 6
+udp://@225.1.1.75:30120
+
+#EXTINF:0,55 : Media Corp
+udp://@225.1.1.84:30120
+
+#EXTINF:0,56 : THTG
+udp://@225.1.1.87:30120
+
+#EXTINF:0,57 : Discovery
+udp://@225.1.1.88:30120
+
+#EXTINF:0,58 : Hi TV
+udp://@225.1.1.90:30120
+
+#EXTINF:0,59 : THVL 1
+udp://@225.1.1.91:30120
+
+#EXTINF:0,60 : ST TV
+udp://@225.1.1.93:30120
+
+#EXTINF:0,61 : Ariang
+udp://@225.1.1.95:30120
+
+#EXTINF:0,62 : TVM
+udp://@225.1.1.96:30120
+
+#EXTINF:0,63 : The Thao TV
+udp://@225.1.1.50:30120
+
+#EXTINF:0,64 : CN
+udp://@225.1.1.99:30120
+
+#EXTINF:0,65 : BTV 3
+udp://@225.1.1.104:30120
+
+#EXTINF:0,66 : BTV 5
+udp://@225.1.1.105:30120
+
+#EXTINF:0,67 : VTC1
+udp://@225.1.1.185:30120
+
+#EXTINF:0,68 : VTC2
+udp://@225.1.1.107:30120
+
+#EXTINF:0,69 : VTV Can Tho 1
+udp://@225.1.1.108:30120
+
+#EXTINF:0,70 : VTC3
+udp://@225.1.1.125:30120
+
+#EXTINF:0,71 : VTc 7
+udp://@225.1.1.127:30120
+
+#EXTINF:0,72 : VTC 9
+udp://@225.1.1.128:30120
+
+#EXTINF:0,73 : DISNEy
+udp://@225.1.1.157:30120
+
+#EXTINF:0,74 : TLC
+udp://@225.1.1.137:30120
+
+#EXTINF:0,75 : Animal Planet
+udp://@225.1.1.158:30120
+
+#EXTINF:0,76 : K+
+udp://@225.1.1.140:30120
+
+#EXTINF:0,77 : AXN
+udp://@225.1.1.141:30120
+
+#EXTINF:0,78 : VTV 5
+udp://@225.1.1.146:30120
+
+#EXTINF:0,79 : D Dramas
+udp://@225.1.1.149:30120
+
+#EXTINF:0,80 : BTV
+udp://@225.1.1.152:30120
+
+#EXTINF:0,80 : KIDS co
+udp://@225.1.1.155:30120
+
+#EXTINF:0,81 : HBO SD
+udp://@225.1.1.154:30120
+
+#EXTINF:0,82 : Giai Tri TV
+udp://@225.1.1.161:30120
+
+#EXTINF:0,83 : Phim Viet
+udp://@225.1.1.162:30120
+
+#EXTINF:0,84 : M4me
+udp://@225.1.1.164:30120
+
+#EXTINF:0,85 : E Channel
+udp://@225.1.1.165:30120
+
+#EXTINF:0,86 : BiBi
+udp://@225.1.1.168:30120
+
+#EXTINF:0,87 : Info TV
+udp://@225.1.1.169:30120
+
+#EXTINF:0,88 : TV Shopping
+udp://@225.1.1.171:30120
+
+#EXTINF:0,89 : VTVcab 14
+udp://@225.1.1.173:30120
+
+#EXTINF:0,90 : Invest TV
+udp://@225.1.1.174:30120
+
+#EXTINF:0,91 : VTV cab 16
+udp://@225.1.1.175:30120
+
+#EXTINF:0,92 : VTV cab 17
+udp://@225.1.1.176:30120
+
+#EXTINF:0,93 : VTV 2
+udp://@225.1.1.180:30120
+
+#EXTINF:0,94 : VTC 4
+udp://@225.1.1.188:30120
+
+#EXTINF:0,95 : VTC 5
+udp://@225.1.1.189:30120
+
+#EXTINF:0,96 : QPVN
+udp://@225.1.1.245:30120
+
+#EXTINF:0,97 : VTC 6
+udp://@225.1.1.192:30120
+
+#EXTINF:0,98 : VTC 8
+udp://@225.1.1.194:30120
+
+#EXTINF:0,99 : Net Viet
+udp://@225.1.1.196:30120
+
+#EXTINF:0,100 : VTC 11
+udp://@225.1.1.197:30120
+
+#EXTINF:0,101 : I tv
+udp://@225.1.1.198:30120
+
+#EXTINF:0,102 : VTC 12
+udp://@225.1.1.199:30120
+
+#EXTINF:0,103 : VTV 2
+udp://@225.1.1.180:30120
+
+#EXTINF:0,104 : VTC 14
+udp://@225.1.1.214:30120
+
+#EXTINF:0,105 : TTXVN
+udp://@225.1.1.223:30120
+
+#EXTINF:0,106 : 1VTC HD
+udp://@225.1.1.233:30120
+
+#EXTINF:0,107 : 2VTC HD
+udp://@225.1.1.234:30120
+
+#EXTINF:0,108 : 3VTc HD
+udp://@225.1.1.235:30120
+
+#EXTINF:0,109 : VTC 3 HD
+udp://@225.1.1.236:30120
+
+#EXTINF:0,110 : I tvHD
+udp://@225.1.1.247:30120
+
+#EXTINF:0,111 : HTVC thuan viet HD
+udp://@225.1.1.239:30120
+
+#EXTINF:0,112 : HTV HD
+udp://@225.1.1.240:30120
+
+#EXTINF:0,113 : HTV 1 HD
+udp://@225.1.1.241:30120
+
+#EXTINF:0,114 : HTV 2 HD
+udp://@225.1.1.242:30120
+
+#EXTINF:0,115 : HTV 7 HD
+udp://@225.1.1.243:30120
+
+#EXTINF:0,116 : HTV 9 HD
+udp://@225.1.1.244:30120
+
+#EXTINF:0,117 : HBO HD
+udp://@225.1.1.248:30120
+
+#EXTINF:0,118 : CN HD
+udp://@225.1.1.249:30120
