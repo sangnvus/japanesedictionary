@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+	<link href="<?php echo base_url();?>public/css/style.css" rel="stylesheet" type="text/css" />
+	<title></title>
+</head>
+<body>
+<div id="container">
+		<?php 
+			if ($this->my_auth->is_User()) {
+				$this->load->view("user/top_login_view");
+			} else {
+				$this->load->view("user/top_view");
+			}
+			
+		 ?>		
+	<div id="content">
+		<?php $this->load->view("user/mainmenu_view");?>
+		<div id="noidung">
+			<center>
+				<?php $this->load->view("user/search_view");?>
+				<div id="main-content">
+					<div id="left-content">
+						<div id="intro-content">
+							<div style="margin-left:40px; margin-right: 60px; margin-top: 30px;">
+				- Hiện tại thì Website vẫn đang trong giai đoạn Demo, nên việc hướng dẫn chi tiết bằng Video chưa thể thực hiện được.<br>- Các bạn mới bắt đầu học, các bạn sẽ được học giáo trình Minnano Nihongo. Đây là giáo trình chuẩn được sử dụng giảng dạy tiếng Nhật tại các trung tâm tiếng Nhật, các trung tâm đào tạo tiếng Nhật cho Du học sinh, Hợp tác lao động...<br>- Đối với các bạn mới bắt đầu học Tiếng Nhật, các bạn phải học thuộc 2 bảng chữ Hiragana và Katakana. Các bạn học các bảng chữ này qua phần sơ cấp</div>
+				</div>
+					</div>
+					<?php $this->load->view("user/popup_view");?>			
+				</div>
+			<div style="clear:both"></div>
+			</center>
+		</div>
+	</div>
+		<?php $this->load->view("user/footer_view");?>
+</div>
+	
+</body>
+</html>
