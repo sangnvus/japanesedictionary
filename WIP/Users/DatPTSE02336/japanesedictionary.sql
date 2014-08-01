@@ -174,6 +174,7 @@ CREATE TABLE IF NOT EXISTS `meaning` (
   `m_meaningvn` varchar(500) DEFAULT NULL,
   `m_category` varchar(10) DEFAULT NULL,
   `m_kanji` varchar(10) DEFAULT NULL,
+  `m_specialized` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`m_id`),
   KEY `v_id` (`v_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
@@ -409,7 +410,6 @@ CREATE TABLE IF NOT EXISTS `vocabulary` (
   `v_id` int NOT NULL AUTO_INCREMENT,
   `v_hiragana` varchar(200) NOT NULL,
   `v_romaji` varchar(200) NOT NULL,
-  `v_specialized` varchar(200) DEFAULT NULL,
   `v_status` int DEFAULT NULL,
   PRIMARY KEY (`v_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
