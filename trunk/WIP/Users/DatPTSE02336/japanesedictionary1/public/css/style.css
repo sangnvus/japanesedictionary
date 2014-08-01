@@ -1,0 +1,731 @@
+body{
+	margin:0; 
+	padding:0; 
+	color:#333; 
+	font-size:12px; 
+	font-family:Arial, Helvetica, sans-serif; 
+	line-height:1.5em; 
+	text-align:justify;	
+}
+div{
+	display: block;
+}
+/*#container{
+	width: 100%;	
+	background-color: #f8f0f0;
+	display: block;
+}*/
+.container {
+  /*padding-right: 15px;
+  padding-left: 15px;*/
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;	
+	background-color: #f8f0f0;
+	display: block;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1340px;
+  }
+}
+.visible-xs,
+.visible-sm,
+.visible-md,
+.visible-lg {
+  display: none !important;
+}
+.visible-xs-block,
+.visible-xs-inline,
+.visible-xs-inline-block,
+.visible-sm-block,
+.visible-sm-inline,
+.visible-sm-inline-block,
+.visible-md-block,
+.visible-md-inline,
+.visible-md-inline-block,
+.visible-lg-block,
+.visible-lg-inline,
+.visible-lg-inline-block {
+  display: none !important;
+}
+@media (max-width: 767px) {
+  .visible-xs {
+    display: block !important;
+  }
+  table.visible-xs {
+    display: table;
+  }
+  tr.visible-xs {
+    display: table-row !important;
+  }
+  th.visible-xs,
+  td.visible-xs {
+    display: table-cell !important;
+  }
+}
+@media (max-width: 767px) {
+  .visible-xs-block {
+    display: block !important;
+  }
+}
+@media (max-width: 767px) {
+  .visible-xs-inline {
+    display: inline !important;
+  }
+}
+@media (max-width: 767px) {
+  .visible-xs-inline-block {
+    display: inline-block !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .visible-sm {
+    display: block !important;
+  }
+  table.visible-sm {
+    display: table;
+  }
+  tr.visible-sm {
+    display: table-row !important;
+  }
+  th.visible-sm,
+  td.visible-sm {
+    display: table-cell !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .visible-sm-block {
+    display: block !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .visible-sm-inline {
+    display: inline !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .visible-sm-inline-block {
+    display: inline-block !important;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .visible-md {
+    display: block !important;
+  }
+  table.visible-md {
+    display: table;
+  }
+  tr.visible-md {
+    display: table-row !important;
+  }
+  th.visible-md,
+  td.visible-md {
+    display: table-cell !important;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .visible-md-block {
+    display: block !important;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .visible-md-inline {
+    display: inline !important;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .visible-md-inline-block {
+    display: inline-block !important;
+  }
+}
+@media (min-width: 1200px) {
+  .visible-lg {
+    display: block !important;
+  }
+  table.visible-lg {
+    display: table;
+  }
+  tr.visible-lg {
+    display: table-row !important;
+  }
+  th.visible-lg,
+  td.visible-lg {
+    display: table-cell !important;
+  }
+}
+@media (min-width: 1200px) {
+  .visible-lg-block {
+    display: block !important;
+  }
+}
+@media (min-width: 1200px) {
+  .visible-lg-inline {
+    display: inline !important;
+  }
+}
+@media (min-width: 1200px) {
+  .visible-lg-inline-block {
+    display: inline-block !important;
+  }
+}
+@media (max-width: 767px) {
+  .hidden-xs {
+    display: none !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .hidden-sm {
+    display: none !important;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .hidden-md {
+    display: none !important;
+  }
+}
+@media (min-width: 1200px) {
+  .hidden-lg {
+    display: none !important;
+  }
+}
+.visible-print {
+  display: none !important;
+}
+@media print {
+  .visible-print {
+    display: block !important;
+  }
+  table.visible-print {
+    display: table;
+  }
+  tr.visible-print {
+    display: table-row !important;
+  }
+  th.visible-print,
+  td.visible-print {
+    display: table-cell !important;
+  }
+}
+#content {
+width: 978px;
+padding-top: 15px;
+margin: 0 auto;
+}
+
+/* top */
+#top{
+	background-color: #3E6DA5;
+	border-bottom: 1px solid #3B5998;
+	line-height: 30px;
+	height: 50px;
+	width: 100%;
+	left: 0;
+	display: auto;
+}
+#top-right{
+	float: right;
+	margin-right: 15px;
+	color: #FFFFFF;
+}
+#top ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+float: right;
+}
+#top-right li {
+float: left;
+margin: 10px 0 6px 6px;
+font-weight: bold;
+}
+#top-right a {
+text-decoration: none;
+color: #FDFCFC;
+cursor: pointer;
+}
+.error {
+font-family: Arial, Helvetica, sans-serif;
+font-size: 12px;
+color: #FFFFFF;
+}
+.dn_text{
+	border-radius: 5px 5px 5px 5px;
+	height: 20px;
+}
+#social-login {
+float: right;
+width: 80px;
+}
+#social-login a {
+display: block;
+float: left;
+height: 25px;
+margin-left: 10px;
+margin-top: 10px;
+width: 25px;
+}
+#facebook-bt {
+background: url(http://localhost/japanesedictionary/public/image/fb.png);
+}
+#google-bt {
+background: url(http://localhost/japanesedictionary/public/image/google.png);
+}
+
+/*---------------------------- end-top */
+
+/* mainmenu */
+#main-menu {
+width: 100%;
+height: 38px;
+background: url(http://localhost/japanesedictionary/public/image/mainmenu.png);
+}
+#main-menu ul{
+margin: 0;
+padding: 0;
+display: block;
+}
+#main-menu li {
+display: block;
+float: left;
+background: url(http://localhost/japanesedictionary/public/image/menu-sep.png) right no-repeat;
+overflow: hidden;
+}
+#main-menu li:hover {
+background: url(http://localhost/japanesedictionary/public/image/menu-hover.png);
+}
+#main-menu a {
+color: #FFF;
+display: block;
+line-height: 38px;
+padding: 0 8px;
+margin: 0 8px;
+height: 38px;
+float: left;
+text-decoration: none;
+}
+#main-menu a:hover{
+	color: #F90;
+}
+#main-menu #home a {
+width: 24px;
+background: url(http://localhost/japanesedictionary/public/image/home-icon.png) no-repeat center 5px;
+}
+/* sub menu */
+#main-menu li ul.sub1 {
+position: absolute;
+background: url(http://localhost/japanesedictionary/public/image/sub-menu-bg.png) bottom;
+width: 250px;
+margin-top: 38px;
+overflow: hidden;
+z-index: 5000000;
+display: none;
+}
+#main-menu li li {
+clear: both;
+background: url(http://localhost/japanesedictionary/public/image/sub-sep.png) bottom center no-repeat;
+width: 245px;
+}
+#main-menu li li:hover{ 
+	background:url(http://localhost/japanesedictionary/public/image/sup-hover.png) 
+}
+#main-menu li li a {
+line-height: 30px;
+height: 30px;
+}
+#main-menu li:hover ul {
+display: block;
+}
+/*------------------- end-sub menu */
+/*------------------- end-mainmenu */
+
+/* maincontent */
+#box-search {
+border-bottom: 1px solid #C0C0C0;
+margin: 10px auto;
+}
+#txtsearch {
+background-color: #DDD7D7;
+height: 30px;
+width: 50%;
+}
+#box-select {
+background-color: #DDD7D7;
+height: 30px;
+}
+#btnSearch {
+background-image: linear-gradient(to bottom, #3E6DA5, #3E6DA5);
+box-shadow: 0 1px 0 rgba(120, 200, 230, 0.5) inset;
+border-color: #21759B #21759B #1E6A8D;
+border-style: solid;
+border-width: 1px;
+border-radius: 3px 3px 3px 3px;
+height: 30px;
+cursor: pointer;
+color: #FFFFFF;
+font-size: 12px;
+}
+
+#noidung {
+border: 1px solid #C0C0C0;
+margin-left: 1%;
+margin-right: 1%;
+background-color: #FFFFFF;
+}
+#main-content {
+width: 100%;
+min-height: 500px;
+border: 0.5px solid;
+}
+#left-content {
+float: left;
+padding-bottom: 10px;
+width: 765px;
+}
+#intro-content {
+background: #fefefe;
+margin-top: 10px;
+margin-left: 5px;
+margin-right: 10px;
+border: 1px #bbb solid;
+box-shadow: 0px 0px 8px #ccc;
+padding-bottom: 8px;
+border-radius: 8px;
+float: left;
+overflow: auto;
+width: 750px;
+min-height: 500px;
+}
+#intro-content h1{
+	color: #223BC0;
+}
+#head{
+	width: 100%;
+	float: left;
+}
+#search-result{
+	width: 97%;
+	float: left;
+	border: 1px solid #a6c9e2;
+	margin-left: 10px;
+	margin-right: 10px;
+	border-radius: 5px;
+	font-size: 1.2em;
+	min-height: 300px;
+}
+#search-result tr{
+	background-color: #dfeffc;
+}
+.word_info {
+	float: left;
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+	background: #fff;
+	border-radius: 6px;
+	font-size: 110%;
+	color: #666666;
+	width: 98%;
+}
+.word_meanings{
+	float: left;
+}
+.word_meanings ol {
+margin: 0px;
+padding-bottom: 5px;
+float: left;
+}
+.word_meanings ol li {
+color: #000;
+margin: 3px 0px 10px 0px;
+}
+.gloss {
+color: #111;
+font-weight: normal;
+font-size: 105%;
+font-weight: bold;
+}
+.pos b {
+color: #666;
+font-style: italic;
+font-weight: normal;
+}
+#error{
+	width: 100%;
+	float: left;
+}
+/* Search Grammar*/
+#panel-grammar{
+	width: 97%;	
+	padding: 5px;
+	margin: 5px;	
+}
+#grammar-list{	
+	width: 97%;
+	background-color: #f5f5f5;
+	border-color: #ddd;
+	padding: 7px;
+	font-size: 20px;	
+}
+#grammar-list-body{
+	border-top: 1px solid #ddd;
+	width: 97%;
+	padding: 7px;
+}
+.grammar-meaning{
+	font-size: larger;
+	margin-bottom: 0.5em;
+}
+.imi{
+	padding: 10px;
+	font-weight: bold;
+}
+.rei{
+	font-weight: bold;
+	padding: 7px;
+}
+.rei-sentence li{
+	padding: 5px;
+}
+/* End - Search Grammar*/
+
+/* Search Conversation*/
+#panel-conversation{
+	width: 97%;	
+	padding: 5px;
+	margin: 5px;
+}
+#conversation-list{
+	width: 97%;
+	background-color: #f5f5f5;
+	border-color: #ddd;
+	padding: 7px;
+	font-size: 20px;
+}
+#conversation-list-body{
+	border-top: 1px solid #ddd;
+	width: 97%;
+	padding: 7px;
+}
+.conversation-meaning{
+	font-size: larger;
+	margin-bottom: 0.5em;
+}
+.conversation-meaning li{
+	text-decoration: none;	
+}
+/* End - Search Conversation*/
+
+/* Search Video*/
+.video-title{
+	padding: 10px;
+}
+/* End - Search Video*/
+/* item-wrap*/
+.item-wrap {
+float: left;
+text-align: left;
+}
+#gth {
+background-image: url(http://localhost/japanesedictionary/public/image/gioithieu.png);
+background-size: 100px 100px;
+}
+#key {
+background-image: url(http://localhost/japanesedictionary/public/image/banphim.png);
+}
+#huongdan {
+background-image: url(http://localhost/japanesedictionary/public/image/huongdanhoc.png);
+}
+#user {
+background-image: url(http://localhost/japanesedictionary/public/image/user.png);
+}
+#minna {
+background-image: url(http://localhost/japanesedictionary/public/image/minna.png);
+background-size: 100px 100px;
+}
+#manga {
+background-image: url(http://localhost/japanesedictionary/public/image/manga.jpg);
+background-size: 100px 100px;
+}
+#kaiwa {
+background-image: url(http://localhost/japanesedictionary/public/image/kaiwa.jpg);
+background-size: 100px 100px;
+}
+.item-wrap a {
+text-decoration: none;
+color: #197394;
+cursor: pointer;
+}
+.item {
+width: 140px;
+border: #CCC 1px solid;
+margin: 15px;
+float: left;
+display: block;
+overflow: hidden;
+height: 32px;
+padding-top: 110px;
+text-align: center;
+background-position: 15px 8px;
+background-repeat: no-repeat;
+border-radius: 5px;
+line-height: 12px;
+}
+.item:hover{ 
+	border:#336 solid 1px; 
+	font-weight:bold; 
+	background-color:#eff;}
+.label {
+display: block;
+height: 30px;
+line-height: 15px;
+margin: 0 auto;
+text-align: center;
+width: 120px;
+}
+/*------------------------------ end-item-wrap*/
+
+
+/* pop-up */
+#pop-up {
+border-left: 1px solid #DDD7D7;
+float: left;
+width: 19%;
+}
+/*--------------------------- end-pop-up */
+/*-------------------------- end-maincontent */
+
+/* footer */
+#footer {
+background-color: #3E6DA5;
+height: 100px;
+width: 100%;
+}
+/*-------------------------- end-footer */
+
+/*DATPT*/
+#test{display: none;}
+#test1{display: none;}
+#test2{display: none;}
+
+a:link { 
+text-decoration: none; 
+} 
+a:visited { 
+text-decoration: none; 
+} 
+a:hover { 
+text-decoration: none; 
+} 
+a:active { 
+text-decoration: none; 
+}
+/*DATPT*/
+
+/*List Minna*/
+.shopping-cart-table {
+border-left: 1px solid #E5EFF8;
+border-right: 1px solid #E5EFF8;
+margin-top: 10px;
+width: 100%;
+margin-right: 0px;
+margin-bottom: 0;
+margin-left: 0px;
+background: #FFF;
+}
+table.shopping-cart-table td {
+border-bottom: 1px solid #E5EFF8;
+padding: 5px;
+}
+table.shopping-cart-table tr:hover{background:#E5EFF8}
+.item-wrap {
+float: left;
+text-align: left;
+}
+.item {
+width: 140px;
+border: #CCC 1px solid;
+margin: 15px;
+float: left;
+display: block;
+overflow: hidden;
+height: 32px;
+padding-top: 110px;
+text-align: center;
+background-position: 15px 8px;
+background-repeat: no-repeat;
+border-radius: 5px;
+line-height: 12px;
+}
+.item-wrap a {
+text-decoration: none;
+color: #197394;
+cursor: pointer;
+}
+#tuvung {
+background-image: url(http://localhost/japanesedictionary/public/image/tuvung.png);
+background-size: 100px 100px;
+}
+#nguphap {
+background-image: url(http://localhost/japanesedictionary/public/image/grammar.png);
+background-size: 100px 100px;
+}
+#baidoc {
+background-image: url(http://localhost/japanesedictionary/public/image/luyendoc.png);
+background-size: 100px 100px;
+}
+#chuhan {
+background-image: url(http://localhost/japanesedictionary/public/image/hantu.png);
+background-size: 100px 100px;
+}
+#left {
+text-align: left;
+margin-left: 1px;
+}
+.table 
+ tr:nth-child(odd) {
+background-color: #D4F7F7;
+}
+#table1 
+	tr:nth-child(odd){
+	background-color:#D4F7F7;
+	font-size: 14px;
+}
+	tr:nth-child(even){	
+	background-color:#FFFFFF;
+	font-size: 14px;
+}
+.table2 
+	tr:nth-child(odd){
+	background-color:#D4F7F7;
+	font-size: 14px;
+}
+	tr:nth-child(even){	
+	background-color:#FFFFFF;
+	font-size: 14px;
+}
+#table3
+	tr:nth-child(odd){
+	font-size: 14px;
+}
+	tr:nth-child(even){	
+	font-size: 14px;
+}
+
+#li li{
+	list-style-type: none;
+}
+#detailGrammar{
+	font-size: larger;	
+}
+/*List Minna*/
