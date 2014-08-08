@@ -1,2 +1,0 @@
-name: Cuong
-Age: 23
