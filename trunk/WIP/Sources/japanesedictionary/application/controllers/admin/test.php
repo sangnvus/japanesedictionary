@@ -4,7 +4,8 @@
 */
 class Test extends CI_Controller
 {	
-	function __construct() {
+	function __construct() 
+    {
 		parent::__construct();
 		// load helper
 		$this->load->helper("url");
@@ -14,19 +15,20 @@ class Test extends CI_Controller
         //connect DB
 		$this->load->database();
         $this->load->model("Test_model");
-        if(!$this->my_auth->is_Admin()){            
+        if (!$this->my_auth->is_Admin()) {            
             redirect(base_url()."index.php/admin/verify/login");
             exit();
         }
 	}
-	function index() {
+	function index() 
+    {
 		// count record
         $max = $this->Test_model->num_rows();
         // so record tren 1 page
         $min = 10;
         $data['num_rows'] = $max;
         //--- Paging
-        if($max!=0){    
+        if ($max != 0) {    
         	//load library
             $this->load->library('pagination');                    
             $config['base_url'] = base_url()."index.php/admin/test/index";
@@ -40,15 +42,16 @@ class Test extends CI_Controller
             $data['test'] = $this->Test_model->getAllTest($min,$this->uri->segment($config['uri_segment']));
             // load view
             $this->load->view("admin/test/listTest_view",$data);
-        }else{
+        } else {
             $data['test'] =null;
             $this->load->view("admin/test/listTest_view",$data);
         }
 	}
-	function getTestByLevel() {
+	function getTestByLevel() 
+    {
         $data = "";
         $txtLevel = "";        
-        if(isset($_GET['txtLevel'])){
+        if (isset($_GET['txtLevel'])) {
             $txtLevel = $_GET['txtLevel'];            
         }
         $txtLevel = ($txtLevel===null) ? "" : $txtLevel;   
@@ -57,7 +60,7 @@ class Test extends CI_Controller
         $data['txtLevel'] = $txtLevel;
         $data['num_rows'] = $max;
         //--- Paging
-        if($max!=0){    
+        if ($max != 0) {    
             $this->load->library('pagination');                    
             $config['base_url'] = base_url()."index.php/admin/test/getTestByLevel?txtLevel=".$txtLevel."&search=Search";
             $config['total_rows'] = $max;
@@ -70,16 +73,17 @@ class Test extends CI_Controller
             $data['test'] = $this->Test_model->getTestByLevel($txtLevel,$min,$this->input->get('per_page'));
 
             $this->load->view("admin/test/listTest_view",$data);
-        }else{
+        } else {
             $data['test'] = null;            
             $this->load->view("admin/test/listTest_view",$data);            
         }
     }
-	function addTest() {
+	function addTest() 
+    {
 		$data['error'] = "";
-        if(isset($_POST['addnew'])){
+        if (isset($_POST['addnew'])) {
             $this->load->view("admin/test/addTest_view",$data);
-        }else{
+        } else {
             if (isset($_POST['ok'])) {                
                 if ($this->input->post("test_category") == "Listening") {
                     $config['upload_path'] = './public/audio';
@@ -90,20 +94,20 @@ class Test extends CI_Controller
                     $this->form_validation->set_rules("test_title","Title","required|max_length[20]|is_unique[test.test_title]|alpha_numeric");
                     $this->form_validation->set_rules("test_category","Category","required|max_length[50]");
                     $this->form_validation->set_rules("test_level","Level","required|max_length[10]");
-                    if (empty($_FILES['userfile']['name'])){
-                    $this->form_validation->set_rules('userfile', 'File', 'required');
+                    if (empty($_FILES['userfile']['name'])) {
+                        $this->form_validation->set_rules('userfile', 'File', 'required');
                     } 
-                    if($this->form_validation->run()==FALSE){            
+                    if ($this->form_validation->run() == FALSE) {            
                         $this->load->view("admin/test/addTest_view",array("error" => ""));
-                    }else{  
-                        if(!$this->upload->do_upload()){
+                    } else {  
+                        if (!$this->upload->do_upload()) {
                             $test = array("test_title"     => $this->input->post("test_title"),                        
                                       "test_category"  => $this->input->post("test_category"),
                                       "test_level"     => $this->input->post("test_level")                                                                                                                                                        
                             ); 
                             $this->Test_model->addTest($test);
                             redirect(base_url()."index.php/admin/test/index");                                                   
-                        }else{
+                        } else {
                             $test = array("test_title"     => $this->input->post("test_title"),                        
                                       "test_category"  => $this->input->post("test_category"),
                                       "test_level"     => $this->input->post("test_level"),
@@ -117,9 +121,9 @@ class Test extends CI_Controller
                     $this->form_validation->set_rules("test_title","Title","required|max_length[20]|is_unique[test.test_title]|alpha_numeric");
                     $this->form_validation->set_rules("test_category","Category","required|max_length[50]");
                     $this->form_validation->set_rules("test_level","Level","required|max_length[10]");
-                    if($this->form_validation->run()==FALSE){            
+                    if ($this->form_validation->run() == FALSE) {            
                         $this->load->view("admin/test/addTest_view",array("error" => ""));
-                    }else{                
+                    } else {                
                         $test = array("test_title"     => $this->input->post("test_title"),                        
                                       "test_category"  => $this->input->post("test_category"),
                                       "test_level"     => $this->input->post("test_level"),                                                                                                                    
@@ -139,11 +143,12 @@ class Test extends CI_Controller
             }                            
         }  
 	}
-	function editTest() {
+	function editTest() 
+    {
         $test_id = $this->uri->segment(4);                
         $data['info'] = $this->Test_model->getInfoAll($test_id);        
         $data['error'] = "";                  
-            if(isset($_POST['ok'])){ 
+            if (isset($_POST['ok'])) { 
                 if ($this->input->post("test_category") === "Listening") {
                     $config['upload_path'] = './public/audio';
                     $config['allowed_types'] = 'avi|flv|wmv|mp3';
@@ -154,17 +159,17 @@ class Test extends CI_Controller
                     $this->form_validation->set_rules("test_category","Category","required|max_length[50]");
                     $this->form_validation->set_rules("test_level","Level","required|max_length[10]");
 
-                    if($this->form_validation->run()==FALSE){            
+                    if ($this->form_validation->run() == FALSE) {            
                         $this->load->view("admin/test/editTest_view",array("error" => ""));
-                    }else{  
-                        if(!$this->upload->do_upload()){
+                    } else {  
+                        if (!$this->upload->do_upload()) {
                             $test = array("test_title"     => $this->input->post("test_title"),                        
                                       "test_category"  => $this->input->post("test_category"),
                                       "test_level"     => $this->input->post("test_level")                                                                                                                                                        
                             ); 
                             $this->Test_model->updateTest($test,$this->input->post("test_id")); 
                             redirect(base_url()."index.php/admin/test/index");                                                   
-                        }else{
+                        } else {
                             $test = array("test_title"     => $this->input->post("test_title"),                        
                                       "test_category"  => $this->input->post("test_category"),
                                       "test_level"     => $this->input->post("test_level"),
@@ -178,11 +183,11 @@ class Test extends CI_Controller
                     $this->form_validation->set_rules("test_title","Title","required|max_length[20]");
                     $this->form_validation->set_rules("test_category","Category","required|max_length[50]");
                     $this->form_validation->set_rules("test_level","Level","required|max_length[10]");
-                    // $this->form_validation->set_rules("test_content", "Content", 'trim|max_length[5000]');                                       
-                    if($this->form_validation->run()==FALSE){                      
+                    
+                    if ($this->form_validation->run() == FALSE) {                      
                         $data['info'] = $this->Test_model->getInfoAll($this->input->post("test_id")); 
                         $this->load->view("admin/test/editTest_view",$data);                
-                    }else{
+                    } else {
                         $test = array("test_title"    => $this->input->post("test_title"),
                                       "test_category" => $this->input->post("test_category"),
                                       "test_level"    => $this->input->post("test_level"),
@@ -196,25 +201,27 @@ class Test extends CI_Controller
                 $this->load->view("admin/test/editTest_view",$data);   
             }    
     }
-    //--- Xoa Test
-    function deleteTest() {
+    //--- Delete Test
+    function deleteTest() 
+    {
         $test_id = $this->uri->segment(4);
         $question_id = $this->uri->segment(5);
         $answer_id = $this->uri->segment(6);
         $question_id = ($question_id===null) ? "" : $question_id;
         $answer_id = ($answer_id===null) ? "" : $answer_id;
-        if(!is_null($test_id)){        	
+        if (!is_null($test_id)) {        	
 			$this->Test_model->deleteTest($test_id,$question_id,$answer_id);        		        	            
             redirect(base_url()."index.php/admin/test/index");        
-        }else{
+        } else {
             return false;     
         }
     }
-    function addQuestion() {
+    function addQuestion() 
+    {
         $test_id = $this->uri->segment(4);
         $data['info'] = $this->Test_model->getTestById($test_id);
         $data['error']="";
-        if(isset($_POST['ok'])){            
+        if (isset($_POST['ok'])) {            
             $this->form_validation->set_rules("test_content", "Content", 'trim|max_length[5000]');   
             $this->form_validation->set_rules("question_content","Question's content","required|max_length[200]");
             $this->form_validation->set_rules("answer1","Answer1","required|max_length[200]");                                                               
@@ -237,9 +244,9 @@ class Test extends CI_Controller
                     $dem++;
                 }
             }            
-            if($this->form_validation->run()==FALSE){   
+            if ($this->form_validation->run() == FALSE) {   
                 $this->load->view("admin/test/addQuestion_view",$data);                
-            }else{
+            } else {
                 if ($dem == 0) {
                     $data['error'] = "Must have one correct answer!";
                     $this->load->view("admin/test/addQuestion_view",$data);                
@@ -277,11 +284,12 @@ class Test extends CI_Controller
                     }                    
                 }                               
             }
-        }else{
+        } else {
             $this->load->view("admin/test/addQuestion_view",$data);   
         }
     }
-    function editQuestion() {
+    function editQuestion() 
+    {
         // get id from url
         $test_id = $this->uri->segment(4);
         $question_id = $this->uri->segment(5);
@@ -289,7 +297,7 @@ class Test extends CI_Controller
         $data['question'] = $this->Test_model->getQuestionById($question_id);
         $data['answer'] = $this->Test_model->getAnswerByQuestionId($question_id);                
         $data['error']="";
-        if(isset($_POST['ok'])){            
+        if (isset($_POST['ok'])) {            
             $answers = $this->input->post('answer');            
             $correctAnswer = ($this->input->post('correctAnswer')===null) ? "" : $this->input->post('correctAnswer');                    
             $cor = 0;
@@ -299,20 +307,20 @@ class Test extends CI_Controller
                 }
             }            
             $this->form_validation->set_rules("question_content","Content","required|max_length[200]");                                                          
-            if($this->form_validation->run()==FALSE){   
+            if ($this->form_validation->run() == FALSE) {   
                     $this->load->view("admin/test/editQuestion_view",$data);                
-            }else{
+            } else {
                 if ($cor === 0) {                
                     $data['error'] = "Must have one correct answer!";
                     $this->load->view("admin/test/editQuestion_view",$data);                
-                }else{
+                } else {
                     if ($cor === 1 ) {
                         $question = array("question_id"      =>$this->input->post("question_id"),                                                                     
                                   "test_id"          => $this->input->post("test_id"),
                                   "question_content" => $this->input->post("question_content")                                    
                                  );        
                         $this->Test_model->updateQuestion($question,$this->input->post("question_id"));                   
-                        foreach($answers as $answer_id => $answer_content){
+                        foreach ($answers as $answer_id => $answer_content) {
                             $answer =  array("question_id"    => $this->input->post("question_id"),
                                              "answer_id"      => $answer_id,
                                              "answer_content" => $answer_content,
@@ -327,29 +335,31 @@ class Test extends CI_Controller
                     }                
                 }                
             }
-        }else{
+        } else {
             $this->load->view("admin/test/editQuestion_view",$data);   
         }
     }
-    function deleteQuestion() {
+    function deleteQuestion() 
+    {
         $test_id = $this->uri->segment(4);
         $question_id = $this->uri->segment(5); 
-        if(!is_null($question_id)){         
+        if (!is_null($question_id)) {         
             $this->Test_model->deleteQuestion($question_id);                                        
             redirect(base_url()."index.php/admin/test/detailTest/$test_id");        
-        }else{
+        } else {
             return false;     
         }
     }
-    function detailTest() {
+    function detailTest() 
+    {
         $test_id = $this->uri->segment(4);
         $detailTest = $this->Test_model->detailTest($test_id);  
         $data="";
-        if($detailTest!=null){
-            foreach($detailTest as $row){
+        if ($detailTest != null) {
+            foreach ($detailTest as $row) {
                 $detailQuestion = $this->Test_model->detailQuestion($row->test_id); 
-                if($detailQuestion!=null){
-                    foreach($detailQuestion as $key => $value){
+                if ($detailQuestion != null) {
+                    foreach ($detailQuestion as $key => $value) {
                         $question_id = $value->question_id;                     
                         $detailAnswer = $this->Test_model->detailAnswer($question_id);
                         $detailQuestion[$key]->detailAnswer = $detailAnswer;
@@ -357,22 +367,18 @@ class Test extends CI_Controller
                     $data = array('detailTest'     => $detailTest, 
                                   'detailQuestion' => $detailQuestion             
                                  );       
-                }else{
+                } else {
                     $detailQuestion = null;
                     $data = array('detailTest'     => $detailTest, 
                                   'detailQuestion' => $detailQuestion             
                                  );          
                 }
             }
-        }else{
+        } else {
             $detailTest = null;
             $data = array('detailTest' => $detailTest                                     
                          );                 
-        }             
-        // echo "<pre>";
-        // print_r($data);
-        // echo "</pre>";
-        // die;
+        }                     
         $this->load->view('admin/test/detailTest_view',$data);
     }
 }

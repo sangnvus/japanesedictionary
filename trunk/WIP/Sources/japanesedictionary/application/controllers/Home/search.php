@@ -5,7 +5,8 @@
 class Search extends CI_Controller 
 {
 	//constructor
-	function __construct() {
+	function __construct() 
+	{
 		parent::__construct();		
 		$this->load->helper("url");
         $this->load->helper(array('form', 'url'));
@@ -15,22 +16,23 @@ class Search extends CI_Controller
 		$this->load->library('facebook');
         $this->config->load('facebook');	
 	}
-	public function lookup() {  
+	public function lookup() 
+	{  
         // process posted form data  
         $keyword = $this->input->post('term');  
         $data['response'] = 'false'; //Set default response 
         $this->load->model('Vocabulary_model'); 
         $query = $this->Vocabulary_model->lookup($keyword); //Search DB  
-        if(!empty($query)){  
+        if (!empty($query)) {  
             $data['response'] = 'true'; //Set response  
             $data['message'] = array(); //Create array  
-            foreach($query as $row){  
-            	if(strspn($row->v_romaji,$keyword)==0){
+            foreach ($query as $row) {  
+            	if (strspn($row->v_romaji,$keyword) == 0) {
             		$data['message'][] = array(   
                                         'id'=>$row->v_id,  
                                         'value' => $row->v_hiragana                                                                              
                                      );  //Add a row to array
-            	}else{
+            	} else {
                 	$data['message'][] = array(   
                                         'id'=>$row->v_id,  
                                         'value' => $row->v_romaji                                                                              
@@ -38,30 +40,32 @@ class Search extends CI_Controller
             	}
             }  
         }  
-        if('IS_AJAX'){  
+        if ('IS_AJAX') {  
             echo json_encode($data); //echo json string if ajax request                 
         }  
     }
-    public function lookupVideo() {  
+    public function lookupVideo() 
+    {  
         // process posted form data  
         $keyword = $this->input->post('term');  
         $data['response'] = 'false'; //Set default response 
         $this->load->model('Video_model'); 
         $query = $this->Video_model->lookup($keyword); //Search DB  
-        if(!empty($query)){  
+        if (!empty($query)) {  
             $data['response'] = 'true'; //Set response  
             $data['message'] = array(); //Create array  
-            foreach($query as $row){  
+            foreach ($query as $row) {  
             	$data['message'][] = array('id'=>$row->vi_id,  
                                         	'value' => $row->vi_title
                                      );  //Add a row to array  
             }  
         }  
-        if('IS_AJAX'){  
+        if ('IS_AJAX') {  
             echo json_encode($data); //echo json string if ajax request  
         }  
     }
-    public function lookupConversation() {  
+    public function lookupConversation() 
+    {  
         // process posted form data  
         $keyword = $this->input->post('term');  
         $data['response'] = 'false'; //Set default response 
@@ -69,85 +73,88 @@ class Search extends CI_Controller
 
         $query = $this->Conversation_model->lookup($keyword); //Search DB         
 
-        if(!empty($query)){  
+        if (!empty($query)) {  
             $data['response'] = 'true'; //Set response  
             $data['message'] = array(); //Create array  
-            foreach($query as $row){  
+            foreach ($query as $row) {  
             	$data['message'][] = array('id'=>$row->con_id,  
                                     		'value' => $row->con_title                                                                             
                                      );  //Add a row to array  
             }  
         }  
-        if('IS_AJAX'){  
+        if ('IS_AJAX') {  
             echo json_encode($data); //echo json string if ajax request  
         }  
     }
-    public function lookupGrammar() {  
+    public function lookupGrammar() 
+    {  
         // process posted form data  
         $keyword = $this->input->post('term');  
         $data['response'] = 'false'; //Set default response 
         $this->load->model('Grammar_model'); 
         $query = $this->Grammar_model->lookup($keyword); //Search DB  
-        if(!empty($query)){  
+        if (!empty($query)) {  
             $data['response'] = 'true'; //Set response  
             $data['message'] = array(); //Create array  
-            foreach($query as $row){  
-            	if(strspn($row->g_romaji,$keyword)==0){
+            foreach ($query as $row) {  
+            	if (strspn($row->g_romaji,$keyword) == 0) {
             		$data['message'][] = array('id'=>$row->g_id,  
                                         		'value' => $row->g_hiragana                                                                              
                                      );  //Add a row to array
-            	}else{
+            	} else {
                 	$data['message'][] = array('id'=>$row->g_id,  
                                         'value' => $row->g_romaji                                                                              
                                      );  //Add a row to array  
             	}
             }  
         }  
-        if('IS_AJAX'){  
+        if ('IS_AJAX') {  
             echo json_encode($data); //echo json string if ajax request                 
         }  
     }
-    public function lookupSpecialized() {  
+    public function lookupSpecialized() 
+    {  
         // process posted form data  
         $keyword = $this->input->post('term');  
         $data['response'] = 'false'; //Set default response 
         $this->load->model('Vocabulary_model'); 
         $query = $this->Vocabulary_model->lookupSpecialized($keyword); //Search DB  
-        if(!empty($query)){  
+        if (!empty($query)) {  
             $data['response'] = 'true'; //Set response  
             $data['message'] = array(); //Create array  
-            foreach($query as $row){  
-            	if(strspn($row->v_romaji,$keyword)==0){
+            foreach ($query as $row) {  
+            	if (strspn($row->v_romaji,$keyword) == 0) {
             		$data['message'][] = array('id'=>$row->v_id,  
                                         'value' => $row->v_hiragana                                                                              
                                      );  //Add a row to array
-            	}else{
+            	} else {
                 	$data['message'][] = array('id'=>$row->v_id,  
                                         'value' => $row->v_romaji                                                                              
                                      );  //Add a row to array  
             	}
             }  
         }  
-        if('IS_AJAX'){  
+        if ('IS_AJAX') {  
             echo json_encode($data); //echo json string if ajax request                 
         }  
     }
-	public function searchResults() {
+	public function searchResults() 
+	{
 		$keyword = '';
 		$optionSearch = '';
-		if(isset($_GET['txtsearch'])){
+		if (isset($_GET['txtsearch'])) {
 			$keyword = $_GET['txtsearch'];
 			$optionSearch = $_GET['optionSearch'];
 		}				
-		switch($optionSearch){
+		switch ($optionSearch) {
 			case 'sentence':
 				$this->load->model('Vocabulary_model');
 				$vocab = $this->Vocabulary_model->getVocabularyByHiragana(stripslashes($keyword));
 				$data = "";
-				if(!is_null($vocab)){
+				if (!is_null($vocab)) {
 					$meanings = $this->Vocabulary_model->getMeaningsByVocabId($vocab->v_id);
-					if(!is_null($meanings)){
-						foreach($meanings as $key => $value){
+					if (!is_null($meanings)) {
+						foreach ($meanings as $key => $value) {
 						// lấy m_id từ meaning
 							$m_id = $value->m_id;												
 							$sentences = $this->Vocabulary_model->getSencencesByMeaningId($m_id);
@@ -160,7 +167,7 @@ class Search extends CI_Controller
 							'keyword' => $keyword, 
 							'optionSearch' => $optionSearch						
 						);
-					}else{
+					} else {
 						$meanings = null;
 						$data = array(
 							'meanings' => $meanings, 
@@ -169,7 +176,7 @@ class Search extends CI_Controller
 							'optionSearch' => $optionSearch						
 						);
 					}																
-				}else{
+				} else {
 					$vocab = null;	
 					$data = array('vocab' => $vocab, 'keyword' => $keyword, 'optionSearch' => $optionSearch);		
 				}				
@@ -181,14 +188,14 @@ class Search extends CI_Controller
 				$conversationcontent = $this->Conversation_model->getConversationContentByHiragana(trim($keyword," "));
 
 				$data = "";
-				if(!is_null($conversationcontent)){					
-					foreach($conversationcontent as $key => $value){
+				if (!is_null($conversationcontent)) {					
+					foreach ($conversationcontent as $key => $value) {
 						$data = array('conversationcontents' => $conversationcontent,
 									'keyword' => $keyword,
 									'optionSearch' => $optionSearch
 							);						
 					}
-				}else{
+				} else {
 					$conversationcontent = null;
 					$data = array('keyword' => $keyword,
 								  'optionSearch' => $optionSearch,
@@ -200,16 +207,15 @@ class Search extends CI_Controller
 			case 'video':
 				$this->load->model('Video_model');
 				$video = $this->Video_model->getVideoByTitle(trim(stripslashes($keyword)));
-
 				$data = "";
-				if(!is_null($video)){
-					foreach($video as $key => $value){
+				if (!is_null($video)) {
+					foreach ($video as $key => $value) {
 						$data = array('videos' => $video,
 									  'keyword' => $keyword,
 									  'optionSearch' => $optionSearch
 										);
 					}
-				}else{
+				} else {
 					$video = null;
 					$data = array('keyword' => $keyword,
 								  'optionSearch' => $optionSearch,
@@ -223,8 +229,8 @@ class Search extends CI_Controller
 				$grammar = $this->Grammar_model->getGrammarByHiragana(stripslashes($keyword));
 
 				$data = "";
-				if(!is_null($grammar)){
-					foreach($grammar as $key => $value){
+				if (!is_null($grammar)) {
+					foreach ($grammar as $key => $value) {
 						 $g_id = $value->g_id;
 						 $sentences = $this->Grammar_model->getSentenceByGrammarId($g_id);
 						 $grammar[$key]->sentences = $sentences;
@@ -234,7 +240,7 @@ class Search extends CI_Controller
 									'keyword' => $keyword,
 									'optionSearch' => $optionSearch
 									);
-				}else{
+				} else {
 					$grammar = null;	
 					$data = array('keyword' => $keyword,
 									'grammar' => $grammar, 
@@ -246,10 +252,10 @@ class Search extends CI_Controller
 				$this->load->model('Vocabulary_model');
 				$vocab= $this->Vocabulary_model->getVocabularyByHiragana(stripslashes($keyword));
 				
-				if(!is_null($vocab)){
+				if (!is_null($vocab)) {
 					$meanings = $this->Vocabulary_model->getMeaningsSpecializedByVocabId($vocab->v_id);
-					if(!is_null($meanings)){
-						foreach($meanings as $key => $value){
+					if (!is_null($meanings)) {
+						foreach ($meanings as $key => $value) {
 						// lấy m_id từ meaning
 							$m_id = $value->m_id;												
 							$sentences = $this->Vocabulary_model->getSencencesByMeaningId($m_id);
@@ -262,7 +268,7 @@ class Search extends CI_Controller
 							'keyword' => $keyword, 
 							'optionSearch' => $optionSearch						
 						);
-					}else{
+					} else {
 						$meanings = null;
 						$data = array(
 							'meanings' => $meanings, 
@@ -271,7 +277,7 @@ class Search extends CI_Controller
 							'optionSearch' => $optionSearch						
 						);
 					}																
-				}else{
+				} else {
 					$vocab = null;	
 					$data = array('vocab' => $vocab, 'keyword' => $keyword, 'optionSearch' => $optionSearch);		
 				}				
@@ -279,9 +285,7 @@ class Search extends CI_Controller
 				break;
 			default:				
 				break;
-		}
-		
+		}		
 	}	
-
 }
  ?>
