@@ -8,7 +8,7 @@ class Grammar extends CI_Controller
 	function __construct() 
     {
 		parent::__construct();
-		// load helper
+		// load helper        
 		$this->load->helper("url");
         $this->load->helper(array('form', 'url'));
         // load library
