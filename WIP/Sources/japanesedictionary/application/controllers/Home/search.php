@@ -5,12 +5,14 @@
 class Search extends CI_Controller 
 {
 	//constructor
+	//コンストラクタ
 	function __construct() 
 	{
 		parent::__construct();		
 		$this->load->helper("url");
         $this->load->helper(array('form', 'url'));
         // load library
+        //　ロード　ライブラリ
         $this->load->library(array("input","form_validation","session","my_auth","email"));
 		$this->load->database();	
 		$this->load->library('facebook');
@@ -18,14 +20,23 @@ class Search extends CI_Controller
 	}
 	public function lookup() 
 	{  
-        // process posted form data  
+        // process posted form data
+        //　データ　フォーム　プロセス 
         $keyword = $this->input->post('term');  
-        $data['response'] = 'false'; //Set default response 
+        $data['response'] = 'false'; 
+        //Set default response 
+        //デフォールト　の　レスポンス　を　セットする
         $this->load->model('Vocabulary_model'); 
-        $query = $this->Vocabulary_model->lookup($keyword); //Search DB  
+        $query = $this->Vocabulary_model->lookup($keyword); 
+        //Search DB 
+        //　データベース　に　探す 
         if (!empty($query)) {  
-            $data['response'] = 'true'; //Set response  
-            $data['message'] = array(); //Create array  
+            $data['response'] = 'true'; 
+            //Set response
+            //レスポンス　をセットする  
+            $data['message'] = array(); 
+            //Create array 
+            //アレイ　を　クリエートする 
             foreach ($query as $row) {  
             	if (strspn($row->v_romaji,$keyword) == 0) {
             		$data['message'][] = array(   
@@ -41,7 +52,9 @@ class Search extends CI_Controller
             }  
         }  
         if ('IS_AJAX') {  
-            echo json_encode($data); //echo json string if ajax request                 
+            echo json_encode($data); 
+            //echo json string if ajax request                 
+            //
         }  
     }
     public function lookupVideo() 

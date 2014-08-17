@@ -4,27 +4,34 @@
 */
 class Test extends CI_Controller
 {
-	//constructor	
+	//constructor
+	//コンストラクタ　		
 	function __construct() 
 	{
 		parent::__construct();	
-		//load helper			
+		//load helper
+		//ロード　ヘルパー　			
 		$this->load->helper("url");
         $this->load->helper(array('form', 'url'));		
         //load library
+        //　ロード　ライブラリ
 		$this->load->library(array("input","form_validation","session","my_auth","email"));	
 		$this->load->library('facebook');
         $this->config->load('facebook');
         //load Model
+        //　ロード　モデル
 		$this->load->model('Test_model');
 		$user = $this->facebook->getUser();
 
 		if (!$this->my_auth->is_User() && !$user) {        	
-            // redirect den homepage            
+            // redirect den homepage
+            //　ホームまで　リダイレクト            
             redirect(base_url()."index.php/Home/user");
             exit();
         }		
 	}
+	// list Test
+	// リスト　テスト
 	function listTest() 
 	{
 		$level = $this->uri->segment(4);
@@ -38,6 +45,7 @@ class Test extends CI_Controller
 		}
 		$this->load->view('user/test/listTest_view', $data);
 	}
+	//　詳細テスト
 	function detailTest() 
 	{
 		$test_id = $this->uri->segment(4);
@@ -73,6 +81,7 @@ class Test extends CI_Controller
 	function result() 
 	{
 		//load Model
+		//　ロード　モデル
 		$this->load->model('Test_model');
 		$test_category = $this->input->post('hidden-category');
 		$test_id = $this->input->post('hidden-id');
@@ -97,17 +106,19 @@ class Test extends CI_Controller
 		}
 		$tm_mark = $totalCorrect;
 		// get Current Date
+		// 現在のデート　を　得る
 		$now = getdate();
   		$currentDate = $now["year"] . "-" . $now["mon"] . "-" . $now["mday"];
 		$data['totalCorrect'] = $totalCorrect;	
 		//check Tracking Mark table is null?
+		//トラッキング　マーク　テーブル　は　ゼロ　かどうか　チェックする？
 		$check = $this->Test_model->getListTrackingMark();
 		// tracking mark
+		// トラッキング　マーク
 		$track = "";
 		//get user from facebook
-		$user = $this->facebook->getUser();		
-		// echo $user;
-		// die;
+		//facebook　から　ユーザ　を　得る
+		$user = $this->facebook->getUser();				
 		if ($user) {
 			$userProfile = $this->Test_model->getFacebookUser($user);
 			if ($check == 0) {
@@ -143,6 +154,7 @@ class Test extends CI_Controller
 		$this->Test_model->addTrackingMark($track);		
 		$this->load->view('user/test/resultTest_view', $data);		
 	}
+	//　結果　レヴュー
 	function reviewResult() 
 	{
 		$test_id = $this->uri->segment(4);
