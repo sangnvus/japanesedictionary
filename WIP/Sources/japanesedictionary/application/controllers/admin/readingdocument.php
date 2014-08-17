@@ -9,28 +9,39 @@ class ReadingDocument extends CI_Controller
     {
 		parent::__construct();
 		// load helper
+        //ロード　ヘルパー
 		$this->load->helper("url");
         $this->load->helper(array('form', 'url'));
         // load library
+        //　ロード　ライブラリ
         $this->load->library(array("input","form_validation","session","my_auth","email"));
         //connect DB
+        //　データベース　に　接続する
 		$this->load->database();
         $this->load->model("ReadingDocument_model");
+        //check Authentication
+        //　認証　を　チェックする
         if (!$this->my_auth->is_Admin()) {            
             redirect(base_url()."index.php/admin/verify/login");
             exit();
         }
 	}
+    //　list　ReadingDocument
+    //　リスト　読解　の　ドキュメント
     function listReadingDocument()
     { 
         // count record
+        // レコード　を　カウントする
         $max = $this->ReadingDocument_model->num_rows_ReadingDocument();
-        // so record tren 1 page
+        // number of records on one page
+        // ページ　に　レコード　の　番号
         $min = 10;
         $data['num_rows'] = $max;
         //--- Paging
+        //　ページング
         if ($max != 0) {    
             //load library
+            //　ロード　ライブラリ
             $this->load->library('pagination');                    
             $config['base_url'] = base_url()."index.php/admin/readingdocument/listReadingDocument";
             $config['total_rows'] = $max;
@@ -40,14 +51,18 @@ class ReadingDocument extends CI_Controller
             $this->pagination->initialize($config);                        
             $data['links'] = $this->pagination->create_links();
             //get data from DB
+            //データベース　から　データ　を　得る
             $data['readingdocument'] = $this->ReadingDocument_model->getAllReadingDocument($min,$this->uri->segment($config['uri_segment']));
             // load view
+            // ロード　ビュー
             $this->load->view("admin/readingdocument/listReadingDocument_view",$data);
         } else {
             $data['readingVocab'] = null;
             $this->load->view("admin/readingdocument/listReadingDocument_view",$data);
         }
     }
+    //　add　Reading
+    //　読解　を　加える
     function addReading() 
     {
         $data['error'] = "";
@@ -69,6 +84,8 @@ class ReadingDocument extends CI_Controller
             $this->load->view("admin/readingdocument/addReading_view",$data);
         }                
     }
+    //　edit　Reading
+    //　読解　を　修正する
     function editReading() 
     {
         $reading_id = $this->uri->segment(4);
@@ -94,6 +111,8 @@ class ReadingDocument extends CI_Controller
             $this->load->view("admin/readingdocument/editReading_view",$data);
         }                
     }
+    //　delete　Reading
+    //　読解　を　消す
     function deleteReadingDocument() 
     {
         $reading_id = $this->uri->segment(4);
@@ -104,57 +123,61 @@ class ReadingDocument extends CI_Controller
             return false;     
         }
     }
-    function getReadingByLevel() 
+    //　レベル　で　読解　を　得る    
+    function getReadingByLevel()
     {
-		$data = "";
-        $txtLevel = "";        
+        $data = "";
+        $txtLevel = "";
         if (isset($_GET['txtLevel'])) {
-            $txtLevel = $_GET['txtLevel'];            
+            $txtLevel = $_GET['txtLevel'];
         }
-        if (strpos($txtLevel,'%') !== false) {                        
-            $data['readingdocument'] = null;       
+        if (strpos($txtLevel,'%') !== false) {
+            $data['readingdocument'] = null;
             $data['txtLevel'] = $txtLevel;    
             $this->load->view("admin/readingdocument/listReadingDocument_view",$data);
         }
-        $txtLevel = ($txtLevel===null) ? "" : $txtLevel;   
-    	$max = $this->ReadingDocument_model->num_rowsBySearch($txtLevel);
+        $txtLevel = ($txtLevel === null) ? "" : $txtLevel;
+        $max = 0;
+        $max = $this->ReadingDocument_model->num_rowsBySearch($txtLevel);
         $min = 10;
         $data['txtLevel'] = $txtLevel;
         $data['num_rows'] = $max;
-	        //--- Paging
-        if ($max != 0) {    
-            $this->load->library('pagination');                    
+        //--- Paging
+        if ($max != 0) {
+            $this->load->library('pagination');
             $config['base_url'] = base_url()."index.php/admin/readingdocument/getReadingByLevel?txtLevel=".$txtLevel."&search=Search";
             $config['total_rows'] = $max;
             $config['per_page'] = $min;
-            $config['num_link'] = 3; 
-            // $config['uri_segment'] = 4;
+            $config['num_link'] = 3;
+
             $config['page_query_string'] = TRUE;
-
-            $this->pagination->initialize($config);                        
-                        
-            $data['links'] = $this->pagination->create_links();
+            $this->pagination->initialize($config);  
+            $data['links'] = $this->pagination->create_links();                      
             $data['readingdocument'] = $this->ReadingDocument_model->getReadingByLevel($txtLevel,$min,$this->input->get('per_page'));
-
             $this->load->view("admin/readingdocument/listReadingDocument_view",$data);
         } else {
-            $data['readingdocument'] = null;           
-            $this->load->view("admin/readingdocument/listReadingDocument_view",$data);            
-        }                     
-	}
+            $data['readingdocument'] = null;
+            $this->load->view("admin/readingdocument/listReadingDocument_view",$data);
+        }        
+    }
+
     function listReadingVocab() 
     {
         // count record
+        // レコード　を　カウントする
         $reading_id = $this->uri->segment(4);
         $data['reading'] = $this->ReadingDocument_model->getInfo($reading_id);
         $max = $this->ReadingDocument_model->num_rows_ReadingVocab($reading_id);
-        // so record tren 1 page
+        // number of records on one page
+        // ページ　に　レコード　の　番号
         $min = 10;
         $data['num_rows'] = $max;
         $data['reading_id'] = $reading_id;
         //--- Paging
+        //　ページング
         if ($max != 0) {    
             //load library
+            //　ロード　ライブラリ
             $this->load->library('pagination');                    
             $config['base_url'] = base_url()."index.php/admin/readingdocument/listReadingVocab/$reading_id";
             $config['total_rows'] = $max;
@@ -164,15 +187,18 @@ class ReadingDocument extends CI_Controller
             $this->pagination->initialize($config);                        
             $data['links'] = $this->pagination->create_links();
             //get data from DB
+            //データベース　から　データ　を　得る
             $data['readingVocab'] = $this->ReadingDocument_model->getAllReadingVocab($reading_id,$min,$this->uri->segment($config['uri_segment']));
             // load view
+            // ロード　ビュー
             $this->load->view("admin/readingdocument/listReadingVocabulary_view",$data);
         } else {
             $data['readingVocab'] =null;
             $this->load->view("admin/readingdocument/listReadingVocabulary_view",$data);
         }
     }
-	//--- Xoa Reading
+	//--- delete Reading
+    //---　読解　を　消す
     function deleteReadingVocab() 
     {
         $reading_id = $this->uri->segment(4);
@@ -185,6 +211,8 @@ class ReadingDocument extends CI_Controller
             return false;     
         }
     }
+    //--- add　Reading　Vocab
+    //---　言葉　の　読解　を　加える
 	function addReadingVocab() 
     {
         $reading_id = $this->uri->segment(4);
@@ -212,6 +240,8 @@ class ReadingDocument extends CI_Controller
             $this->load->view("admin/readingdocument/addReadingVocab_view",$data);    
         }
     }
+    //--- edit　Reading　Vocab
+    //---　言葉　の　読解　を　修正する
     function editReadingVocab() 
     {
     	$reading_id = $this->uri->segment(4);
@@ -241,7 +271,6 @@ class ReadingDocument extends CI_Controller
         }
     } 
 
-    //add Reading Article
     function viewReadingArticle() 
     {
         $reading_id = $this->uri->segment(4);
@@ -249,6 +278,8 @@ class ReadingDocument extends CI_Controller
         $data['article'] = $this->ReadingDocument_model->getReadingArticleById($reading_id);
         $this->load->view('admin/readingdocument/viewReadingArticle_view', $data);
     }
+    //add Reading Article
+    //　アーティクルの読解　を　加える
 	function addReadingArticle() 
     {
         $reading_id = $this->uri->segment(4);
@@ -280,6 +311,8 @@ class ReadingDocument extends CI_Controller
             return false;
         }
     }
+    //edit Reading Article
+    //　アーティクルの読解　を　修正する
     function editReadingArticle() 
     {
     	$reading_id = $this->uri->segment(4);
@@ -309,7 +342,8 @@ class ReadingDocument extends CI_Controller
             $this->load->view("admin/readingdocument/editReadingArticle_view",$data);   
         }
     } 
-    //--- Xoa Reading
+    //--- delete Reading
+    //---　読解　を　消す
     function deleteReadingArticle() 
     {
         $reading_id = $this->uri->segment(4);

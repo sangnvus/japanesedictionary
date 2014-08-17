@@ -8,13 +8,19 @@ class Home extends CI_Controller
 	function __construct() 
     {
 		parent::__construct();		
+        //ロード　ヘルパー 
 		$this->load->helper("url");
         $this->load->helper(array('form', 'url'));		
+        //　ロード　ライブラリ
 		$this->load->library(array("input","form_validation","session","my_auth","email"));         
+        //check Authentication
+        //　認証　を　チェックする
 		if (!$this->my_auth->is_Admin()) {			
             redirect(base_url()."index.php/admin/verify/login");
             exit();
         }
+        //load model
+        //　ロード　モデル
         $this->load->database();
         $this->load->model("User_model");
 	}
@@ -23,6 +29,7 @@ class Home extends CI_Controller
 		$this->load->view("admin/login_admin_view");
 	}
     // list User
+    // リスト　ユーザ
     public function index() 
     {             
         $this->User_model->getAllUser();
@@ -30,7 +37,10 @@ class Home extends CI_Controller
         $min = 10;
         $data['num_rows'] = $max;
         //--- Paging
-        if ($max != 0) {    
+        //　ページング        
+        if ($max != 0) {
+            //load library
+            //　ロード　ライブラリ    
             $this->load->library('pagination');                    
             $config['base_url'] = base_url()."index.php/admin/home/index";
             $config['total_rows'] = $max;
@@ -39,6 +49,8 @@ class Home extends CI_Controller
             $config['uri_segment'] = 4;
             $this->pagination->initialize($config);                                     
             $data['links'] = $this->pagination->create_links();
+            //get data from DB
+            //データベース　から　データ　を　得る
             $data['users'] = $this->User_model->getAllUser($min,$this->uri->segment($config['uri_segment']));
             $this->load->view("admin/homepageadmin_view",$data);
         } else {
@@ -46,6 +58,8 @@ class Home extends CI_Controller
             $this->load->view("admin/homepageadmin_view",$data);
         }
     }
+    // list　Admin
+    //　リスト　Admin
 	public function listAdmin() 
     {
         if ($this->my_auth->is_SuperAdmin()) {                                            
@@ -69,6 +83,8 @@ class Home extends CI_Controller
     {
 		$this->load->view('admin/addNewAdmin_view');
 	}
+    // add　New　Admin
+    //　新しい　Admin　を　加える
 	public function addNewAdmin() 
     {		        
         $this->form_validation->set_rules("username","Username","required|trim|min_length[6]|alpha_numeric|max_length[32]|callback_checkUser");
@@ -90,6 +106,7 @@ class Home extends CI_Controller
         } 
     }
     //--- Edit Admin
+    //---　Admin　を　修正する
     function editAdmin()
     {
     	$u_id = $this->uri->segment(4);
@@ -97,7 +114,8 @@ class Home extends CI_Controller
         $data['error'] = "";
         if (is_numeric($u_id) && $data['info'] != NULL) {            
             if (isset($_POST['ok'])) {     
-                // form validation                     
+                // form validation  
+                // 検証　フォーム                   
                 $this->form_validation->set_rules("username","Username","required");                
                 $this->form_validation->set_rules("password","Password","required");  
                 if ($this->input->post("newpassword") != "") {
@@ -139,6 +157,7 @@ class Home extends CI_Controller
         }
     }
     //--- Delete User
+    //---　ユーザ　を　消す
     function deleteUser() 
     {
         $u_id = $this->uri->segment(4);        
@@ -149,10 +168,10 @@ class Home extends CI_Controller
             return false;     
         }
     }
-    //--- Kiểm tra user hợp lệ
+    //--- check valid　user?
+    //---　 妥当なユーザ　を　チェックする？
     function checkUser($u_username) 
-    {
-        // $u_id = $this->uri->segment(4);
+    {        
         $u_id = "";
         if ($this->User_model->getUser($u_username,$u_id) == TRUE) {
             return TRUE;
@@ -162,6 +181,7 @@ class Home extends CI_Controller
        }
     }
     //---- Check Email exist in Database
+    //----　データベースに　Eメールの存在　を　チェックする
     function checkEmail($u_email) 
     {
         $u_id = $this->uri->segment(4);
@@ -173,6 +193,7 @@ class Home extends CI_Controller
         }
     }
     // Search user
+    // ユーザ　を　探す
     function getUserByUsername() 
     {
         $txtUsername = "";
@@ -205,7 +226,8 @@ class Home extends CI_Controller
         }
         $this->load->view('admin/listSearchUser_view', $data);
     }
-    //Ban/Unban User
+    //　Ban/Unban User
+    //　ユーザをブロックする
     function banUser() 
     {
         $u_id = $this->uri->segment(4);
@@ -218,6 +240,8 @@ class Home extends CI_Controller
             return false;     
         }
     }
+    //　Ban/Unban User
+    //　ユーザをブロックする
     function unbanUser() 
     {
         $u_id = $this->uri->segment(4);

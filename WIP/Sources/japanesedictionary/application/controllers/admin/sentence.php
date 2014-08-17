@@ -9,29 +9,39 @@ class Sentence extends CI_Controller
     {
 		parent::__construct();
 		// load helper
+        //ロード　ヘルパー
 		$this->load->helper("url");
         $this->load->helper(array('form', 'url'));
         // load library
+        //　ロード　ライブラリ
         $this->load->library(array("input","form_validation","session","my_auth","email"));
         //connect DB
+        //　データベース　に　接続する
 		$this->load->database();
         $this->load->model("Sentence_model");
+        //check Authentication
+        //　認証　を　チェックする
         if (!$this->my_auth->is_Admin()) {            
             redirect(base_url()."index.php/admin/verify/login");
             exit();
         }
 	}
 	//list sentence
+    //　リスト　文章
 	function index() 
     {
 		// count record
+        // レコード　を　カウントする
         $max = $this->Sentence_model->num_rows();
-        // so record tren 1 page
+        // number of records on one page
+        // ページ　に　レコード　の　番号
         $min = 10;
         $data['num_rows'] = $max;
         //--- Paging
+        //　ページング
         if ($max != 0) {    
         	//load library
+            //　ロード　ライブラリ
             $this->load->library('pagination');                    
             $config['base_url'] = base_url()."index.php/admin/sentence/index";
             $config['total_rows'] = $max;
@@ -41,14 +51,18 @@ class Sentence extends CI_Controller
             $this->pagination->initialize($config);                        
             $data['links'] = $this->pagination->create_links();
             //get data from DB
+            //データベース　から　データ　を　得る
             $data['sentence'] = $this->Sentence_model->getAllSentence($min,$this->uri->segment($config['uri_segment']));
             // load view
+            // ロード　ビュー
             $this->load->view("admin/sentence/listSentence_view",$data);
         } else {
             $data['sentence'] = null;            
             $this->load->view("admin/sentence/listSearchSentence_view",$data);
         }
 	}
+    //　get　By　Romaji
+    //　Romaji　で　得る
     function getByRomaji() 
     {
         $data = "";
@@ -66,14 +80,15 @@ class Sentence extends CI_Controller
             $min = 10;
             $data['txtRomaji'] = $txtRomaji;
             $data['num_rows'] = $max;
-        //--- Paging
+            //--- Paging
+            //　ページング
             if ($max != 0) {    
                 $this->load->library('pagination');                    
                 $config['base_url'] = base_url()."index.php/admin/sentence/getByRomaji?txtRomaji=".$txtRomaji."&search=Search";
                 $config['total_rows'] = $max;
                 $config['per_page'] = $min;
                 $config['num_link'] = 3; 
-                //$config['uri_segment'] = 4;
+                
                 $config['page_query_string'] = TRUE;
                 $this->pagination->initialize($config);                                           
                 $data['links'] = $this->pagination->create_links();
@@ -88,6 +103,8 @@ class Sentence extends CI_Controller
             $this->load->view("admin/sentence/listSearchSentence_view",$data);
         }
     }
+    //　add　Sentence
+    //　文章　を　加える
     function addSentence() 
     {
         $data['error'] = "";
@@ -116,6 +133,8 @@ class Sentence extends CI_Controller
             }
         }
     }
+    //　edit　Sentence
+    //　文章　を　修正する
     function editSentence() 
     {
         $s_id = $this->uri->segment(4);
@@ -145,6 +164,8 @@ class Sentence extends CI_Controller
             return false;
         }
     }
+    //　delete　Sentence
+    //　文章　を　消す
     function deleteSentence() 
     {
         $s_id = $this->uri->segment(4);             

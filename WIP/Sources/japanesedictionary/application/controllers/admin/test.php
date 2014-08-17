@@ -8,13 +8,18 @@ class Test extends CI_Controller
     {
 		parent::__construct();
 		// load helper
+        //ロード　ヘルパー
 		$this->load->helper("url");
         $this->load->helper(array('form', 'url'));
         // load library
+        //　ロード　ライブラリ
         $this->load->library(array("input","form_validation","session","my_auth","email"));
         //connect DB
+        //　データベース　に　接続する
 		$this->load->database();
         $this->load->model("Test_model");
+        //check Authentication
+        //　認証　を　チェックする
         if (!$this->my_auth->is_Admin()) {            
             redirect(base_url()."index.php/admin/verify/login");
             exit();
@@ -23,13 +28,17 @@ class Test extends CI_Controller
 	function index() 
     {
 		// count record
+        // レコード　を　カウントする
         $max = $this->Test_model->num_rows();
-        // so record tren 1 page
+        // number of records on one page
+        // ページ　に　レコード　の　番号
         $min = 10;
         $data['num_rows'] = $max;
         //--- Paging
+        //　ページング
         if ($max != 0) {    
         	//load library
+            //　ロード　ライブラリ
             $this->load->library('pagination');                    
             $config['base_url'] = base_url()."index.php/admin/test/index";
             $config['total_rows'] = $max;
@@ -39,14 +48,18 @@ class Test extends CI_Controller
             $this->pagination->initialize($config);                        
             $data['links'] = $this->pagination->create_links();
             //get data from DB
+            //データベース　から　データ　を　得る
             $data['test'] = $this->Test_model->getAllTest($min,$this->uri->segment($config['uri_segment']));
             // load view
+            // ロード　ビュー
             $this->load->view("admin/test/listTest_view",$data);
         } else {
             $data['test'] =null;
             $this->load->view("admin/test/listTest_view",$data);
         }
 	}
+    // get　Test　By　Level
+    // レベルでテストを得る
 	function getTestByLevel() 
     {
         $data = "";
@@ -60,13 +73,14 @@ class Test extends CI_Controller
         $data['txtLevel'] = $txtLevel;
         $data['num_rows'] = $max;
         //--- Paging
+        //　ページング
         if ($max != 0) {    
             $this->load->library('pagination');                    
             $config['base_url'] = base_url()."index.php/admin/test/getTestByLevel?txtLevel=".$txtLevel."&search=Search";
             $config['total_rows'] = $max;
             $config['per_page'] = $min;
             $config['num_link'] = 3; 
-            // $config['uri_segment'] = 4;
+            
             $config['page_query_string'] = TRUE;
             $this->pagination->initialize($config);                                 
             $data['links'] = $this->pagination->create_links();
@@ -78,6 +92,8 @@ class Test extends CI_Controller
             $this->load->view("admin/test/listTest_view",$data);            
         }
     }
+    //　add　Test
+    //　テスト　を　加える
 	function addTest() 
     {
 		$data['error'] = "";
@@ -143,6 +159,8 @@ class Test extends CI_Controller
             }                            
         }  
 	}
+    //　edit　Test　
+    //　テスト　を　修正する
 	function editTest() 
     {
         $test_id = $this->uri->segment(4);                
@@ -202,6 +220,7 @@ class Test extends CI_Controller
             }    
     }
     //--- Delete Test
+    //---　テスト　を　消す
     function deleteTest() 
     {
         $test_id = $this->uri->segment(4);
@@ -216,6 +235,8 @@ class Test extends CI_Controller
             return false;     
         }
     }
+    //　add　Question
+    //　質問　を　加える
     function addQuestion() 
     {
         $test_id = $this->uri->segment(4);
@@ -288,9 +309,12 @@ class Test extends CI_Controller
             $this->load->view("admin/test/addQuestion_view",$data);   
         }
     }
+    //　edit　Question
+    //　質問　を　修正する
     function editQuestion() 
     {
         // get id from url
+        // URL　から　id　を　得る
         $test_id = $this->uri->segment(4);
         $question_id = $this->uri->segment(5);
         $data['test'] = $this->Test_model->getTestById($test_id);
@@ -339,6 +363,8 @@ class Test extends CI_Controller
             $this->load->view("admin/test/editQuestion_view",$data);   
         }
     }
+    //　delete　Question
+    //　質問　を　消す
     function deleteQuestion() 
     {
         $test_id = $this->uri->segment(4);
@@ -350,6 +376,8 @@ class Test extends CI_Controller
             return false;     
         }
     }
+    //　detail　Test
+    //　詳細テスト
     function detailTest() 
     {
         $test_id = $this->uri->segment(4);

@@ -5,32 +5,43 @@
 class Kanji extends CI_Controller
 {
 	
-	function __construct() ]
+	function __construct() 
     {
 		parent::__construct();
 		// load helper
+        //ロード　ヘルパー  
 		$this->load->helper("url");
         $this->load->helper(array('form', 'url'));
         // load library
+        //　ロード　ライブラリ
         $this->load->library(array("input","form_validation","session","my_auth","email"));
         //connect DB
+        //　データベース　に　接続する
 		$this->load->database();
         $this->load->model("Kanji_model");
+        //check Authentication
+        //　認証　を　チェックする
         if (!$this->my_auth->is_Admin()) {            
             redirect(base_url()."index.php/admin/verify/login");
             exit();
         }
 	}
+    //list kanji
+    //　リスト　漢字
 	function index() 
     {
 		// count record
+        // レコード　を　カウントする
         $max = $this->Kanji_model->num_rows();
-        // so record tren 1 page
+        // number of records on one page
+        // ページ　に　レコード　の　番号
         $min = 10;
         $data['num_rows'] = $max;
         //--- Paging
+        //　ページング
         if ($max!=0) {    
         	//load library
+            //　ロード　ライブラリ
             $this->load->library('pagination');                    
             $config['base_url'] = base_url()."index.php/admin/kanji/index";
             $config['total_rows'] = $max;
@@ -40,23 +51,32 @@ class Kanji extends CI_Controller
             $this->pagination->initialize($config);                        
             $data['links'] = $this->pagination->create_links();
             //get data from DB
+            //データベース　から　データ　を　得る
             $data['kanji'] = $this->Kanji_model->getAllKanji($min,$this->uri->segment($config['uri_segment']));
             // load view
+            // ロード　ビュー
             $this->load->view("admin/kanji/listKanji_view",$data);
         } else {
             $data['kanji'] = null;            
             $this->load->view("admin/kanji/listKanji_view",$data);
         }
 	}
+    // list　Contributed　Kanji
+    //　リスト　寄付した漢字
     function listContributedKanji() 
     {
+        // count records
+        // レコード　を　カウントする
         $max = $this->Kanji_model->num_rows_contributed();
-        // so record tren 1 page
+        // number of records on one page
+        // ページ　に　レコード　の　番号
         $min = 10;
         $data['num_rows_contributed'] = $max;
         //--- Paging
+        //　ページング
         if ($max != 0) {    
             //load library
+            //　ロード　ライブラリ
             $this->load->library('pagination');                    
             $config['base_url'] = base_url()."index.php/admin/kanji/listContributedKanji";
             $config['total_rows'] = $max;
@@ -66,14 +86,18 @@ class Kanji extends CI_Controller
             $this->pagination->initialize($config);                        
             $data['links'] = $this->pagination->create_links();
             //get data from DB
+            //データベース　から　データ　を　得る
             $data['kanji'] = $this->Kanji_model->getContributedKanji($min,$this->uri->segment($config['uri_segment']));
             // load view
+            // ロード　ビュー
             $this->load->view("admin/kanji/listContributedKanji_view",$data);
         } else {
             $data['kanji'] = null;            
             $this->load->view("admin/kanji/listContributedKanji_view",$data);
         }
     }
+    // get　By　HanViet
+    // HanViet　で　得る
 	function getByHanViet() 
     {
 		$data = "";
@@ -93,13 +117,14 @@ class Kanji extends CI_Controller
         $data['txtHanViet'] = $txtHanViet;
         $data['num_rows'] = $max;
         //--- Paging
+        //　ページング
             if ($max != 0) {    
                 $this->load->library('pagination');                    
                 $config['base_url'] = base_url()."index.php/admin/kanji/getByHanViet?txtHanViet=".$txtHanViet."&search=Search";
                 $config['total_rows'] = $max;
                 $config['per_page'] = $min;
                 $config['num_link'] = 3; 
-                // $config['uri_segment'] = 4;
+                
                 $config['page_query_string'] = TRUE;
                 $this->pagination->initialize($config);                                  
                 $data['links'] = $this->pagination->create_links();
@@ -114,6 +139,8 @@ class Kanji extends CI_Controller
             $this->load->view("admin/kanji/listKanji_view",$data);   
         }
 	}
+    // add　Kanji
+    //　漢字　を　加える
 	function addKanji() 
     {
 		$data['error'] = "";
@@ -149,6 +176,8 @@ class Kanji extends CI_Controller
             }
         }
 	}
+    // edit　Kanji
+    //　漢字　を　修正する
 	function editKanji() 
     {
 		$k_id = $this->uri->segment(4);
@@ -186,6 +215,8 @@ class Kanji extends CI_Controller
             return false;
         }
 	}
+    // approved　Kanji
+    //　漢字　を　認める
     function approvedKanji() 
     {
         $k_id = $this->uri->segment(4);
@@ -223,6 +254,8 @@ class Kanji extends CI_Controller
             return false;
         }
     }
+    // delete　Kanji
+    //　漢字　を　消す
 	function deleteKanji() 
     {
 		$k_id = $this->uri->segment(4);             
@@ -233,6 +266,8 @@ class Kanji extends CI_Controller
             return false;     
         }
 	}
+    // delete　Contributed　Kanji
+    //　漢字　を　消す
     function deleteContributedKanji() 
     {
         $k_id = $this->uri->segment(4);             

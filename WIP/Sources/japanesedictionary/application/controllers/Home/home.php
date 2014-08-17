@@ -5,17 +5,21 @@
 class Home extends CI_Controller 
 {	
     // contructor
+    //コンストラクタ　  
 	function __construct() 
     {
 		parent::__construct();	
-        //load helper			
+        //load helper	
+        //ロード　ヘルパー　		
 		$this->load->helper("url");
         $this->load->helper(array('form', 'url'));		
         //load library
+        //　ロード　ライブラリ
 		$this->load->library(array("input","form_validation","session","my_auth","email"));
         $this->load->library('facebook');
         $this->config->load('facebook');
         // load Model
+        //　ロード　モデル
         $this->load->model('Vocabulary_model');
         $this->load->model('Kanji_model');
         $this->load->model('Grammar_model');
@@ -64,12 +68,15 @@ class Home extends CI_Controller
 	public function list50() 
     {
 		$max = $this->ReadingDocument_model->num_rows_list50();
-        // so record tren 1 page
+        // number of records on one page
+        // ページ　に　レコード　の　番号
         $min = 20;
         $data['num_rows_list50'] = $max;
         //--- Paging
+        //　ページング
         if ($max != 0) {    
             //load library
+            //　ロード　ライブラリ
             $this->load->library('pagination');                    
             $config['base_url'] = base_url()."index.php/Home/home/list50";
             $config['total_rows'] = $max;
@@ -80,8 +87,10 @@ class Home extends CI_Controller
             $this->pagination->initialize($config);                                    
             $data['links'] = $this->pagination->create_links();
             //get data from DB
+            //データベース　から　データ　を　得る
             $data['vocabulary'] = $this->ReadingDocument_model->get50Vocabulary($min,$this->uri->segment($config['uri_segment']));
             // load view
+            // ロード　ビュー
             $this->load->view("user/list50_view",$data);
         } else {
             $data['vocabulary'] =null;
@@ -99,12 +108,15 @@ class Home extends CI_Controller
 	public function listKanjiN1() 
     {
 		$max = $this->Kanji_model->num_rows_kanjiN1();
-        // so record tren 1 page
+        // number of records on one page
+        // ページ　に　レコード　の　番号
         $min = 10;
         $data['num_rows_kanjiN1'] = $max;
         //--- Paging
+        //　ページング
         if ($max != 0) {    
         	//load library
+            //　ロード　ライブラリ
             $this->load->library('pagination');                    
             $config['base_url'] = base_url()."index.php/Home/home/listKanjiN1";
             $config['total_rows'] = $max;
@@ -116,8 +128,10 @@ class Home extends CI_Controller
 
             $data['links'] = $this->pagination->create_links();
             //get data from DB
+            //データベース　から　データ　を　得る
             $data['kanji'] = $this->Kanji_model->getAllKanjiN1($min,$this->uri->segment($config['uri_segment']));
             // load view
+            // ロード　ビュー
             $this->load->view("user/listKanjiN1_view",$data);
         } else {
             $data['kanji'] = null;            
@@ -127,12 +141,15 @@ class Home extends CI_Controller
 	public function listKanjiN2() 
     {
 		$max = $this->Kanji_model->num_rows_kanjiN2();
-        // so record tren 1 page
+        // number of records on one page
+        // ページ　に　レコード　の　番号
         $min = 10;
         $data['num_rows_kanjiN2'] = $max;
         //--- Paging
+        //　ページング
         if ($max != 0) {    
         	//load library
+            //　ロード　ライブラリ
             $this->load->library('pagination');                    
             $config['base_url'] = base_url()."index.php/Home/home/listKanjiN2";
             $config['total_rows'] = $max;
@@ -144,8 +161,10 @@ class Home extends CI_Controller
 
             $data['links'] = $this->pagination->create_links();
             //get data from DB
+            //データベース　から　データ　を　得る
             $data['kanji'] = $this->Kanji_model->getAllKanjiN2($min,$this->uri->segment($config['uri_segment']));
             // load view
+            // ロード　ビュー
             $this->load->view("user/listKanjiN2_view",$data);
         } else {
             $data['kanji'] = null;            
@@ -155,12 +174,15 @@ class Home extends CI_Controller
 	public function listKanjiN3() 
     {
 		$max = $this->Kanji_model->num_rows_kanjiN3();
-        // so record tren 1 page
+        // number of records on one page
+        // ページ　に　レコード　の　番号
         $min = 10;
         $data['num_rows_kanjiN3'] = $max;
         //--- Paging
+        //　ページング
         if ($max != 0) {    
         	//load library
+            //　ロード　ライブラリ
             $this->load->library('pagination');                    
             $config['base_url'] = base_url()."index.php/Home/home/listKanjiN3";
             $config['total_rows'] = $max;
@@ -172,8 +194,10 @@ class Home extends CI_Controller
 
             $data['links'] = $this->pagination->create_links();
             //get data from DB
+            //データベース　から　データ　を　得る
             $data['kanji'] = $this->Kanji_model->getAllKanjiN3($min,$this->uri->segment($config['uri_segment']));
             // load view
+            // ロード　ビュー
             $this->load->view("user/listKanjiN3_view",$data);
         } else {
             $data['kanji'] = null;            
@@ -183,12 +207,15 @@ class Home extends CI_Controller
 	public function listKanjiN4() 
     {
 		$max = $this->Kanji_model->num_rows_kanjiN4();
-        // so record tren 1 page
+        // number of records on one page
+        // ページ　に　レコード　の　番号        
         $min = 10;
         $data['num_rows_kanjiN4'] = $max;
         //--- Paging
+        //　ページング
         if ($max != 0) {    
         	//load library
+            //　ロード　ライブラリ
             $this->load->library('pagination');                    
             $config['base_url'] = base_url()."index.php/Home/home/listKanjiN4";
             $config['total_rows'] = $max;
@@ -200,8 +227,10 @@ class Home extends CI_Controller
 
             $data['links'] = $this->pagination->create_links();
             //get data from DB
+            //データベース　から　データ　を　得る
             $data['kanji'] = $this->Kanji_model->getAllKanjiN4($min,$this->uri->segment($config['uri_segment']));
             // load view
+            // ロード　ビュー
             $this->load->view("user/listKanjiN4_view",$data);
         } else {
             $data['kanji'] = null;            
@@ -211,12 +240,15 @@ class Home extends CI_Controller
 	public function listKanjiN5() 
     {
 		$max = $this->Kanji_model->num_rows_kanjiN5();
-        // so record tren 1 page
+        // number of records on one page
+        // ページ　に　レコード　の　番号    
         $min = 10;
         $data['num_rows_kanjiN5'] = $max;
         //--- Paging
+        //　ページング
         if ($max != 0) {    
         	//load library
+            //　ロード　ライブラリ
             $this->load->library('pagination');                    
             $config['base_url'] = base_url()."index.php/Home/home/listKanjiN5";
             $config['total_rows'] = $max;
@@ -228,8 +260,10 @@ class Home extends CI_Controller
 
             $data['links'] = $this->pagination->create_links();
             //get data from DB
+            //データベース　から　データ　を　得る
             $data['kanji'] = $this->Kanji_model->getAllKanjiN5($min,$this->uri->segment($config['uri_segment']));
             // load view
+            // ロード　ビュー
             $this->load->view("user/listKanjiN5_view",$data);
         } else {
             $data['kanji'] = null;            
@@ -239,12 +273,15 @@ class Home extends CI_Controller
     public function listGrammarN5() 
     {
         $max = $this->Grammar_model->num_rows_listGrammarN5();
-        // so record tren 1 page
+        // number of records on one page
+        // ページ　に　レコード　の　番号    
         $min = 5;
         $data['num_rows_listGrammarN5'] = $max;
         //--- Paging
+        //　ページング
         if ($max != 0) {    
             //load library
+            //　ロード　ライブラリ
             $this->load->library('pagination');                    
             $config['base_url'] = base_url()."index.php/Home/home/listGrammarN5";
             $config['total_rows'] = $max;
@@ -256,8 +293,10 @@ class Home extends CI_Controller
 
             $data['links'] = $this->pagination->create_links();
             //get data from DB
+            //データベース　から　データ　を　得る
             $data['grammar'] = $this->Grammar_model->getGrammarN5($min,$this->uri->segment($config['uri_segment']));
             // load view
+            // ロード　ビュー
             $this->load->view("user/listGrammarN5_view",$data);
         } else {
             $data['grammar'] = null;
@@ -267,12 +306,15 @@ class Home extends CI_Controller
     public function listGrammarN4() 
     {
         $max = $this->Grammar_model->num_rows_listGrammarN4();
-        // so record tren 1 page
+        // number of records on one page
+        // ページ　に　レコード　の　番号    
         $min = 5;
         $data['num_rows_listGrammarN4'] = $max;
         //--- Paging
+        //　ページング
         if ($max != 0) {    
             //load library
+            //　ロード　ライブラリ
             $this->load->library('pagination');                    
             $config['base_url'] = base_url()."index.php/Home/home/listGrammarN4";
             $config['total_rows'] = $max;
@@ -284,8 +326,10 @@ class Home extends CI_Controller
 
             $data['links'] = $this->pagination->create_links();
             //get data from DB
+            //データベース　から　データ　を　得る
             $data['grammar'] = $this->Grammar_model->getGrammarN4($min,$this->uri->segment($config['uri_segment']));
             // load view
+            // ロード　ビュー
             $this->load->view("user/listGrammarN4_view",$data);
         } else {
             $data['grammar'] = null;
@@ -295,13 +339,16 @@ class Home extends CI_Controller
 
 public function listGrammarN3() 
     {
-        $max = $this->Grammar_model->num_rows_listGrammarN3();
-        // so record tren 1 page
+        $max = $this->Grammar_model->num_rows_listGrammarN3();        
+        // number of records on one page
+        // ページ　に　レコード　の　番号  
         $min = 5;
         $data['num_rows_listGrammarN3'] = $max;
         //--- Paging
+        //　ページング
         if ($max != 0) {    
             //load library
+            //　ロード　ライブラリ
             $this->load->library('pagination');                    
             $config['base_url'] = base_url()."index.php/Home/home/listGrammarN3";
             $config['total_rows'] = $max;
@@ -313,8 +360,10 @@ public function listGrammarN3()
 
             $data['links'] = $this->pagination->create_links();
             //get data from DB
+            //データベース　から　データ　を　得る
             $data['grammar'] = $this->Grammar_model->getGrammarN3($min,$this->uri->segment($config['uri_segment']));
             // load view
+            // ロード　ビュー
             $this->load->view("user/listGrammarN3_view",$data);
         } else {
             $data['grammar'] = null;
@@ -325,12 +374,15 @@ public function listGrammarN3()
 public function listGrammarN2() 
     {
         $max = $this->Grammar_model->num_rows_listGrammarN2();
-        // so record tren 1 page
+        // number of records on one page
+        // ページ　に　レコード　の　番号  
         $min = 5;
         $data['num_rows_listGrammarN2'] = $max;
         //--- Paging
+        //　ページング
         if ($max != 0) {    
             //load library
+            //　ロード　ライブラリ
             $this->load->library('pagination');                    
             $config['base_url'] = base_url()."index.php/Home/home/listGrammarN2";
             $config['total_rows'] = $max;
@@ -342,8 +394,10 @@ public function listGrammarN2()
 
             $data['links'] = $this->pagination->create_links();
             //get data from DB
+            //データベース　から　データ　を　得る
             $data['grammar'] = $this->Grammar_model->getGrammarN2($min,$this->uri->segment($config['uri_segment']));
             // load view
+            // ロード　ビュー
             $this->load->view("user/listGrammarN2_view",$data);
         } else {
             $data['grammar'] = null;
@@ -354,12 +408,15 @@ public function listGrammarN2()
     public function listGrammarN1() 
     {
         $max = $this->Grammar_model->num_rows_listGrammarN1();
-        // so record tren 1 page
+        // number of records on one page
+        // ページ　に　レコード　の　番号  
         $min = 5;
         $data['num_rows_listGrammarN1'] = $max;
         //--- Paging
+        //　ページング
         if ($max != 0) {    
             //load library
+            //　ロード　ライブラリ
             $this->load->library('pagination');                    
             $config['base_url'] = base_url()."index.php/Home/home/listGrammarN1";
             $config['total_rows'] = $max;
@@ -371,8 +428,10 @@ public function listGrammarN2()
 
             $data['links'] = $this->pagination->create_links();
             //get data from DB
+            //データベース　から　データ　を　得る
             $data['grammar'] = $this->Grammar_model->getGrammarN1($min,$this->uri->segment($config['uri_segment']));
             // load view
+            // ロード　ビュー
             $this->load->view("user/listGrammarN1_view",$data);
         } else {
             $data['grammar'] = null;
@@ -382,12 +441,15 @@ public function listGrammarN2()
     public function conversationSC() 
     {
         $max = $this->Conversation_model->num_rows_conversationSC();
-        // so record tren 1 page
+        // number of records on one page
+        // ページ　に　レコード　の　番号  
         $min = 5;
         $data['num_rows_conversationSC'] = $max;
         //--- Paging
+        //　ページング
         if ($max != 0) {    
             //load library
+            //　ロード　ライブラリ
             $this->load->library('pagination');                    
             $config['base_url'] = base_url()."index.php/Home/home/conversationSC";
             $config['total_rows'] = $max;
@@ -399,8 +461,10 @@ public function listGrammarN2()
 
             $data['links'] = $this->pagination->create_links();
             //get data from DB
+            //データベース　から　データ　を　得る
             $data['conversation'] = $this->Conversation_model->getconversationSC($min,$this->uri->segment($config['uri_segment']));
             // load view
+            // ロード　ビュー
             $this->load->view("user/listconversationSC_view",$data);
         } else {
             $data['conversation'] = null;
@@ -410,12 +474,15 @@ public function listGrammarN2()
     public function conversationTC1() 
     {
         $max = $this->Conversation_model->num_rows_conversationTC1();
-        // so record tren 1 page
+        // number of records on one page
+        // ページ　に　レコード　の　番号  
         $min = 5;
         $data['num_rows_conversationTC1'] = $max;
         //--- Paging
+        //　ページング
         if ($max != 0) {    
             //load library
+            //　ロード　ライブラリ
             $this->load->library('pagination');                    
             $config['base_url'] = base_url()."index.php/Home/home/conversationTC1";
             $config['total_rows'] = $max;
@@ -427,8 +494,10 @@ public function listGrammarN2()
 
             $data['links'] = $this->pagination->create_links();
             //get data from DB
+            //データベース　から　データ　を　得る
             $data['conversation'] = $this->Conversation_model->getconversationTC1($min,$this->uri->segment($config['uri_segment']));
             // load view
+            // ロード　ビュー
             $this->load->view("user/listconversationTC1_view",$data);
         } else {
             $data['conversation'] = null;
@@ -438,12 +507,15 @@ public function listGrammarN2()
     public function conversationTC2() 
     {
         $max = $this->Conversation_model->num_rows_conversationTC2();
-        // so record tren 1 page
+        // number of records on one page
+        // ページ　に　レコード　の　番号  
         $min = 5;
         $data['num_rows_conversationTC2'] = $max;
         //--- Paging
+        //　ページング
         if ($max != 0) {    
             //load library
+            //　ロード　ライブラリ
             $this->load->library('pagination');                    
             $config['base_url'] = base_url()."index.php/Home/home/conversationTC2";
             $config['total_rows'] = $max;
@@ -455,8 +527,10 @@ public function listGrammarN2()
 
             $data['links'] = $this->pagination->create_links();
             //get data from DB
+            //データベース　から　データ　を　得る
             $data['conversation'] = $this->Conversation_model->getconversationTC2($min,$this->uri->segment($config['uri_segment']));
             // load view
+            // ロード　ビュー
             $this->load->view("user/listconversationTC2_view",$data);
         } else {
             $data['conversation'] = null;
@@ -466,12 +540,15 @@ public function listGrammarN2()
     public function listeningN2N3() 
     {
         $max = $this->Listening_model->num_rows_listeningN2N3();
-        // so record tren 1 page
+        // number of records on one page
+        // ページ　に　レコード　の　番号  
         $min = 5;
         $data['num_rows_listeningN2N3'] = $max;
         //--- Paging
+        //　ページング
         if ($max != 0) {    
             //load library
+            //　ロード　ライブラリ
             $this->load->library('pagination');                    
             $config['base_url'] = base_url()."index.php/Home/home/listeningN2N3";
             $config['total_rows'] = $max;
@@ -483,8 +560,10 @@ public function listGrammarN2()
 
             $data['links'] = $this->pagination->create_links();
             //get data from DB
+            //データベース　から　データ　を　得る
             $data['listening'] = $this->Listening_model->getlisteningN2N3($min,$this->uri->segment($config['uri_segment']));
             // load view
+            // ロード　ビュー
             $this->load->view("user/listlisteningN2N3_view",$data);
         } else {
             $data['listening'] = null;
@@ -494,12 +573,15 @@ public function listGrammarN2()
     public function listeningN4N5() 
     {
         $max = $this->Listening_model->num_rows_listeningN4N5();
-        // so record tren 1 page
+        // number of records on one page
+        // ページ　に　レコード　の　番号  
         $min = 5;
         $data['num_rows_listeningN4N5'] = $max;
         //--- Paging
+        //　ページング
         if ($max != 0) {    
             //load library
+            //　ロード　ライブラリ
             $this->load->library('pagination');                    
             $config['base_url'] = base_url()."index.php/Home/home/listeningN4N5";
             $config['total_rows'] = $max;
@@ -511,8 +593,10 @@ public function listGrammarN2()
 
             $data['links'] = $this->pagination->create_links();
             //get data from DB
+            //データベース　から　データ　を　得る
             $data['listening'] = $this->Listening_model->getlisteningN4N5($min,$this->uri->segment($config['uri_segment']));
             // load view
+            // ロード　ビュー
             $this->load->view("user/listlisteningN4N5_view",$data);
         } else {
             $data['listening'] = null;
@@ -521,6 +605,7 @@ public function listGrammarN2()
     }
 	
 	// list Minna
+    // リスト　Minna
 	function listMinna() 
     {
         $this->load->model('ReadingDocument_model');
@@ -534,6 +619,7 @@ public function listGrammarN2()
 		}
 		$this->load->view('user/minna/listMinna_view', $data);
 	}
+    //　詳細　Minna
 	function detailMinna() 
     {
 		$reading_id = $this->uri->segment(4);
@@ -549,6 +635,7 @@ public function listGrammarN2()
         
      	$this->load->view('user/minna/detailMinna_view', $data);   
 	}
+    //　詳細　言葉
 	function detailVocab() 
     {
 		$reading_id = $this->uri->segment(4);
@@ -567,6 +654,7 @@ public function listGrammarN2()
         
      	$this->load->view('user/minna/detailVocab_view', $data);
 	}
+    //　詳細　読解
 	function detailArticle() 
     {
 		$reading_id = $this->uri->segment(4);
@@ -584,6 +672,7 @@ public function listGrammarN2()
         }                
      	$this->load->view('user/minna/detailArticle_view', $data);
 	}
+    //　詳細　文法
 	function detailGrammar() 
     {
 		$reading_id = $this->uri->segment(4);
@@ -609,6 +698,7 @@ public function listGrammarN2()
         }  
 		$this->load->view('user/minna/detailGrammar_view', $data);	
 	}
+    //　詳細　漢字
 	function detailKanji() 
     {
 		$reading_id = $this->uri->segment(4);
@@ -835,6 +925,7 @@ public function listGrammarN2()
 		$this->load->view('user/intermediate/detailArticleN2_view', $data);
 	}
     //view Detail Conversation
+    //　詳細会話　を　見る
     function viewDetailConversation() 
     {
         $c_id = $this->uri->segment(4);
@@ -853,6 +944,7 @@ public function listGrammarN2()
         $this->load->view("user/viewDetailConversation_view",$data);
     }
     //view Detail Communication
+    //　詳細コミュニケイション　を　見る
     function viewDetailCommunication() 
     {
         $c_id = $this->uri->segment(4);
@@ -870,12 +962,13 @@ public function listGrammarN2()
         }  
         $this->load->view("user/viewDetailCommunication_view",$data);   
     }
-     //view Detail Grammar
+    //view Detail Grammar
+    //　詳細文法　を　見る
     function viewDetailGrammar() 
     {
         $g_id = $this->uri->segment(4);
         $grammar = $this->Grammar_model->getGrammarByGrammarId($g_id);
-        //$data['info'] = $this->Grammar_model->getSentenceByGrammarId($g_id);
+        
         if (!is_null($grammar)) {
             foreach ($grammar as $key => $value) {
                  $g_id = $value->g_id;
@@ -890,13 +983,14 @@ public function listGrammarN2()
             $data = array('grammar' => $grammar, );
         }
         $this->load->view("user/viewDetailGrammar_view",$data);
-    } 
+    }
+    //　詳細　リスニング　を　見る
     function viewDetailListening() 
     {
         $lis_id = $this->uri->segment(4);
         $listen = $this->Listening_model->getInfo($lis_id);
         $detailSource = $this->Listening_model->getDetailSourcefileByLisid($lis_id);
-        //$data['info'] = $this->Conversation_model->getDetailContentByCid($c_id);
+        
         $data = "";
         if (!is_null($detailSource)) {
             $data = array('detailSource' => $detailSource,                            
@@ -927,12 +1021,15 @@ public function listGrammarN2()
     function communicatedNihon() 
     {
         $max = $this->Conversation_model->num_rows_communicatedNihon();
-        // so record tren 1 page
+        // number of records on one page
+        // ページ　に　レコード　の　番号
         $min = 10;
         $data['num_rows_communicatedNihon'] = $max;
         //--- Paging
+        //　ページング
         if ($max != 0) {    
             //load library
+            //　ロード　ライブラリ
             $this->load->library('pagination');                    
             $config['base_url'] = base_url()."index.php/Home/home/communicatedNihon";
             $config['total_rows'] = $max;
@@ -944,8 +1041,10 @@ public function listGrammarN2()
 
             $data['links'] = $this->pagination->create_links();
             //get data from DB
+            //データベース　から　データ　を　得る
             $data['communicated'] = $this->Conversation_model->getcommunicatedNihon($min,$this->uri->segment($config['uri_segment']));
             // load view
+            // ロード　ビュー
             $this->load->view("user/listcommunicatedNihon_view",$data);
         } else {
             $data['communicated'] = null;

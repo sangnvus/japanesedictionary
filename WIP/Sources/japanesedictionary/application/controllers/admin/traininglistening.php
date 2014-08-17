@@ -9,28 +9,39 @@ class Traininglistening extends CI_Controller
     {
 		parent::__construct();
 		// load helper
+        //ロード　ヘルパー 
 		$this->load->helper("url");
         $this->load->helper(array('form', 'url'));
         // load library
+        //　ロード　ライブラリ
         $this->load->library(array("input","form_validation","session","my_auth","email"));
         //connect DB
+        //　データベース　に　接続する
 		$this->load->database();
         $this->load->model("Listening_model");
+        //check Authentication
+        //　認証　を　チェックする
         if (!$this->my_auth->is_Admin()) {            
             redirect(base_url()."index.php/admin/verify/login");
             exit();
         }
 	}
+    //list traininglistening
+    //　リスト　トレーニング　リスニング
 	function index() 
     {
 		// count record
+        // レコード　を　カウントする
         $max = $this->Listening_model->num_rows();
-        // so record tren 1 page
+        // number of records on one page
+        // ページ　に　レコード　の　番号
         $min = 10;
         $data['num_rows'] = $max;
         //--- Paging
+        //　ページング
         if ($max != 0) {    
         	//load library
+            //　ロード　ライブラリ
             $this->load->library('pagination');                    
             $config['base_url'] = base_url()."index.php/admin/traininglistening/index";
             $config['total_rows'] = $max;
@@ -40,14 +51,17 @@ class Traininglistening extends CI_Controller
             $this->pagination->initialize($config);                        
             $data['links'] = $this->pagination->create_links();
             //get data from DB
+            //データベース　から　データ　を　得る
             $data['traininglistening'] = $this->Listening_model->getAllListening($min,$this->uri->segment($config['uri_segment']));
             // load view
+            // ロード　ビュー
             $this->load->view("admin/traininglistening/listTraininglistening_view",$data);
         } else {
             $data['traininglistening'] = null;
             $this->load->view("admin/traininglistening/listTraininglistening_view",$data);
         }
 	}
+    //　レベル　で　リスニング　を　得る
 	function getListeningByLevel() 
     {
 		$data = "";
@@ -61,13 +75,14 @@ class Traininglistening extends CI_Controller
         $data['txtLevel'] = $txtLevel;
         $data['num_rows'] = $max;
         //--- Paging
+        //　ページング
         if ($max != 0) {    
             $this->load->library('pagination');                    
             $config['base_url'] = base_url()."index.php/admin/traininglistening/getListeningByLevel?txtLevel=".$txtLevel."&search=Search";
             $config['total_rows'] = $max;
             $config['per_page'] = $min;
             $config['num_link'] = 3; 
-            // $config['uri_segment'] = 4;
+            
             $config['page_query_string'] = TRUE;
             $this->pagination->initialize($config);                                 
             $data['links'] = $this->pagination->create_links();
@@ -78,6 +93,8 @@ class Traininglistening extends CI_Controller
             $this->load->view("admin/traininglistening/listSearchListening_view",$data);            
         }
 	}
+    // add listening
+    // リスニング　を　加える
 	function addTraininglistening() 
     {
         $data['error'] = "";
@@ -105,6 +122,7 @@ class Traininglistening extends CI_Controller
         }                
     }
     // add Source File
+    //　ファイル　の　ソース　を　加える
     function addSourcefile() 
     {
         $lis_id = $this->uri->segment(4);
@@ -112,11 +130,13 @@ class Traininglistening extends CI_Controller
         $data['error'] = "";
         if (isset($_POST['ok'])) {         
             // check upload
+            // アップロード　を　チェックする
             $config['upload_path'] = './public/audio';
             $config['allowed_types'] = 'avi|flv|wmv|mp3';
             $config['max_size'] = '10000000';
             $this->load->library('upload', $config);                    
-            // form validation            
+            // form validation 
+            //　検証　フォーム           
             $this->form_validation->set_rules("sourcefile_question","Question","required|max_length[5000]");                
             $this->form_validation->set_rules("sourcefile_script","Script","required|max_length[5000]");                                          
             $this->form_validation->set_rules("sourcefile_meaning","Meaning","required|max_length[5000]");
@@ -247,7 +267,8 @@ class Traininglistening extends CI_Controller
             $this->load->view("admin/traininglistening/editSourcefile_view",$data);   
         }
     }       
-    //--- Delete TrainingListening
+    //--- Delete 
+    //---　ファイル　の　ソース　を　消す
     function deleteSourcefile() 
     {
         $lis_id = $this->uri->segment(5);
@@ -259,6 +280,8 @@ class Traininglistening extends CI_Controller
             return false;     
         }
     }
+    //--- Delete TrainingListening
+    //---　リスニング　を　消す
     function deleteListening() 
     {
         $lis_id = $this->uri->segment(4);          

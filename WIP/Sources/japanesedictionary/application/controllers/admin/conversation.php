@@ -8,29 +8,41 @@ class Conversation extends CI_Controller
     {
 		parent::__construct();
 		// load helper
+        //ロード　ヘルパー  
 		$this->load->helper("url");
         $this->load->helper(array('form', 'url'));
         // load library
+        //　ロード　ライブラリ
         $this->load->library(array("input","form_validation","session","my_auth","email"));
         //connect DB
+        //　データベース　に　接続する
 		$this->load->database();
         //load view
+        //　ロード　モデル
         $this->load->model("Conversation_model");
+        //check Authentication
+        //　認証　を　チェックする
         if (!$this->my_auth->is_Admin()) {            
             redirect(base_url()."index.php/admin/verify/login");
             exit();
         }
 	}
+    //list conversation
+    //　リスト　会話
 	function index() 
     {
 		// count record
+        // レコード　を　カウントする
         $max = $this->Conversation_model->num_rows();
-        // so record tren 1 page
+        // number of records on one page
+        // ページ　に　レコード　の　番号
         $min = 10;
         $data['num_rows'] = $max;
         //--- Paging
+        //　ページング
         if ($max != 0) {    
         	//load library
+            //　ロード　ライブラリ
             $this->load->library('pagination');                    
             $config['base_url'] = base_url()."index.php/admin/conversation/index";
             $config['total_rows'] = $max;
@@ -40,14 +52,18 @@ class Conversation extends CI_Controller
             $this->pagination->initialize($config);                        
             $data['links'] = $this->pagination->create_links();
             //get data from DB
+            //データベース　から　データ　を　得る
             $data['conversation'] = $this->Conversation_model->getAllConversation($min,$this->uri->segment($config['uri_segment']));
             // load view
+            // ロード　ビュー
             $this->load->view("admin/conversation/listConversation_view",$data);
         } else {
             $data['conversation'] = null;
             $this->load->view("admin/conversation/listConversation_view",$data);
         }
 	}
+    // get　Conversation　By　Level
+    //　レベルで会話を得る
 	function getConversationByLevel() 
     {
 		$data = "";
@@ -62,13 +78,14 @@ class Conversation extends CI_Controller
         $data['txtLevel'] = $txtLevel;
         $data['num_rows'] = $max;
         //--- Paging
+        //　ページング
             if ($max != 0) {    
                 $this->load->library('pagination');                    
                 $config['base_url'] = base_url()."index.php/admin/conversation/getConversationByLevel?txtLevel=".$txtLevel."&search=Search";
                 $config['total_rows'] = $max;
                 $config['per_page'] = $min;
                 $config['num_link'] = 3; 
-                // $config['uri_segment'] = 4;
+                
                 $config['page_query_string'] = TRUE;
                 $this->pagination->initialize($config);                                     
                 $data['links'] = $this->pagination->create_links();
@@ -83,6 +100,8 @@ class Conversation extends CI_Controller
             $this->load->view("admin/conversation/listConversation_view",$data);            
         }
 	}
+    // add　Conversation
+    //　会話　を　加える
 	function addConversation() 
     {
         $data['error'] = "";
@@ -98,15 +117,13 @@ class Conversation extends CI_Controller
 
             $f_type = $_FILES['userfile']['type'];
             if ($f_type == "audio/mp3" OR $f_type == "audio/mp4"){
-                $data['error_file'] = "The file is required and must be image file!";
-                // $this->load->view("admin/conversation/addConversation_view",$data);
+                $data['error_file'] = "The file is required and must be image file!";                
             }
 
             if ($this->form_validation->run() == FALSE) {    
                 $f_type = $_FILES['userfile']['type'];
                 if ($f_type == "audio/mp3" OR $f_type == "audio/mp4"){
-                    $data['error_file'] = "The file is required and must be image file!";
-                    // $this->load->view("admin/conversation/addConversation_view",$data);
+                    $data['error_file'] = "The file is required and must be image file!";                    
                 }              
                 $this->load->view("admin/conversation/addConversation_view",$data);
             } else {     
@@ -136,6 +153,8 @@ class Conversation extends CI_Controller
             $this->load->view("admin/conversation/addConversation_view");               
         }
     }
+    // edit　Conversation
+    //　会話　を　修正する
     function editConversation()
     {        
     	$c_id = $this->uri->segment(4);
@@ -156,8 +175,7 @@ class Conversation extends CI_Controller
                 $f_type = $_FILES['userfile']['type'];
 
                 if ($f_type == "audio/mp3" OR $f_type == "audio/mp4"){                
-                    $data['error_file'] = "The file is required and must be image file!";
-                    // $this->load->view("admin/conversation/editConversation_view",$data);                
+                    $data['error_file'] = "The file is required and must be image file!";                    
                 }
                 $data['info'] = $this->Conversation_model->getInfoConversation($this->input->post("c_id"));
                 $this->load->view("admin/conversation/editConversation_view",$data);                
@@ -188,7 +206,8 @@ class Conversation extends CI_Controller
             $this->load->view("admin/conversation/editConversation_view",$data);   
         }   
     } 
-    //--- Delete Conversation
+    //--- edit　Content
+    //---　会話　の内容　を　修正する
     function editContent() 
     {
         $c_id = $this->uri->segment(5);
@@ -248,6 +267,7 @@ class Conversation extends CI_Controller
         }            
     }
     // Delete Conversation
+    //　会話を消す
     function deleteConversation() 
     {
         $c_id = $this->uri->segment(4);           
@@ -258,6 +278,8 @@ class Conversation extends CI_Controller
             return false;     
         }
     }
+    // Delete Content
+    //　会話　の　内容　を消す
     function deleteContent() 
     {
         $c_id = $this->uri->segment(5); 
@@ -265,6 +287,8 @@ class Conversation extends CI_Controller
         $this->Conversation_model->deleteContent($con_id);
         redirect(base_url()."index.php/admin/conversation/viewDetailConversation/$c_id");
     }
+    // add　Content
+    //　会話　の　内容　を　加える
     function addContent() 
     {
         $c_id = $this->uri->segment(4);
@@ -279,8 +303,7 @@ class Conversation extends CI_Controller
             $this->form_validation->set_rules("con_title","Sub-title","required|max_length[200]");                                          
             $this->form_validation->set_rules("con_hiragana","Hiragana","required|max_length[5000]");
             $this->form_validation->set_rules("con_romaji","Romaji","required|max_length[5000]");
-            $this->form_validation->set_rules("con_meaning","Meaning","required|max_length[5000]");                                                                
-            //$this->form_validation->set_rules("con_file","File","required");                                                                                
+            $this->form_validation->set_rules("con_meaning","Meaning","required|max_length[5000]");                                                                            
                                             
             if ($this->form_validation->run() == FALSE) { 
                 $f_type = $_FILES['userfile']['type'];
@@ -326,6 +349,7 @@ class Conversation extends CI_Controller
         }
     } 
     //view Detail Conversation
+    //　詳細会話　を　見る
     function viewDetailConversation() 
     {
         $c_id = $this->uri->segment(4);
