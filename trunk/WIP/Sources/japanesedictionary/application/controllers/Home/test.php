@@ -22,7 +22,7 @@ class Test extends CI_Controller
         //　ロード　モデル
 		$this->load->model('Test_model');
 		$user = $this->facebook->getUser();
-
+		//　認証　を　チェックする
 		if (!$this->my_auth->is_User() && !$user) {        	
             // redirect den homepage
             //　ホームまで　リダイレクト            

@@ -10,6 +10,7 @@ class ReadingDocument_model extends CI_Model
 		parent::__construct();
 		$this->load->database();
 	}
+    // get all readingdocument
     function getReadingDocument()
     {
         $table = '(SELECT * FROM readingdocument WHERE reading_code LIKE \'%'.'SC'.'%\') AS A';
@@ -19,7 +20,7 @@ class ReadingDocument_model extends CI_Model
         $data = $query->result_array();
         return $data;
     }
-    //--- Lay thong tin 1 record qua id
+    //--- get information by id
     function getInfo($reading_id)
     {
         $table = '(SELECT * FROM readingdocument) AS A';
@@ -70,14 +71,14 @@ class ReadingDocument_model extends CI_Model
         $data = $query->result_array();
         return $data;
     }
- // tong số 50 bài
+    // total 50 lessons
     function num_rows_list50()
     {
         $table = '(SELECT rv.readingvocabulary_id FROM readingvocabulary as rv LEFT JOIN readingdocument as rd ON rv.reading_id=rd.reading_id WHERE rd.reading_code LIKE \'%'.'SC'.'%\') AS A';
         $this->db->from($table);
         return $this->db->count_all_results();
     }
-	// Tong so record cua 1 bai
+	// total of records
     function num_rows_ReadingVocab($reading_id)
     {
 	    $table = '(SELECT readingvocabulary_id FROM readingvocabulary WHERE reading_id = \''.$reading_id.'\' ORDER BY readingvocabulary_id ASC) AS A';
@@ -107,15 +108,14 @@ class ReadingDocument_model extends CI_Model
     {
 		$table = '(SELECT * FROM readingdocument WHERE reading_level= \''.mysql_real_escape_string(stripslashes($txtlevel)).'\' ORDER BY reading_id ASC) AS A';
 		
-		$this->db->select('*');
-		//$this->db->where("reading_type",'vocabulary');
+		$this->db->select('*');		
 		$this->db->from($table);
 		$this->db->limit($off,$limit);		
 		$query = $this->db->get();
         $data = $query->result_array();
         return $data;
 	}
-	// Tong so record
+	// total of records
     function num_rowsBySearch($txtlevel="")
     {
 	    $table = '(SELECT reading_id FROM readingdocument WHERE reading_level= \''.mysql_real_escape_string(stripslashes($txtlevel)).'\' ORDER BY reading_id ASC) AS A';
@@ -123,7 +123,7 @@ class ReadingDocument_model extends CI_Model
         $this->db->from($table);
         return $this->db->count_all_results();
     }
-    //--- Lay thong tin 1 record qua id
+    //--- get information by id
     function getInfoReading($reading_id, $readingvocabulary_id)
     {
     	$readingvocabulary_id = ($readingvocabulary_id===null) ? "" : $readingvocabulary_id;
@@ -144,6 +144,7 @@ class ReadingDocument_model extends CI_Model
         else
             return FALSE;
     }
+    // get information vocabulary by id
     function getInfoVocab($readingvocabulary_id)
     {
         $table = '(SELECT * FROM readingvocabulary) AS A';
@@ -160,17 +161,16 @@ class ReadingDocument_model extends CI_Model
         else
             return FALSE;
     }
-    //--- Cap nhat Reading
+    //--- update Reading
     function updateReading($reading, $reading_id)
     {
-        $this->db->where("reading_id",$reading_id);
-        //$this->db->where("reading_type",'vocabulary');
+        $this->db->where("reading_id",$reading_id);        
         if($this->db->update($this->_table,$reading))
             return TRUE;
         else
             return FALSE;
     }
-    //--- Cap nhat Content
+    //--- update Content
     function updateVocab($readingvocabulary, $readingvocabulary_id)
     {  		 
         $this->db->where("readingvocabulary_id",$readingvocabulary_id);
@@ -218,7 +218,7 @@ class ReadingDocument_model extends CI_Model
         else
             return FALSE;
     }
-    //--- Cap nhat Content Article
+    //--- update Content Article
     function updateContentArticle($data, $readingarticle_id)
     { 
         $this->db->where("readingarticle_id",$readingarticle_id);
@@ -233,6 +233,7 @@ class ReadingDocument_model extends CI_Model
         $this->db->where("readingarticle_id",$readingarticle_id);
         $this->db->delete("readingarticle");                                     
     }
+    // get Reading Vocabulary by id
     function getReadingVocabById($reading_id)
     {
         $table = '(SELECT * FROM readingvocabulary ORDER BY readingvocabulary_id ASC) AS A';  
@@ -243,6 +244,7 @@ class ReadingDocument_model extends CI_Model
         $data = $query->result_array();
         return $data;
     }
+    //get reading article by id
     function getReadingArticleById($reading_id)
     {
         $table = '(SELECT * FROM readingarticle WHERE reading_id = \''.$reading_id.'\') AS A';        
@@ -253,6 +255,7 @@ class ReadingDocument_model extends CI_Model
         $data = $query->result_array();
         return $data;
     }
+    // get information article 
     function getInfoArticle($readingarticle_id)
     {
         $table = '(SELECT * FROM readingarticle) AS A';
@@ -261,6 +264,7 @@ class ReadingDocument_model extends CI_Model
         $data = $query->result_array();
         return $data;   
     }
+    //get vocabulary n3
     function getVocabularyN3()
     {
         $table = '(SELECT * FROM readingdocument WHERE reading_code LIKE \'%'.'N3_soumatome'.'%\') AS A';        
@@ -269,6 +273,7 @@ class ReadingDocument_model extends CI_Model
         $data = $query->result_array();
         return $data;
     }
+    // get detail vocabulary n3
     function getDetailVocabN3($reading_id)
     {
         $table = '(SELECT * FROM readingvocabulary WHERE reading_id = \''.$reading_id.'\') AS A';
@@ -277,6 +282,7 @@ class ReadingDocument_model extends CI_Model
         $data = $query->result_array();
         return $data;
     }
+    // get vocabulary n2
     function getVocabularyN2()
     {
         $table = '(SELECT * FROM readingdocument WHERE reading_code LIKE \'%'.'N2_soumatome'.'%\') AS A';        
@@ -285,6 +291,7 @@ class ReadingDocument_model extends CI_Model
         $data = $query->result_array();
         return $data;
     }
+    // get detail vocabulary n2
     function getDetailVocabN2($reading_id)
     {
         $table = '(SELECT * FROM readingvocabulary WHERE reading_id = \''.$reading_id.'\') AS A';
@@ -293,6 +300,7 @@ class ReadingDocument_model extends CI_Model
         $data = $query->result_array();
         return $data;
     }
+    //get kanji N3
     function getKanjiN3()
     {
         $table = '(SELECT * FROM readingdocument WHERE reading_code LIKE \'%'.'N3_soumatome'.'%\') AS A';        
@@ -301,6 +309,7 @@ class ReadingDocument_model extends CI_Model
         $data = $query->result_array();
         return $data;
     }
+    // get detail kanji N3
     function getDetailKanjiN3($reading_id)
     {
         $table = '(SELECT * FROM kanji as k LEFT JOIN readingdocument as r ON k.k_lesson=r.reading_code WHERE r.reading_id = \''.$reading_id.'\') AS A';        
@@ -309,6 +318,7 @@ class ReadingDocument_model extends CI_Model
         $data = $query->result_array();
         return $data;
     }
+    // get kanji N2
     function getKanjiN2()
     {
         $table = '(SELECT * FROM readingdocument WHERE reading_code LIKE \'%'.'N2_soumatome'.'%\') AS A';        
@@ -317,6 +327,7 @@ class ReadingDocument_model extends CI_Model
         $data = $query->result_array();
         return $data;
     }
+    //get Detail kanji N2
     function getDetailKanjiN2($reading_id)
     {
         $table = '(SELECT * FROM kanji as k LEFT JOIN readingdocument as r ON k.k_lesson=r.reading_code WHERE r.reading_id = \''.$reading_id.'\') AS A';        
@@ -325,6 +336,7 @@ class ReadingDocument_model extends CI_Model
         $data = $query->result_array();
         return $data;
     }
+    // get grammar n3
     function getGrammarN3()
     {
         $table = '(SELECT * FROM readingdocument WHERE reading_code LIKE \'%'.'N3_soumatome'.'%\') AS A';        
@@ -333,6 +345,7 @@ class ReadingDocument_model extends CI_Model
         $data = $query->result_array();
         return $data;
     }
+    //get detail grammar n3
     function getDetailGrammarN3($reading_id)
     {
         $table ='(SELECT * FROM grammar as g LEFT JOIN readingdocument as r ON g.g_lesson=r.reading_code WHERE reading_id = \''.mysql_real_escape_string($reading_id).'\') AS A';
@@ -341,6 +354,7 @@ class ReadingDocument_model extends CI_Model
         $data = $query->result_array();
         return $data;
     }
+    //get grammar n2
     function getGrammarN2()
     {
         $table = '(SELECT * FROM readingdocument WHERE reading_code LIKE \'%'.'N2_soumatome'.'%\') AS A';        
@@ -349,6 +363,7 @@ class ReadingDocument_model extends CI_Model
         $data = $query->result_array();
         return $data;
     }
+    //get detail grammar n2
     function getDetailGrammarN2($reading_id)
     {
         $table ='(SELECT * FROM grammar as g LEFT JOIN readingdocument as r ON g.g_lesson=r.reading_code WHERE reading_id = \''.mysql_real_escape_string($reading_id).'\') AS A';
@@ -357,6 +372,7 @@ class ReadingDocument_model extends CI_Model
         $data = $query->result_array();
         return $data;
     }
+    //get article n3
     function getArticleN3()
     {
         $table = '(SELECT * FROM readingdocument WHERE reading_code LIKE \'%'.'N3_soumatome'.'%\') AS A';        
@@ -365,6 +381,7 @@ class ReadingDocument_model extends CI_Model
         $data = $query->result_array();
         return $data;
     }
+    //get detail article n3
     function getDetailArticleN3($reading_id)
     {
         $table = '(SELECT * FROM readingarticle WHERE reading_id = \''.$reading_id.'\') AS A';
@@ -373,6 +390,7 @@ class ReadingDocument_model extends CI_Model
         $data = $query->result_array();
         return $data;
     }
+    //get article n2
     function getArticleN2()
     {
         $table = '(SELECT * FROM readingdocument WHERE reading_code LIKE \'%'.'N2_soumatome'.'%\') AS A';        
@@ -381,6 +399,7 @@ class ReadingDocument_model extends CI_Model
         $data = $query->result_array();
         return $data;
     }
+    //get detail article n2
     function getDetailArticleN2($reading_id)
     {
         $table = '(SELECT * FROM readingarticle WHERE reading_id = \''.$reading_id.'\') AS A';

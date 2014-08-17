@@ -31,10 +31,11 @@ class Verify extends CI_Controller
                 'redirect_uri' => site_url('Home/verify/fblogin'), 
                 'scope' => array("email") // permissions here
             ));
-            // $this->load->view("user/Homepage_view",$data);
+            
         } 
 		if ($this->my_auth->is_User()) {
-            // redirect den homepage            
+            // redirect to homepage 
+            //　ホームページ　まで　来る           
             redirect(base_url()."index.php/Home/user");
             exit();
         }        
@@ -58,7 +59,8 @@ class Verify extends CI_Controller
                             "error" => ""
                         );
                 $this->my_auth->set_userdata($data);
-                //redirect to homepage                     
+                // redirect to homepage 
+                //　ホームページ　まで　来る                   
                 redirect(base_url()."index.php/Home/user");                 
                 $this->load->view("user/Homepage_view",$data);                 
             } else {        
@@ -73,6 +75,7 @@ class Verify extends CI_Controller
         }
 	}
     //---- Logout
+    //----　ログアウト
     function logout()
     {
         $this->my_auth->sess_destroy();
@@ -80,9 +83,11 @@ class Verify extends CI_Controller
     }
 
     //-----Login By Facebook
+    //-----　Facebook　で　ログイン
     function fblogin()
     {
-        $this->load->library('facebook'); // Automatically picks appId and secret from config                
+        $this->load->library('facebook'); 
+        // Automatically picks appId and secret from config                
         $user = $this->facebook->getUser();
         if ($user) {
             try {
@@ -124,9 +129,10 @@ class Verify extends CI_Controller
 
         $this->load->library('facebook');
         // Logs off session from website
+        //　ウエディング　から　セッション　を　ログオフする
         $this->facebook->destroySession();
         $this->my_auth->sess_destroy();
-        // Make sure you destory website session as well.
+        // Make sure you destory website session as well.        
         redirect(base_url()."index.php/Home/verify/login");
     }
 }

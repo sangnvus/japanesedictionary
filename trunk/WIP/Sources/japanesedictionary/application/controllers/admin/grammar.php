@@ -8,29 +8,40 @@ class Grammar extends CI_Controller
 	function __construct() 
     {
 		parent::__construct();
-		// load helper        
+		// load helper   
+        //ロード　ヘルパー       
 		$this->load->helper("url");
         $this->load->helper(array('form', 'url'));
         // load library
+        //　ロード　ライブラリ
         $this->load->library(array("input","form_validation","session","my_auth","email"));
         //connect DB
+        //　データベース　に　接続する
 		$this->load->database();
         $this->load->model("Grammar_model");
+        //check Authentication
+        //　認証　を　チェックする
         if (!$this->my_auth->is_Admin()) {            
             redirect(base_url()."index.php/admin/verify/login");
             exit();
         }
 	}
+    //list grammar
+    //　リスト　文法
 	function index() 
     {
 		// count record
-        $max = $this->Grammar_model->num_rows();
-        // so record tren 1 page
+        // レコード　を　カウントする
+        $max = $this->Grammar_model->num_rows();        
+        // number of records on one page
+        // ページ　に　レコード　の　番号
         $min = 10;
         $data['num_rows'] = $max;
         //--- Paging
+        //　ページング
         if ($max != 0) {    
         	//load library
+            //　ロード　ライブラリ            
             $this->load->library('pagination');                    
             $config['base_url'] = base_url()."index.php/admin/grammar/index";
             $config['total_rows'] = $max;
@@ -40,24 +51,32 @@ class Grammar extends CI_Controller
             $this->pagination->initialize($config);                        
             $data['links'] = $this->pagination->create_links();
             //get data from DB
+            //データベース　から　データ　を　得る
             $data['grammar'] = $this->Grammar_model->getAllGrammar($min,$this->uri->segment($config['uri_segment']));
             // load view
+            // ロード　ビュー
             $this->load->view("admin/grammar/listGrammar_view",$data);
         } else {
             $data['grammar'] = null;
             $this->load->view("admin/grammar/listGrammar_view",$data);
         }
 	}
+    // list　Contributed　Grammar
+    //　リスト　寄付した文法
     function listContributedGrammar() 
     {
         // count record
-        $max = $this->Grammar_model->num_rows_contributed();
-        // so record tren 1 page
+        // レコード　を　カウントする
+        $max = $this->Grammar_model->num_rows_contributed();        
+        // number of records on one page
+        // ページ　に　レコード　の　番号
         $min = 10;
         $data['num_rows_contributed'] = $max;
         //--- Paging
+        //　ページング
         if ($max != 0) {    
             //load library
+            //　ロード　ライブラリ
             $this->load->library('pagination');                    
             $config['base_url'] = base_url()."index.php/admin/grammar/listContributedGrammar";
             $config['total_rows'] = $max;
@@ -67,14 +86,18 @@ class Grammar extends CI_Controller
             $this->pagination->initialize($config);                        
             $data['links'] = $this->pagination->create_links();
             //get data from DB
+            //データベース　から　データ　を　得る
             $data['grammar'] = $this->Grammar_model->getContributedGrammar($min,$this->uri->segment($config['uri_segment']));
             // load view
+            // ロード　ビュー
             $this->load->view("admin/grammar/listContributedGrammar_view",$data);
         } else {
             $data['grammar'] = null;
             $this->load->view("admin/grammar/listContributedGrammar_view",$data);
         }
     }
+    // approved　Grammar
+    //　文法　を　認める
     function approvedGrammar() 
     {
         $g_id = $this->uri->segment(4);
@@ -109,6 +132,8 @@ class Grammar extends CI_Controller
             return false;
         }
     }
+    // get　By　Romaji
+    //　Romaji　で　得る
 	function getByRomaji() 
     {
 		$data = "";
@@ -128,13 +153,14 @@ class Grammar extends CI_Controller
         $data['txtRomaji'] = $txtRomaji;
         $data['num_rows'] = $max;
         //--- Paging
+        //　ページング
             if ($max != 0) {    
                 $this->load->library('pagination');                    
                 $config['base_url'] = base_url()."index.php/admin/grammar/getByRomaji?txtRomaji=".$txtRomaji."&search=Search";
                 $config['total_rows'] = $max;
                 $config['per_page'] = $min;
                 $config['num_link'] = 3; 
-                // $config['uri_segment'] = 4;
+                
                 $config['page_query_string'] = TRUE;
                 $this->pagination->initialize($config);                             
                 $data['links'] = $this->pagination->create_links();
@@ -149,6 +175,8 @@ class Grammar extends CI_Controller
             $this->load->view("admin/grammar/listGrammar_view",$data);
         }
 	}
+    // add　Grammar
+    //　文法　を　加える
 	function addGrammar() 
     {
 		$data['error'] = "";
@@ -182,6 +210,8 @@ class Grammar extends CI_Controller
             }        
         }
 	}
+    // edit　Grammar
+    //　文法　を　修正する
 	function editGrammar() 
     {
 		$g_id = $this->uri->segment(4);
@@ -216,6 +246,8 @@ class Grammar extends CI_Controller
             return false;
         }
 	}
+    // check　Grammar
+    //　文法　を　チェックする
     function checkGrammar($g_hiragana) 
     {
         $g_id = $this->uri->segment(4);
@@ -226,6 +258,8 @@ class Grammar extends CI_Controller
             return FALSE;
        }
     }
+    // delete　Grammar
+    //　文法　を　消す
 	function deleteGrammar() 
     {
 		$g_id = $this->uri->segment(4);             
@@ -236,6 +270,8 @@ class Grammar extends CI_Controller
             return false;     
         }
 	}
+    // delete　Contributed　Grammar
+    //　寄付した文法　を　消す
     function deleteContributedGrammar() 
     {
         $g_id = $this->uri->segment(4);             
@@ -245,7 +281,9 @@ class Grammar extends CI_Controller
         } else {
             return false;     
         }
-    }    
+    }  
+    // add　reference
+    //　参考　を　加える  
     function addRefer() 
     {
         $g_id = $this->uri->segment(4);

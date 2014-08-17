@@ -9,15 +9,19 @@ class User extends CI_Controller
 	{
 		parent::__construct();		
     // load helper
+    //ロード　ヘルパー   
 		$this->load->helper("url");
     $this->load->helper(array('form', 'url'));		
     // load library
+    //　ロード　ライブラリ
 		$this->load->library(array("input","form_validation","session","my_auth","email"));        
     $this->load->library('facebook');
     $this->config->load('facebook');
     // load Database
+    // ロード　データベース
     $this->load->database();
     // load MOdel
+    //　ロード　モデル
     $this->load->model("User_model");
     $this->load->model("Test_model");    
 	}
@@ -29,6 +33,7 @@ class User extends CI_Controller
   {
   		$this->load->view('user/forgotInfo_view');
   }
+  //　忘れた　パスワード　の　フォーム
   public function forget()
   {
     if (isset($_GET['info'])) {
@@ -39,6 +44,7 @@ class User extends CI_Controller
               }    
     $this->load->view('user/forgotInfo_view',$data);
   } 
+  //　忘れた　パスワード　を　する　
   public function doforget()
   {    
     $this->load->helper('url');
@@ -65,26 +71,32 @@ class User extends CI_Controller
       $data = "";
       $user = $this->facebook->getUser();      
       if (!$this->my_auth->is_User() && !$user) {
-            // redirect den homepage            
+            // redirect to homepage 
+            // ホームページ まで　来る          
             redirect(base_url()."index.php/Home/user");
             exit();
         }
         //get Info by User Id
+        //　ユーザ　の　Id　で　情報　を　得る
         $u_id = $this->uri->segment(4);
         if ($user) {
           $userProfile = $this->Test_model->getFacebookUser($u_id);
           $data['info'] = $this->User_model->getFacebookInfo($u_id);            
           //get Info Test by User Id
+          //　ユーザのId　で　テストの情報　を得る
           $data['tracking'] = $this->Test_model->getInfoMark($userProfile['id']);
         } else {
           $data['info'] = $this->User_model->getInfo($u_id);
           //get Info Test by User Id
+          //　ユーザのId　で　テストの情報　を得る
           $data['tracking'] = $this->Test_model->getInfoMark($u_id);
         }                                
         //load view
+        //　ロード　ビュー
         $this->load->view('user/profile_view',$data);
   }
   // edit User
+  // ユーザ　を　修正する
  	function editUser()
     {
   	  $u_id = $this->uri->segment(4);
@@ -93,6 +105,7 @@ class User extends CI_Controller
       if (is_numeric($u_id) && $data['info'] != NULL) { 
           if (isset($_POST['ok'])) {            
             // form validation
+            //　検証　フォーム
             $this->form_validation->set_rules("username","Tên đăng nhập","required|min_length[6]");                                  
             $this->form_validation->set_rules("newpassword","Mật khẩu mới","trim|min_length[6]|max_length[32]|matches[renewpassword]");
             $this->form_validation->set_rules("renewpassword","Nhập lại mật khẩu","trim|matches[newpassword]");
@@ -131,6 +144,7 @@ class User extends CI_Controller
       }
     }
   //---- Check Email
+  //----　Eメール　を　チェックする  
     function checkEmail($u_email)
     {
         $u_id = $this->uri->segment(4);
@@ -144,7 +158,7 @@ class User extends CI_Controller
  	public function registration()
  	{
     $this->load->library('form_validation');
-    // field name, error message, validation rules
+    // field name, error message, validation rules    
     $this->form_validation->set_rules('user_name', 'Tên đăng nhập', 'trim|required|alpha_numeric|min_length[6]|max_length[32]|xss_clean|is_unique[user.u_username]');
     $this->form_validation->set_rules('email_address', 'Email', 'trim|required|valid_email|max_length[100]|is_unique[user.u_email]');
     $this->form_validation->set_rules('password', 'Mật khẩu', 'trim|required|min_length[6]|max_length[32]');
@@ -162,8 +176,9 @@ class User extends CI_Controller
 
     if ($this->input->post()) {
         //Load Class Validation
-        //$this->load->library('form_validation');
-        //Kiểm tra Recaptcha có đúng hay không
+        //　検証　クラス　をロードする        
+        //check recaptcha is true or false?
+        //　recaptcha　を　チェックするのはtrueまたはfalseです？　
         $this->recaptcha->checkRecaptcha();
     }
     if ($this->form_validation->run() == FALSE) {
@@ -238,8 +253,9 @@ class User extends CI_Controller
 
       if ($this->input->post()) {
           //Load Class Validation
-          //$this->load->library('form_validation');
-          //Kiểm tra Recaptcha có đúng hay không
+          //　検証　クラス　をロードする        
+          //check recaptcha is true or false?
+          //　recaptcha　を　チェックするのはtrueまたはfalseです？　
           $this->recaptcha->checkRecaptcha();
       }
       if ($this->form_validation->run() == FALSE) {
@@ -277,8 +293,9 @@ public function contributedKanji()
 
     if ($this->input->post()) {
         //Load Class Validation
-        //$this->load->library('form_validation');
-        //Kiểm tra Recaptcha có đúng hay không
+        //　検証　クラス　をロードする        
+        //check recaptcha is true or false?
+        //　recaptcha　を　チェックするのはtrueまたはfalseです？　
         $this->recaptcha->checkRecaptcha();
     }
     if ($this->form_validation->run() == FALSE) {
@@ -310,8 +327,9 @@ public function contributedKanji()
 
       if ($this->input->post()) {
           //Load Class Validation
-          //$this->load->library('form_validation');
-          //Kiểm tra Recaptcha có đúng hay không
+          //　検証　クラス　をロードする        
+          //check recaptcha is true or false?
+          //　recaptcha　を　チェックするのはtrueまたはfalseです？　
           $this->recaptcha->checkRecaptcha();
       }
       if ($this->form_validation->run() == FALSE) {
@@ -339,8 +357,9 @@ public function contributedKanji()
 
       if ($this->input->post()) {
           //Load Class Validation
-          //$this->load->library('form_validation');
-          //Kiểm tra Recaptcha có đúng hay không
+          //　検証　クラス　をロードする        
+          //check recaptcha is true or false?
+          //　recaptcha　を　チェックするのはtrueまたはfalseです？　
           $this->recaptcha->checkRecaptcha();
       }
       if ($this->form_validation->run() == FALSE) {
@@ -370,8 +389,9 @@ public function contributedKanji()
 
       if ($this->input->post()) {
           //Load Class Validation
-          //$this->load->library('form_validation');
-          //Kiểm tra Recaptcha có đúng hay không
+          //　検証　クラス　をロードする        
+          //check recaptcha is true or false?
+          //　recaptcha　を　チェックするのはtrueまたはfalseです？　
           $this->recaptcha->checkRecaptcha();
       }
       if ($this->form_validation->run() == FALSE) {

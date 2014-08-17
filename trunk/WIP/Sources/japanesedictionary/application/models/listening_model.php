@@ -11,6 +11,7 @@ class Listening_model extends CI_Model
 		$this->load->database();
 	}
 	// get all data
+    // 全て　の　データ　を　得る
 	function getAllListening($off="",$limit="")
     {
 		$table = '(SELECT * FROM traininglistening ORDER BY lis_id ASC) AS A';
@@ -21,21 +22,24 @@ class Listening_model extends CI_Model
         $data = $query->result_array();
         return $data;
 	}
-	// Tong so record
+	// total of rows
+    // 全て　の　ロー
     function num_rows()
     {
 	    $table = '(SELECT lis_id FROM traininglistening ORDER BY lis_id ASC) AS A';        
         $this->db->from($table);
         return $this->db->count_all_results();
     }
-    //đếm N2&N3
+    // total of rows N2N3
+    // 全て　の　ロー
     function num_rows_listeningN2N3()
     {
         $table = '(SELECT lis_id FROM traininglistening WHERE lis_level = \'N2N3\' ) AS A';        
         $this->db->from($table);
         return $this->db->count_all_results();
     }
-    //đếm N4&N5
+    //total of rows N4&N5
+    // 全て　の　ロー
     function num_rows_listeningN4N5()
     {
         $table = '(SELECT lis_id FROM traininglistening WHERE lis_level = \'N4N5\' ) AS A';        
@@ -43,6 +47,7 @@ class Listening_model extends CI_Model
         return $this->db->count_all_results();
     }
     // get all data
+    // 全て　の　データ　を　得る
 	function getListeningByLevel($level="", $off="", $limit="")
     {
 		$table = '(SELECT * FROM traininglistening WHERE lis_level=\''.mysql_real_escape_string(stripslashes($level)).'\' ORDER BY lis_id ASC) AS A';
@@ -53,7 +58,8 @@ class Listening_model extends CI_Model
         $data = $query->result_array();
         return $data;
 	}
-	// Tong so record search
+	// total of record search
+    // 全て　の　ロー
     function num_rowsBySearch($level="")
     {
 	    $table = '(SELECT lis_id FROM traininglistening WHERE lis_level=\''.mysql_real_escape_string(stripslashes($level)).'\' ORDER BY lis_id ASC) AS A';
@@ -61,6 +67,7 @@ class Listening_model extends CI_Model
         return $this->db->count_all_results();
     }
 	// Add New Traininglistening
+    // 新しいリスニング　を　加える
 	function addTraininglistening($traininglistening)
     {
         if($this->db->insert($this->_table,$traininglistening))
@@ -68,7 +75,8 @@ class Listening_model extends CI_Model
         else
             return FALSE;
     }
-    //--- Lay thong tin 1 record qua id
+    //--- get information by id
+    //---　id　で　情報　を　得る
     function getInfoTraininglistening($lis_id)
     {
     	$table = '(SELECT * FROM traininglistening) AS A';
@@ -79,7 +87,8 @@ class Listening_model extends CI_Model
         else
             return FALSE;
     }
-    //--- Cap nhat Traininglistening
+    //--- update Traininglistening
+    //---　リスニング　を　修正する
     function updateTraininglistening($data, $lis_id)
     {
         $this->db->where("lis_id",$lis_id);
@@ -90,6 +99,7 @@ class Listening_model extends CI_Model
             return FALSE;
     }
     // Add New Sourcefile
+    // 新しいファイルのソース　を　加える
 	function addSourcefile($sourcefile)
     {
         if($this->db->insert("sourcefile",$sourcefile))
@@ -97,7 +107,8 @@ class Listening_model extends CI_Model
         else
             return FALSE;
     }
-    //--- Cap nhat Sourcefile
+    //--- update Sourcefile
+    //---　ファイルのソース　を　修正する
     function updateSourcefile($data, $sourcefile_id)
     {
 		$this->db->where("sourcefile_id",$sourcefile_id);
@@ -109,8 +120,7 @@ class Listening_model extends CI_Model
 	            return TRUE;
 	        else
 	            return FALSE;
-        } else {
-            //$this->db->where("sourcefile_id",$sourcefile_id);
+        } else {            
     		if ($this->db->insert("sourcefile",$data))
 	            return TRUE;
 	        else
@@ -118,6 +128,7 @@ class Listening_model extends CI_Model
         }   	        
     }
     //--- delete Sourcefile and listening
+    //---　リスニングを　消す
     function deleteSourcefile($lis_id, $sourcefile_id)
     {          
             $this->db->where("sourcefile_id",$sourcefile_id);
@@ -152,7 +163,7 @@ class Listening_model extends CI_Model
         $data = $query->result_array();
         return $data;
     }
-    //--- Lay thong tin 1 record qua id
+    //--- get information by listening id
     function getInfo($lis_id)
     {
         $table = '(SELECT * FROM traininglistening) AS A';

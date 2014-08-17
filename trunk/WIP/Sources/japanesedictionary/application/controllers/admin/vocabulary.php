@@ -9,29 +9,39 @@ class Vocabulary extends CI_Controller
     {
 		parent::__construct();
 		// load helper
+        //ロード　ヘルパー   
 		$this->load->helper("url");
         $this->load->helper(array('form', 'url'));
         // load library
+        //　ロード　ライブラリ
         $this->load->library(array("input","form_validation","session","my_auth","email"));
         //connect DB
+        //　データベース　に　接続する
 		$this->load->database();
         $this->load->model("Vocabulary_model");
+        //check Authentication
+        //　認証　を　チェックする
         if (!$this->my_auth->is_Admin()) {            
             redirect(base_url()."index.php/admin/verify/login");
             exit();
         }
 	}
 	//list Vocabulary
+    //　言葉のリスト
 	function index() 
     {	
 		// count record
+        // レコード　を　カウントする
         $max = $this->Vocabulary_model->num_rows();
-        // so record tren 1 page
+        // number of records on one page
+        // ページ　に　レコード　の　番号        
         $min = 10;
         $data['num_rows'] = $max;
         //--- Paging
+        //　ページング
         if ($max != 0) {    
         	//load library
+            //　ロード　ライブラリ
             $this->load->library('pagination');                    
             $config['base_url'] = base_url()."index.php/admin/vocabulary/index";
             $config['total_rows'] = $max;
@@ -41,24 +51,31 @@ class Vocabulary extends CI_Controller
             $this->pagination->initialize($config);                        
             $data['links'] = $this->pagination->create_links();
             //get data from DB
+            //データベース　から　データ　を　得る
             $data['vocabulary'] = $this->Vocabulary_model->getAllVocabulary($min,$this->uri->segment($config['uri_segment']));
             // load view
+            // ロード　ビュー
             $this->load->view("admin/vocabulary/listVocabulary_view",$data);
         } else {
             $data['vocabulary'] = null;
             $this->load->view("admin/vocabulary/listVocabulary_view",$data);
         }
 	}
+    //　貢献した言葉　のリスト
     function listContributedVocab() 
     {
         // count record
+        // レコード　を　カウントする
         $max = $this->Vocabulary_model->num_rows_contributed();
-        // so record tren 1 page
+        // number of records on one page
+        // ページ　に　レコード　の　番号
         $min = 10;
         $data['num_rows_contributed'] = $max;
         //--- Paging
+        //　ページング
         if ($max != 0) {    
             //load library
+            //　ロード　ライブラリ
             $this->load->library('pagination');                    
             $config['base_url'] = base_url()."index.php/admin/vocabulary/listContributedVocab";
             $config['total_rows'] = $max;
@@ -68,14 +85,17 @@ class Vocabulary extends CI_Controller
             $this->pagination->initialize($config);                        
             $data['links'] = $this->pagination->create_links();
             //get data from DB
+            //データベース　から　データ　を　得る
             $data['vocabulary'] = $this->Vocabulary_model->getContributedVocab($min,$this->uri->segment($config['uri_segment']));
             // load view
+            // ロード　ビュー
             $this->load->view("admin/vocabulary/listContributedVocab_view",$data);
         } else {
             $data['vocabulary'] = null;
             $this->load->view("admin/vocabulary/listContributedVocab_view",$data);
         }
     }
+    //　言葉　を　承認する
     function approvedVocab() 
     {
        $v_id = $this->uri->segment(4);
@@ -123,6 +143,7 @@ class Vocabulary extends CI_Controller
             $this->load->view("admin/vocabulary/errorApproved_view");
         }
     }
+    //　Romaji　で　言葉　を　得る　
     function getVocabularyByRomaji() 
     {
         $data = "";
@@ -141,13 +162,14 @@ class Vocabulary extends CI_Controller
             $data['txtRomaji'] = $txtRomaji;
             $data['num_rows'] = $max;
             //--- Paging
+            //　ページング
             if ($max != 0) {    
                 $this->load->library('pagination');                    
                 $config['base_url'] = base_url()."index.php/admin/vocabulary/getVocabularyByRomaji?txtRomaji=".$txtRomaji."&search=Search";
                 $config['total_rows'] = $max;
                 $config['per_page'] = $min;
                 $config['num_link'] = 3; 
-                //$config['uri_segment'] = $this->input->get('per_page');
+                
                 $config['page_query_string'] = TRUE;
                 $this->pagination->initialize($config);                                   
                 $data['links'] = $this->pagination->create_links();
@@ -162,6 +184,7 @@ class Vocabulary extends CI_Controller
             $this->load->view("admin/vocabulary/listSearchVocab_view",$data);            
         }
     }
+    //　言葉　を　加える
     function addVocabulary() 
     {
         $data['error'] = "";
@@ -187,6 +210,7 @@ class Vocabulary extends CI_Controller
             }                
         }                
     }
+    //　言葉　を　修正する
     function editVocab() 
     {
         $v_id = $this->uri->segment(4);
@@ -258,6 +282,7 @@ class Vocabulary extends CI_Controller
         }
     }
     //--- Delete Vocabulary
+    //　言葉　を　消す
     function deleteVocabulary() 
     {
         $v_id = $this->uri->segment(4);
@@ -270,6 +295,7 @@ class Vocabulary extends CI_Controller
             return false;     
         }
     }
+    //　貢献した言葉　を　消す
     function deleteContributedVocabulary() 
     {
         $v_id = $this->uri->segment(4);
@@ -282,6 +308,7 @@ class Vocabulary extends CI_Controller
             return false;     
         }
     }
+    //　言葉　を　チェックする
     function checkVocabulary($v_hiragana) 
     {
         $v_id = $this->uri->segment(4);
@@ -292,6 +319,7 @@ class Vocabulary extends CI_Controller
             return FALSE;
        }
     }
+    //　意味　をチェックする
     function checkMeaning($m_meaningvn) 
     {
         $v_id = $this->uri->segment(4);
@@ -302,6 +330,7 @@ class Vocabulary extends CI_Controller
             return FALSE;
        }
     }
+    //　意味　を　加える
     function addMeaning() 
     {
         $v_id = $this->uri->segment(4);
@@ -334,6 +363,8 @@ class Vocabulary extends CI_Controller
             return false;
         }
     }
+    //　Add reference
+    //　参照を追加します
     function addRefer() 
     {
         $v_id = $this->uri->segment(4);
@@ -381,6 +412,7 @@ class Vocabulary extends CI_Controller
             $this->load->view("admin/vocabulary/errorAddRefer_view");
         }      
     }
+    //　Mid　の　存在　を　チェックする
     function checkExistMid($m_id) 
     {        
         if ($this->Vocabulary_model->checkMid($m_id) == TRUE) {
@@ -390,6 +422,7 @@ class Vocabulary extends CI_Controller
             return TRUE;
        }
     }
+    //　Sid　の　存在　を　チェックする
     function checkExistSid($s_id) 
     {        
         if ($this->Vocabulary_model->checkSid($s_id) == TRUE) {
@@ -399,6 +432,7 @@ class Vocabulary extends CI_Controller
             return TRUE;
        }
     }
+    //　参照を修正する
     function editRefer() 
     {
         $m_id = $this->uri->segment(4);
@@ -438,6 +472,7 @@ class Vocabulary extends CI_Controller
             return false;
         }
     }
+    //　参照を消す
     function deleteRefer() 
     {
         $m_id = $this->uri->segment(4);             

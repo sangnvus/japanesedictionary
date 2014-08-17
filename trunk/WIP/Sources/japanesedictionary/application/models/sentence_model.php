@@ -20,7 +20,7 @@ class Sentence_model extends CI_Model
         $data = $query->result_array();
         return $data;
 	}
-	// Tong so record
+	// Total records
     function num_rows()
     {
 	    $table = '(SELECT s_id FROM sentence ORDER BY s_hiragana) AS A';        
@@ -37,7 +37,7 @@ class Sentence_model extends CI_Model
         $data = $query->result_array();
         return $data;
 	}
-	// Tong so record
+	// Total records
     function num_rowsBySearch($txtRomaji)
     {
 	    $table = '(SELECT s_id FROM sentence WHERE s_romaji LIKE \'%'.mysql_real_escape_string($txtRomaji).'%\' ORDER BY s_hiragana) AS A';		       
@@ -52,7 +52,7 @@ class Sentence_model extends CI_Model
         else
             return FALSE;
     }
-    //--- Lay thong tin 1 record qua id
+    //--- get information by id
     function getInfoSentence($s_id)
     {
     	$table = '(SELECT * FROM sentence) AS A';
@@ -64,7 +64,7 @@ class Sentence_model extends CI_Model
         else
             return FALSE;
     }
-    //--- Cap nhat Sentence
+    //--- update Sentence
     function updateSentence($data, $s_id)
     {
         $this->db->where("s_id",$s_id);

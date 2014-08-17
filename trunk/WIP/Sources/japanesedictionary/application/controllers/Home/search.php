@@ -53,20 +53,25 @@ class Search extends CI_Controller
         }  
         if ('IS_AJAX') {  
             echo json_encode($data); 
-            //echo json string if ajax request                 
-            //
         }  
     }
     public function lookupVideo() 
     {  
         // process posted form data  
+        //　データ　フォーム　プロセス 
         $keyword = $this->input->post('term');  
         $data['response'] = 'false'; //Set default response 
         $this->load->model('Video_model'); 
-        $query = $this->Video_model->lookup($keyword); //Search DB  
+        $query = $this->Video_model->lookup($keyword); 
+        //Search DB  
+        //　データベース　に　探す 
         if (!empty($query)) {  
-            $data['response'] = 'true'; //Set response  
-            $data['message'] = array(); //Create array  
+            $data['response'] = 'true'; 
+            //Set response  
+            //レスポンス　をセットする  
+            $data['message'] = array(); 
+            //Create array  
+            //アレイ　を　クリエートする
             foreach ($query as $row) {  
             	$data['message'][] = array('id'=>$row->vi_id,  
                                         	'value' => $row->vi_title
@@ -74,21 +79,29 @@ class Search extends CI_Controller
             }  
         }  
         if ('IS_AJAX') {  
-            echo json_encode($data); //echo json string if ajax request  
+            echo json_encode($data); 
         }  
     }
     public function lookupConversation() 
     {  
         // process posted form data  
+        //　データ　フォーム　プロセス 
         $keyword = $this->input->post('term');  
-        $data['response'] = 'false'; //Set default response 
+        $data['response'] = 'false'; 
+        //Set default response 
+        //デフォールト　の　レスポンス　を　セットする
         $this->load->model('Conversation_model');
 
-        $query = $this->Conversation_model->lookup($keyword); //Search DB         
-
+        $query = $this->Conversation_model->lookup($keyword); 
+        //Search DB         
+        //　データベース　に　探す 
         if (!empty($query)) {  
-            $data['response'] = 'true'; //Set response  
-            $data['message'] = array(); //Create array  
+            $data['response'] = 'true'; 
+            //Set response  
+            //レスポンス　をセットする  
+            $data['message'] = array(); 
+            //Create array  
+            //アレイ　を　クリエートする
             foreach ($query as $row) {  
             	$data['message'][] = array('id'=>$row->con_id,  
                                     		'value' => $row->con_title                                                                             
@@ -102,13 +115,22 @@ class Search extends CI_Controller
     public function lookupGrammar() 
     {  
         // process posted form data  
+        //　データ　フォーム　プロセス 
         $keyword = $this->input->post('term');  
-        $data['response'] = 'false'; //Set default response 
+        $data['response'] = 'false'; 
+        //Set default response 
+        //デフォールト　の　レスポンス　を　セットする
         $this->load->model('Grammar_model'); 
-        $query = $this->Grammar_model->lookup($keyword); //Search DB  
+        $query = $this->Grammar_model->lookup($keyword); 
+        //Search DB  
+        //　データベース　に　探す 
         if (!empty($query)) {  
-            $data['response'] = 'true'; //Set response  
-            $data['message'] = array(); //Create array  
+            $data['response'] = 'true'; 
+            //Set response  
+            //レスポンス　をセットする  
+            $data['message'] = array(); 
+            //Create array  
+            //アレイ　を　クリエートする
             foreach ($query as $row) {  
             	if (strspn($row->g_romaji,$keyword) == 0) {
             		$data['message'][] = array('id'=>$row->g_id,  
@@ -122,19 +144,28 @@ class Search extends CI_Controller
             }  
         }  
         if ('IS_AJAX') {  
-            echo json_encode($data); //echo json string if ajax request                 
+            echo json_encode($data);
         }  
     }
     public function lookupSpecialized() 
     {  
-        // process posted form data  
+        // process posted form data 
+        //　データ　フォーム　プロセス 
         $keyword = $this->input->post('term');  
-        $data['response'] = 'false'; //Set default response 
+        $data['response'] = 'false'; 
+        //Set default response 
+        //デフォールト　の　レスポンス　を　セットする
         $this->load->model('Vocabulary_model'); 
-        $query = $this->Vocabulary_model->lookupSpecialized($keyword); //Search DB  
+        $query = $this->Vocabulary_model->lookupSpecialized($keyword); 
+        //Search DB  
+        //　データベース　に　探す 
         if (!empty($query)) {  
-            $data['response'] = 'true'; //Set response  
-            $data['message'] = array(); //Create array  
+            $data['response'] = 'true'; 
+            //Set response  
+            //レスポンス　をセットする  
+            $data['message'] = array(); 
+            //Create array  
+            //アレイ　を　クリエートする
             foreach ($query as $row) {  
             	if (strspn($row->v_romaji,$keyword) == 0) {
             		$data['message'][] = array('id'=>$row->v_id,  
@@ -168,10 +199,12 @@ class Search extends CI_Controller
 					$meanings = $this->Vocabulary_model->getMeaningsByVocabId($vocab->v_id);
 					if (!is_null($meanings)) {
 						foreach ($meanings as $key => $value) {
-						// lấy m_id từ meaning
+						// get m_id from meaning
+						// meaning　から　m_id　を　得る	
 							$m_id = $value->m_id;												
 							$sentences = $this->Vocabulary_model->getSencencesByMeaningId($m_id);
-							// gán các key của meaning thành 1 sub-array trong sentences
+							// assign key of meaning become 1 sub-array in sentences							
+							// sentences　に　サブ　アレイ　になる　meaning　の　キー　を　アサインする
 							$meanings[$key]->sentences = $sentences;
 						}
 						$data = array(
@@ -196,8 +229,7 @@ class Search extends CI_Controller
 				$this->load->view('user/searchResult_view', $data);
 				break;
 			case 'conversation':						
-				$this->load->model('Conversation_model');
-				//$conversation = $this->Conversation_model->getConversationByTitle($keyword);
+				$this->load->model('Conversation_model');				
 				$conversationcontent = $this->Conversation_model->getConversationContentByHiragana(trim($keyword," "));
 
 				$data = "";
@@ -269,10 +301,12 @@ class Search extends CI_Controller
 					$meanings = $this->Vocabulary_model->getMeaningsSpecializedByVocabId($vocab->v_id);
 					if (!is_null($meanings)) {
 						foreach ($meanings as $key => $value) {
-						// lấy m_id từ meaning
+						// get m_id from meaning
+						// meaning　から　m_id　を　得る
 							$m_id = $value->m_id;												
 							$sentences = $this->Vocabulary_model->getSencencesByMeaningId($m_id);
-							// gán các key của meaning thành 1 sub-array trong sentences
+							// assign key of meaning become 1 sub-array in sentences	
+							// sentences　に　サブ　アレイ　になる　meaning　の　キー　を　アサインする						
 							$meanings[$key]->sentences = $sentences;
 						}
 						$data = array(

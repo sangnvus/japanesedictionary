@@ -9,28 +9,39 @@ class Video extends CI_Controller
     {
 		parent::__construct();
 		// load helper
+        //ロード　ヘルパー
 		$this->load->helper("url");
         $this->load->helper(array('form', 'url'));
         // load library
+        //　ロード　ライブラリ
         $this->load->library(array("input","form_validation","session","my_auth","email"));
         //connect DB
+        //　データベース　に　接続する
 		$this->load->database();
         $this->load->model("Video_model");
+        //check Authentication
+        //　認証　を　チェックする
         if (!$this->my_auth->is_Admin()) {            
             redirect(base_url()."index.php/admin/verify/login");
             exit();
         }
 	}
+    //list video
+    //　リスト　ビデオ
 	function index() 
     {
 		// count record
+        // レコード　を　カウントする
         $max = $this->Video_model->num_rows();
-        // so record tren 1 page
+        // number of records on one page
+        // ページ　に　レコード　の　番号
         $min = 10;
         $data['num_rows'] = $max;
         //--- Paging
+        //　ページング
         if ($max != 0) {    
         	//load library
+            //　ロード　ライブラリ
             $this->load->library('pagination');                    
             $config['base_url'] = base_url()."index.php/admin/video/index";
             $config['total_rows'] = $max;
@@ -40,8 +51,10 @@ class Video extends CI_Controller
             $this->pagination->initialize($config);                        
             $data['links'] = $this->pagination->create_links();
             //get data from DB
+            //データベース　から　データ　を　得る
             $data['video'] = $this->Video_model->getAllVideo($min,$this->uri->segment($config['uri_segment']));
             // load view
+            // ロード　ビュー
             $this->load->view("admin/video/listVideo_view",$data);
         } else {
             $data['video'] = null;            
@@ -67,6 +80,7 @@ class Video extends CI_Controller
             $data['txtTitle'] = $txtTitle;
             $data['num_rows'] = $max;
             //--- Paging
+            //　ページング
             if ($max != 0) {    
                 $this->load->library('pagination');                    
                 $config['base_url'] = base_url()."index.php/admin/video/getVideoByTitle?txtTitle=".$txtTitle."&search=Search";
@@ -139,6 +153,7 @@ class Video extends CI_Controller
         }
 	}
     //---- Check Email 
+    //　Eメール　を　チェックする
     function checkURL($vi_link) 
     {
         $vi_id = $this->uri->segment(4);
@@ -149,6 +164,7 @@ class Video extends CI_Controller
             return FALSE;
         }
     }
+    //　ビデオ　を消す
 	function deleteVideo() 
     {
 		$vi_id = $this->uri->segment(4);             

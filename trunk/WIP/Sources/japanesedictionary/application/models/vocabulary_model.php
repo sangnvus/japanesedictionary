@@ -9,7 +9,7 @@ class Vocabulary_model extends CI_Model
 	{
 		parent::__construct();
 		$this->load->database();
-	}
+	}    
     function lookup($keyword)
     {  
         $this->db->select('*')->from('vocabulary');        
