@@ -1,5 +1,6 @@
 
 Report 1:
+ - Project Introduction
  - Project Plan (Schedule, Project Plan in MS Word, CM Plan)
  - SRS
  - Q&A Sheet bang tieng Nhat
